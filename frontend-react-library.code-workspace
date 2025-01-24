@@ -1,0 +1,12 @@
+{
+	"folders": [
+        {
+            "name": "Root",
+            "path": "."
+        },
+        {
+            "name": "build",
+            "path": "packages/build"
+        },
+    ],
+}
