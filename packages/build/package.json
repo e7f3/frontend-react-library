@@ -1,5 +1,5 @@
 {
-  "name": "@frontend/build",
+  "name": "@library/build",
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "dependencies": {
