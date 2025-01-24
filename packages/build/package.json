@@ -2,7 +2,7 @@
   "name": "@library/build",
   "type": "module",
   "packageManager": "yarn@4.0.2",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
