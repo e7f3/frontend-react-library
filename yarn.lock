@@ -1663,6 +1663,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.26.3"
     "@babel/preset-typescript": "npm:^7.26.0"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.15"
+    "@stylistic/eslint-plugin-js": "npm:^3.0.0"
     "@svgr/webpack": "npm:^8.1.0"
     "@types/react-refresh": "npm:^0.14.6"
     "@types/webpack": "npm:^5.28.5"
@@ -2378,6 +2379,18 @@ __metadata:
   peerDependencies:
     remark: ^14.0.0 || ^15.0.0
   checksum: 1de4e64a80932a529737e95c0604f8781d96aae60d86d448d6e1a612ff382124df552cf750a02bb4900a303e7ca51e08bc922d8d196ec1590c6e2360fa9e1391
+  languageName: node
+  linkType: hard
+
+"@stylistic/eslint-plugin-js@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@stylistic/eslint-plugin-js@npm:3.0.0"
+  dependencies:
+    eslint-visitor-keys: "npm:^4.2.0"
+    espree: "npm:^10.3.0"
+  peerDependencies:
+    eslint: ">=8.40.0"
+  checksum: 9038612cae678fa76f62b7b97d18d9eeaa003af09bc6b7b1a64a16cbf69729ce1ebf40792f0999b52c6a63539ca0681bf8980241bd98b396687407486f3f7a31
   languageName: node
   linkType: hard
 
