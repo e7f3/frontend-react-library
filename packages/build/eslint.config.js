@@ -1,5 +1,6 @@
 import eslint from '@eslint/js';
 import storybook from '@storybook/eslint-config-storybook';
+import stylisticJs from '@stylistic/eslint-plugin-js'
 import airbnb from 'eslint-config-airbnb';
 import eslintImport from 'eslint-plugin-import';
 import eslintJestPlugin from 'eslint-plugin-jest';
@@ -12,7 +13,7 @@ export default tseslint.config(
     eslint.configs.recommended,
     tseslint.configs.recommended,
     {
-        ignores: ["**/.eslint.config.mjs"],
+        ignores: ["**/.eslint.config.js"],
         settings: {
             "import/resolver": {
                 typescript: true,
@@ -24,6 +25,7 @@ export default tseslint.config(
             'react': react,
             'react-hooks': eslintPluginReactHooks,
             'jsx-a11y': eslintPluginJsxA11y,
+            '@stylistic/js': stylisticJs,
             airbnb,
             storybook,
             eslintJestPlugin,
@@ -32,41 +34,42 @@ export default tseslint.config(
 
         rules: {
             // 'react/jsx-indent': ['error', 'tab'],
+            "indent": ["error", 4],
             'import/order': [
-              'error',
-              {
-                groups: [
-                  ['external', 'builtin'],
-                  'internal',
-                  ['sibling', 'parent'],
-                  'index',
-                ],
-                pathGroups: [
-                  {
-                    pattern: '@react',
-                    group: 'external',
-                    position: 'before',
-                  },
-                  {
-                    pattern: '@src/**',
-                    group: 'internal',
-                  },
-                ],
-                pathGroupsExcludedImportTypes: ['internal', 'react'],
-                'newlines-between': 'always',
-                alphabetize: {
-                  order: 'asc',
-                  caseInsensitive: true,
+                'error',
+                {
+                    groups: [
+                        ['external', 'builtin'],
+                        'internal',
+                        ['sibling', 'parent'],
+                        'index',
+                    ],
+                    pathGroups: [
+                        {
+                            pattern: '@react',
+                            group: 'external',
+                            position: 'before',
+                        },
+                        {
+                            pattern: '@src/**',
+                            group: 'internal',
+                        },
+                    ],
+                    pathGroupsExcludedImportTypes: ['internal', 'react'],
+                    'newlines-between': 'always',
+                    alphabetize: {
+                        order: 'asc',
+                        caseInsensitive: true,
+                    },
                 },
-              },
             ],
             semi: 'off',
             'react/function-component-definition': [
-              2,
-              {
-                namedComponents: ['arrow-function', 'function-declaration'],
-                unnamedComponents: ['arrow-function', 'function-expression'],
-              },
+                2,
+                {
+                    namedComponents: ['arrow-function', 'function-declaration'],
+                    unnamedComponents: ['arrow-function', 'function-expression'],
+                },
             ],
             'jsx-quotes': ['error', 'prefer-single'],
             'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.jsx', '.js'] }],

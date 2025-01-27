@@ -8,6 +8,7 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "@stylistic/eslint-plugin-js": "^3.0.0",
     "@svgr/webpack": "^8.1.0",
     "@types/react-refresh": "^0.14.6",
     "@types/webpack": "^5.28.5",
