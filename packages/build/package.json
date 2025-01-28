@@ -12,6 +12,7 @@
     "@storybook/eslint-config-storybook": "^4.0.0",
     "@stylistic/eslint-plugin-js": "^3.0.0",
     "@svgr/webpack": "^8.1.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@types/react-refresh": "^0.14.6",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
@@ -30,6 +31,7 @@
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "react-refresh": "^0.16.0",
+    "regenerator-runtime": "^0.14.1",
     "sass-loader": "^16.0.4",
     "style-loader": "^4.0.0",
     "stylelint": "^16.13.2",
@@ -42,5 +44,8 @@
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/regenerator-runtime": "^0"
   }
 }
