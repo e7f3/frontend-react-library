@@ -10,7 +10,6 @@
     "lerna": "^8.1.9"
   },
   "dependencies": {
-    "@library/build": "workspace:*",
-    "typescript": "^5.7.3"
+    "@library/build": "workspace:*"
   }
 }

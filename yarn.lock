@@ -1692,6 +1692,7 @@ __metadata:
     stylelint-order: "npm:^6.0.4"
     stylelint-semantic-groups: "npm:^1.2.1"
     ts-loader: "npm:^9.5.2"
+    typescript: "npm:^5.7.3"
     typescript-eslint: "npm:^8.22.0"
     webpack: "npm:^5.97.1"
     webpack-cli: "npm:^6.0.1"
@@ -6786,7 +6787,6 @@ __metadata:
   dependencies:
     "@library/build": "workspace:*"
     lerna: "npm:^8.1.9"
-    typescript: "npm:^5.7.3"
   languageName: unknown
   linkType: soft
 
