@@ -1,0 +1,22 @@
+.Card {
+  border-style: solid;
+  border-width: 2px;
+}
+
+.Card.default {
+  border-color: var(--primary-color);
+
+  box-shadow: 4px 4px 0 var(--primary-color);
+}
+
+.Card.action {
+  border-color: var(--action-color);
+
+  box-shadow: 4px 4px 0 var(--action-color);
+}
+
+.Card.warning {
+  border-color: var(--warning-color);
+
+  box-shadow: 4px 4px 0 var(--warning-color);
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@library/ui",
+  "type": "module",
+  "packageManager": "yarn@4.0.2",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.3",
+    "sass": "^1.83.4"
+  },
+  "dependencies": {
+    "@library/build": "workspace:^"
+  }
+}

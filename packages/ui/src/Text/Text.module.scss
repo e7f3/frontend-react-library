@@ -1,0 +1,38 @@
+.title {
+  color: var(--primary-color);
+  font: var(--font-xl);
+  font-weight: 500;
+}
+
+.subtitle {
+  color: var(--primary-color);
+  font: var(--font-m);
+  font-weight: 500;
+}
+
+.paragraph {
+  color: var(--secondary-color);
+  font: var(--font-m);
+  font-weight: 400;
+}
+
+.caption {
+  color: var(--secondary-color);
+  font: var(--font-s);
+}
+
+.error > .title {
+  color: var(--primary-error-color);
+}
+
+.error > .subtitle {
+  color: var(--primary-error-color);
+}
+
+.error > .paragraph {
+  color: var(--secondary-error-color);
+}
+
+.error > .caption {
+  color: var(--secondary-error-color);
+}

@@ -1,0 +1,37 @@
+.Textarea {
+  width: 100%;
+  padding: 5px 15px;
+
+  color: var(--primary-color);
+
+  border: 1px solid var(--primary-color);
+  border-radius: 0;
+
+  background-color: var(--secondary-bg-color);
+
+  box-shadow: none;
+
+  overflow: hidden;
+
+  resize: none;
+}
+
+.Textarea:focus {
+  border: 1px solid var(--action-color);
+
+  outline: 1px solid var(--action-color);
+}
+
+.Textarea:read-only {
+  border: 1px solid var(--primary-color);
+
+  outline: none;
+}
+
+.Wrapper {
+  transition: opacity 0.2s ease-in;
+}
+
+.readonly {
+  opacity: 0.5;
+}

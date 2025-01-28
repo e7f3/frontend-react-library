@@ -1,0 +1,112 @@
+.Button {
+  padding: 5px 15px;
+
+  cursor: pointer;
+
+  transition-property: background-color, opacity;
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+
+  // transition: opacity 0.2s ease-in;
+}
+
+.Button:disabled {
+  cursor: auto;
+}
+
+.defaultTheme {
+  color: var(--primary-color);
+
+  border: 1px solid var(--primary-color);
+
+  background-color: var(--primary-bg-color);
+}
+
+.defaultTheme:hover {
+  background-color: var(--secondary-bg-color);
+}
+
+.cleanTheme {
+  margin: 0;
+
+  color: var(--primary-color);
+
+  border: none;
+
+  background: none;
+
+  outline: none;
+}
+
+.cleanTheme:hover {
+  background-color: var(--secondary-bg-color);
+}
+
+.invertedTheme {
+  margin: 0;
+
+  color: var(--primary-bg-color);
+
+  border: 1px solid var(--primary-color);
+
+  background-color: var(--primary-color);
+}
+
+.invertedTheme:hover {
+  background-color: var(--secondary-color);
+}
+
+.size_m {
+  font: var(--font-m);
+}
+
+.size_l {
+  font: var(--font-l);
+}
+
+.size_xl {
+  font: var(--font-xl);
+}
+
+.squareVariant {
+  padding: 0;
+}
+
+.squareVariant.size_m {
+  width: var(--line-height-m);
+  height: var(--line-height-m);
+}
+
+.squareVariant.size_l {
+  width: var(--line-height-l);
+  height: var(--line-height-l);
+}
+
+.squareVariant.size_xl {
+  width: var(--line-height-xl);
+  height: var(--line-height-xl);
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+.actionColorScheme {
+  color: var(--action-color);
+
+  border-color: var(--action-color);
+}
+
+.actionColorScheme svg {
+  fill: var(--action-color);
+}
+
+.warningColorScheme {
+  color: var(--warning-color);
+
+  border-color: var(--warning-color);
+}
+
+.warningColorScheme svg {
+  fill: var(--warning-color);
+}

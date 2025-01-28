@@ -1,0 +1,21 @@
+.AppLink {
+  text-decoration: none;
+
+  background-color: transparent;
+
+  transition-property: background-color;
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+}
+
+.AppLink:hover {
+  background-color: var(--secondary-bg-color);
+}
+
+.primary {
+  color: var(--action-color);
+}
+
+.secondary {
+  color: var(--inverted-action-color);
+}
