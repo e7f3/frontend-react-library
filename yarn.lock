@@ -1654,7 +1654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@library/build@workspace:packages/build":
+"@library/build@workspace:*, @library/build@workspace:packages/build":
   version: 0.0.0-use.local
   resolution: "@library/build@workspace:packages/build"
   dependencies:
@@ -1662,7 +1662,9 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-react": "npm:^7.26.3"
     "@babel/preset-typescript": "npm:^7.26.0"
+    "@eslint/js": "npm:^9.19.0"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.15"
+    "@storybook/eslint-config-storybook": "npm:^4.0.0"
     "@stylistic/eslint-plugin-js": "npm:^3.0.0"
     "@svgr/webpack": "npm:^8.1.0"
     "@types/react-refresh": "npm:^0.14.6"
@@ -1690,6 +1692,7 @@ __metadata:
     stylelint-order: "npm:^6.0.4"
     stylelint-semantic-groups: "npm:^1.2.1"
     ts-loader: "npm:^9.5.2"
+    typescript-eslint: "npm:^8.22.0"
     webpack: "npm:^5.97.1"
     webpack-cli: "npm:^6.0.1"
     webpack-dev-server: "npm:^5.2.0"
@@ -2889,12 +2892,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0":
+"@types/node@npm:*":
   version: 22.10.10
   resolution: "@types/node@npm:22.10.10"
   dependencies:
     undici-types: "npm:~6.20.0"
   checksum: 3425772d4513cd5dbdd87c00acda088113c03a97445f84f6a89744c60a66990b56c9d3a7213d09d57b6b944ae8ff45f985565e0c1846726112588e33a22dd12b
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.0.0":
+  version: 22.12.0
+  resolution: "@types/node@npm:22.12.0"
+  dependencies:
+    undici-types: "npm:~6.20.0"
+  checksum: be220706732d95db2ed1c441c1e64cab90bf9a47519ce6f4c79cc5a9ec9d5c517131a149a9ac30afac1a30103e67e3a00d453ba7c1b0141608a3a7ba6397c303
   languageName: node
   linkType: hard
 
@@ -6772,11 +6784,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend-react-library@workspace:."
   dependencies:
-    "@eslint/js": "npm:^9.19.0"
-    "@storybook/eslint-config-storybook": "npm:^4.0.0"
+    "@library/build": "workspace:*"
     lerna: "npm:^8.1.9"
     typescript: "npm:^5.7.3"
-    typescript-eslint: "npm:^8.22.0"
   languageName: unknown
   linkType: soft
 

@@ -10,9 +10,7 @@
     "lerna": "^8.1.9"
   },
   "dependencies": {
-    "@eslint/js": "^9.19.0",
-    "@storybook/eslint-config-storybook": "^4.0.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.22.0"
+    "@library/build": "workspace:*",
+    "typescript": "^5.7.3"
   }
 }
