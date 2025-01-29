@@ -14,12 +14,7 @@ export default tseslint.config(
     tseslint.configs.recommended,
     {
         ignores: ["**/.eslint.config.js"],
-        settings: {
-            "import/resolver": {
-                typescript: true,
-                node: true,
-            },
-        },
+
         plugins: {
             'import': eslintImport,
             'react': react,
@@ -31,7 +26,15 @@ export default tseslint.config(
             eslintJestPlugin,
             eslintPluginReactHooks
         },
-
+        settings: {
+            "import/resolver": {
+                typescript: true,
+                node: true,
+            },
+            'react': {
+                'version': 'detect',
+            },
+        },
         rules: {
             // 'react/jsx-indent': ['error', 'tab'],
             "indent": ["error", 4],

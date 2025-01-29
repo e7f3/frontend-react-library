@@ -3,6 +3,9 @@
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "private": true,
+  "scripts": {
+    "test:unit": "lerna run test"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -10,6 +13,8 @@
     "lerna": "^8.1.9"
   },
   "dependencies": {
-    "@library/build": "workspace:*"
+    "@library/build": "workspace:^",
+    "@library/core": "workspace:^",
+    "@library/ui": "workspace:^"
   }
 }
