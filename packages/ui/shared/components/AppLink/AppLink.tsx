@@ -2,7 +2,6 @@ import { classNames } from '@library/core/shared/utils/classNames/classNames'
 import { FC, memo, PropsWithChildren } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 
-
 import classes from './AppLink.module.scss'
 
 export enum AppLinkTheme {

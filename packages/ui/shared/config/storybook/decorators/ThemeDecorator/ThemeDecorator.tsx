@@ -1,7 +1,7 @@
 import { classNames } from '@library/core/shared/utils/classNames/classNames'
 import { Decorator } from '@storybook/react'
 
-import { Theme, ThemeProvider } from '@app/providers/ThemeProvider'
+import { Theme, ThemeProvider } from 'shared/providers/ThemeProvider'
 
 import classes from './ThemeDecorator.module.scss'
 

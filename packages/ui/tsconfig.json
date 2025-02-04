@@ -14,8 +14,7 @@
             "@library/build/*": ["packages/build/*"],
             "@library/ui/*": ["packages/ui/*"],
             "@library/core/*": ["packages/core/*"],
-
-            "@app/*": ["shared/*"]
+            "shared/*": ["shared/*"]
         },
         "strict": true,
         "types": ["@testing-library/jest-dom", "jest"]

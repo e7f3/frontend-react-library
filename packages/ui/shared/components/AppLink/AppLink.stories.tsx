@@ -1,65 +1,47 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@app/providers/ThemeProvider'
+import { AppLink, AppLinkProps, AppLinkTheme } from './AppLink';
+import { Theme } from '../../providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 
-import { AppLink, AppLinkProps, AppLinkTheme } from './AppLink'
-
-const meta: Meta<typeof AppLink> = {
+const meta = {
     title: 'ui/AppLink',
-    component: AppLink, 
-    args: {
-        to: '/',
-        children: 'Text',
+    component: AppLink,
+    parameters: {
+        layout: 'centered',
     },
-};
- 
+    args: {
+        to: '/some-path',
+        children: 'Click me',
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof AppLink>;
+
 export default meta;
 type Story = StoryObj<typeof AppLink>;
-const Template = (args: AppLinkProps) => <AppLink {...args} />
 
-export const PrimaryTheme: Story = {
-    render: Template,
-    args: {
-        theme: AppLinkTheme.PRIMARY,
-    }
-}
-
-export const PrimaryThemeDark: Story = {
-    render: Template,
+export const Primary: Story = {
     args: {
         theme: AppLinkTheme.PRIMARY,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
+};
 
-export const PrimaryThemeColorful: Story = {
-    render: Template,
-    args: {
-        theme: AppLinkTheme.PRIMARY,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const SecondaryTheme: Story = {
-    render: Template,
-    args: {
-        theme: AppLinkTheme.SECONDARY,
-    }
-}
-
-export const SecondaryThemeDark: Story = {
-    render: Template,
+export const Secondary: Story = {
     args: {
         theme: AppLinkTheme.SECONDARY,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
+};
 
-export const SecondaryThemeColorful: Story = {
-    render: Template,
-    args: {
-        theme: AppLinkTheme.SECONDARY,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
+export const PrimaryDark: Story = {
+  args: {
+    theme: AppLinkTheme.PRIMARY,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const SecondaryDark: Story = {
+  args: {
+    theme: AppLinkTheme.SECONDARY,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

@@ -1,8 +1,8 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Input, InputProps } from './Input'
 
