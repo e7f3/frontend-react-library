@@ -5,26 +5,35 @@ import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Textarea, TextareaProps } from './Textarea'
 
-const meta: Meta<typeof Textarea> = {
+const meta = {
     title: 'ui/Textarea',
     component: Textarea,
-    argTypes: {},
-};
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof Textarea>;
  
 export default meta;
 type Story = StoryObj<typeof Textarea>;
-const Template = (args: TextareaProps) => <Textarea {...args} />
 
-export const Default: Story = {
-    render: Template,
+export const textarea: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const Dark: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-export const Colorful: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+export const darkThemeTextarea: Story = {
+    name: 'Dark theme - Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
 }

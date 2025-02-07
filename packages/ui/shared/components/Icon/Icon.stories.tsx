@@ -1,23 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import CalendarIcon from 'shared/assets/icons/calendar.svg'
+import { Theme } from 'shared/providers/ThemeProvider';
 
-import { ColoredWith, Icon, IconProps } from './Icon'
+import { ColoredWith, Icon } from './Icon'
+import CalendarIcon from '../../assets/icons/calendar.svg';
 
-const meta: Meta<typeof Icon> = {
+const meta = {
     title: 'ui/Icon',
     component: Icon,
-    argTypes: {},
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         icon: CalendarIcon,
         coloredWith: ColoredWith.STROKE,
     },
-};
- 
+    tags: ['autodocs'],
+} satisfies Meta<typeof Icon>;
+
 export default meta;
 type Story = StoryObj<typeof Icon>;
-const Template = (args: IconProps) => <Icon {...args} />
-
-export const Default: Story = {
-    render: Template,
+ 
+export const defaultIcon: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }

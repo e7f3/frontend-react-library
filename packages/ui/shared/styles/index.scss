@@ -1,0 +1,27 @@
+@import "./reset";
+@import "./fonts/googleFonts";
+@import "./variables/global";
+@import "./themes/dark";
+@import "./themes/light";
+
+html,
+body {
+  color: var(--secondary-color);
+  font: var(--font-m);
+}
+
+.app {
+  height: 100wh;
+}
+
+.page-content {
+  display: flex;
+
+  max-height: calc(100vh - var(--navbar-height));
+
+  overflow: hidden;
+}
+
+.page {
+  flex-grow: 1;
+}

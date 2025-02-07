@@ -8,5 +8,6 @@ export default {
         'order/order': selectorOrdering, // to fine-tune configuration use selectorOrderFactory
         'order/properties-order': propertyOrdering,
         'declaration-empty-line-before': null,
+        'indentation': 4,
     },
 };

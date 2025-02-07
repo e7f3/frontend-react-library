@@ -8,9 +8,9 @@
 
   background-color: var(--secondary-bg-color);
 
-  box-shadow: 4px 4px 0 var(--primary-color);
+  box-shadow: none;
 
-  transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
 }
 
 .Input:read-only {
@@ -21,18 +21,13 @@
   pointer-events: none;
 }
 
-.Input:not(:read-only):hover {
-  box-shadow: none;
-}
-
 .Input:not(:read-only):focus {
-  // border: 2px solid var(--primary-color);
 
   outline: none;
 
-  // outline: 2px solid var(--action-color);
+  transform: translate(-4px, -4px);
 
-  box-shadow: none;
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--primary-color), transparent 50%);
 }
 
 .inputWrapper {
@@ -40,5 +35,5 @@
 }
 
 .readonly {
-  opacity: 0.5;
+  opacity: 0.3;
 }

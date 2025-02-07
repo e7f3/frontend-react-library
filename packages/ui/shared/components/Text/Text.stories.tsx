@@ -5,190 +5,128 @@ import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Text, TextMode, TextProps, TextVariant } from './Text'
 
-const meta: Meta<typeof Text> = {
+const meta = {
     title: 'ui/Text',
     component: Text,
-    args: {},
-};
+    args: {
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.'
+    },
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof Text>;
  
 export default meta;
 type Story = StoryObj<typeof Text>;
-const Template = (args: TextProps) => <Text {...args} />
 
-export const DefaultParagraph: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.'
+export const paragraph: Story = {
+    name: 'Paragraph',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
     }
 }
 
-export const DefaultTitle: Story = {
-    render: Template,
+export const subtitle: Story = {
+    name: 'Subtitle',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
+        variant: TextVariant.SUBTITLE,
+    },
+    parameters: paragraph.parameters
+}
+
+export const title: Story = {
+    name: 'Title',
+    args: {
         variant: TextVariant.TITLE,
+    },
+    parameters: paragraph.parameters
+}
+
+export const paragraphError: Story = {
+    name: 'Paragraph Error',
+    args: {
+        mode: TextMode.ERROR,
+    },
+    parameters: paragraph.parameters,
+}
+
+export const subtitleError: Story = {
+    name: 'Subtitle Error',
+    args: {
+        mode: TextMode.ERROR,
+        variant: TextVariant.SUBTITLE,
+    },
+    parameters: paragraph.parameters
+}
+
+export const titleError: Story = {
+    name: 'Title Error',
+    args: {
+        mode: TextMode.ERROR,
+        variant: TextVariant.TITLE,
+    },
+    parameters: paragraph.parameters
+}
+
+export const darkThemeParagraph: Story = {
+    name: 'Dark theme - Paragraph',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK,
+        }
+    },
+    globals: {
+        theme: Theme.DARK,
     }
 }
 
-export const DefaultSubtitle: Story = {
-    render: Template,
+export const darkThemeSubtitle: Story = {
+    name: 'Dark theme - Subtitle',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
         variant: TextVariant.SUBTITLE,
-    }
-}
-
-export const DefaultParagraphDark: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.'
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: darkThemeParagraph.parameters,
+    globals: darkThemeParagraph.globals
 }
 
-export const DefaultTitleDark: Story = {
-    render: Template,
+
+export const darkThemeTitle: Story = {
+    name: 'Dark theme - Title',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
         variant: TextVariant.TITLE,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: darkThemeParagraph.parameters,
+    globals: darkThemeParagraph.globals
 }
 
-export const DefaultSubtitleDark: Story = {
-    render: Template,
+export const darkThemeParagraphError: Story = {
+    name: 'Dark theme - Paragraph Error',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        variant: TextVariant.SUBTITLE,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-export const DefaultParagraphColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.'
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const DefaultTitleColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        variant: TextVariant.TITLE,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const DefaultSubtitleColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        variant: TextVariant.SUBTITLE,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const ErrorParagraph: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
         mode: TextMode.ERROR,
-    }
+    },
+    parameters: darkThemeParagraph.parameters,
+    globals: darkThemeParagraph.globals,
 }
 
-export const ErrorTitle: Story = {
-    render: Template,
+export const darkThemeSubtitleError: Story = {
+    name: 'Dark theme - Subtitle Error',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
-        variant: TextVariant.TITLE,
-    }
-}
-
-export const ErrorSubtitle: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
         mode: TextMode.ERROR,
         variant: TextVariant.SUBTITLE,
-    }
-}
-
-export const ErrorParagraphDark: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: darkThemeParagraph.parameters,
+    globals: darkThemeParagraph.globals
 }
 
-export const ErrorTitleDark: Story = {
-    render: Template,
+export const darkThemeTitleError: Story = {
+    name: 'Dark theme - Title Error',
     args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
         mode: TextMode.ERROR,
         variant: TextVariant.TITLE,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-
-export const ErrorSubtitleDark: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
-        variant: TextVariant.SUBTITLE,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-export const ErrorParagraphColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const ErrorTitleColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
-        variant: TextVariant.TITLE,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const ErrorSubtitleColorful: Story = {
-    render: Template,
-    args: {
-        content:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.',
-        mode: TextMode.ERROR,
-        variant: TextVariant.SUBTITLE,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: darkThemeParagraph.parameters,
+    globals: darkThemeParagraph.globals
 }

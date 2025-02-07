@@ -46,7 +46,6 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     }
     return (
         <div className={classNames(classes.Wrapper, mods, [className])}>
-            {label && value && <span className={classes.label}>{label}</span>}
             <select
                 className={classNames(classes.Select, {}, [])}
                 value={value}
@@ -60,6 +59,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
                 )}
                 {optionsList}
             </select>
+            {label && value && <span className={classes.label}>{label}</span>}
         </div>
     )
 }

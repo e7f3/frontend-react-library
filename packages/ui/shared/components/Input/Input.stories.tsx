@@ -6,30 +6,56 @@ import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Input, InputProps } from './Input'
 
-const meta: Meta<typeof Input> = {
+const meta = {
     title: 'ui/Input',
     component: Input,
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         value: 'Text',
         placeholder: 'Placeholder',
     },
-};
+    tags: ['autodocs'],
+} satisfies Meta<typeof Input>;
  
 export default meta;
 type Story = StoryObj<typeof Input>;
-const Template = (args: InputProps) => <Input {...args} />
 
-export const Default: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+export const defaultInput: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const DefaultDark: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.DARK)]
+export const readonlyInput: Story = {
+    name: 'Readonly',
+    args: {
+        readonly: true
+    },
+    parameters: defaultInput.parameters,
 }
 
-export const DefaultColorful: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+export const darkThemeDefault: Story = {
+    name: 'Dark theme - Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
+}
+
+export const darkThemeReadonly: Story = {
+    name: 'Dark theme - Readonly',
+    args: {
+        readonly: true,
+    },
+    parameters: darkThemeDefault.parameters,
+    globals: darkThemeDefault.globals,
 }

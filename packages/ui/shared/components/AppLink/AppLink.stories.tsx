@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppLink, AppLinkProps, AppLinkTheme } from './AppLink';
+import { AppLink, AppLinkTheme } from './AppLink';
 import { Theme } from '../../providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 
 const meta = {
     title: 'ui/AppLink',
@@ -20,28 +19,46 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof AppLink>;
 
-export const Primary: Story = {
+export const primary: Story = {
+    name: 'Primary',
     args: {
         theme: AppLinkTheme.PRIMARY,
     },
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 };
 
-export const Secondary: Story = {
+export const secondary: Story = {
+    name: 'Secondary',
     args: {
         theme: AppLinkTheme.SECONDARY,
     },
+    parameters: primary.parameters,
 };
 
-export const PrimaryDark: Story = {
-  args: {
-    theme: AppLinkTheme.PRIMARY,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
+export const darkThemePrimary: Story = {
+    name: 'Dark theme - Primary',
+    args: {
+        theme: AppLinkTheme.PRIMARY,
+    },
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
 };
 
-export const SecondaryDark: Story = {
-  args: {
-    theme: AppLinkTheme.SECONDARY,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
+export const darkThemeSecondary: Story = {
+    name: 'Dark theme - Secondary',
+    args: {
+        theme: AppLinkTheme.SECONDARY,
+    },
+    parameters: darkThemePrimary.parameters,
+    globals: darkThemePrimary.globals,
 };

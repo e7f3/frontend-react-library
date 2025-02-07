@@ -16,15 +16,28 @@
 
   background-color: var(--secondary-bg-color);
 
-  box-shadow: 4px 4px var(--primary-color);
+  box-shadow: none;
 
   cursor: pointer;
+  order: 2;
 
-  transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
 }
 
-.Select:not(:disabled):hover {
-  box-shadow: none;
+.Select:focus {
+  border-radius: 0;
+}
+
+.Select:not(:disabled):active {
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--primary-color), transparent 50%);
+
+  transform: translate(-4px, -4px);
+
+  outline: none;
+}
+
+.Select:not(:disabled):active + .label {
+  transform: translate(-4px, -4px);
 }
 
 .option {
@@ -37,6 +50,8 @@
 
 .label {
   color: var(--secondary-color);
+  order: 1;
+  transition: transform 0.1s ease-in;
 }
 
 .readonly {

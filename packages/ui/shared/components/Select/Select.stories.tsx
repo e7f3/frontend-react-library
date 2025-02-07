@@ -5,9 +5,12 @@ import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Select, SelectProps } from './Select'
 
-const meta: Meta<typeof Select> = {
+const meta = {
     title: 'ui/Select',
     component: Select,
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         value: 'Text',
         options: [
@@ -17,33 +20,43 @@ const meta: Meta<typeof Select> = {
         label: 'Label',
         onChange: (value) => {},
     },
-};
+    tags: ['autodocs'],
+} satisfies Meta<typeof Select>;
  
 export default meta;
 type Story = StoryObj<typeof Select>;
-const Template = (args: SelectProps<string>) => <Select {...args} />
 
-export const Default: Story = {
-    render: Template,
+export const defaultSelect: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const DefaultReadonly: Story = {
-    render: Template,
-    args: { readonly: true }
-}
-
-export const DefaultDark: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-export const DefaultDarkReadonly: Story = {
-    render: Template,
+export const readonlySelect: Story = {
+    name: 'Readonly',
     args: { readonly: true },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: defaultSelect.parameters
 }
 
-export const DefaultColorful: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+export const darkThemeDefault: Story = {
+    name: 'Dark theme - Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
+}
+
+export const darkThemeReadonly: Story = {
+    name: 'Dark theme - Readonly',
+    args: { readonly: true },
+    parameters: darkThemeDefault.parameters,
+    globals: darkThemeDefault.globals
+    
 }

@@ -1,48 +1,44 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'shared/providers/ThemeProvider'
+import { Theme } from 'shared/providers/ThemeProvider';
 
-import { Code, CodeProps } from './Code'
+import { Code } from './Code'
 
-const meta: Meta<typeof Code> = {
+const meta = {
     title: 'ui/Code',
     component: Code,
-    argTypes: {},
-};
- 
-export default meta;
-type Story = StoryObj<typeof Code>;
-const Template = (args: CodeProps) => <Code {...args} />
-
-export const Default: Story = {
-    render: Template,
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         children: `
-    for (let i = 0; i < 10; i++) {
-      console.log(i)
-    }`,
+        for (let i = 0; i < 10; i++) {
+            console.log(i)
+        }`,
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof Code>;
+
+export default meta;
+type Story = StoryObj<typeof Code>;
+
+export const defaultCode: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
     }
 }
 
-export const Dark: Story = {
-    render: Template,
-    args: {
-        children: `
-    for (let i = 0; i < 10; i++) {
-      console.log(i)
-    }`,
+export const darkThemeCode: Story = {
+    name: 'Dark theme',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-export const Colorful: Story = {
-    render: Template,
-    args: {
-        children: `
-    for (let i = 0; i < 10; i++) {
-      console.log(i)
-    }`,
-    },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    globals: {
+        theme: Theme.DARK
+    }
 }

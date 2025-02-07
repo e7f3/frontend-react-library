@@ -5,194 +5,135 @@ import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Button, ButtonProps, ButtonSize, ButtonTheme, ButtonVariant } from './Button'
 
-const meta: Meta<typeof Button> = {
+const meta = {
     title: 'ui/Button',
     component: Button,
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         children: 'Text',
     },
-};
+    tags: ['autodocs'],
+} satisfies Meta<typeof Button>;
  
 export default meta;
 type Story = StoryObj<typeof Button>;
-const Template = (args: ButtonProps) => <Button {...args} />
 
-export const Clean : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.CLEAN,
-    }
-}
-
-export const CleanDisabled : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.CLEAN,
-        disabled: true,
-    }
-}
-
-export const Default : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-    }
-}
-
-export const DefaultDisabled : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-        disabled: true,
-    }
-}
-
-export const Inverted : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.INVERTED,
-    }
-}
-
-export const InvertedDisabled : Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.INVERTED,
-        disabled: true,
-    }
-}
-
-export const DarkClean : Story = {
-    render: Template,
+export const clean: Story = {
+    name: 'Clean',
     args: {
         theme: ButtonTheme.CLEAN,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const DarkCleanDisabled : Story = {
-    render: Template,
+export const cleanDisabled: Story = {
+    name: 'Clean Disabled',
     args: {
         theme: ButtonTheme.CLEAN,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: clean.parameters,
 }
 
-export const DarkDefault : Story = {
-    render: Template,
+export const defaultButton: Story = {
+    name: 'Default',
     args: {
         theme: ButtonTheme.DEFAULT,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: clean.parameters,
 }
 
-export const DarkDefaultDisabled : Story = {
-    render: Template,
+export const defaultDisabled: Story = {
+    name: 'Default Disabled',
     args: {
         theme: ButtonTheme.DEFAULT,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: clean.parameters,
 }
 
-export const DarkInverted : Story = {
-    render: Template,
+export const inverted: Story = {
+    name: 'Inverted',
     args: {
         theme: ButtonTheme.INVERTED,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: clean.parameters,
 }
 
-export const DarkInvertedDisabled : Story = {
-    render: Template,
+export const invertedDisabled: Story = {
+    name: 'Inverted Disabled',
     args: {
         theme: ButtonTheme.INVERTED,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    parameters: clean.parameters,
 }
 
-export const ColorfulClean : Story = {
-    render: Template,
+export const darkThemeClean: Story = {
+    name: 'Dark theme - Clean',
     args: {
         theme: ButtonTheme.CLEAN,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
 }
 
-export const ColorfulCleanDisabled : Story = {
-    render: Template,
+export const darkThemeCleanDisabled: Story = {
+    name: 'Dark theme - Clean, Disabled',
     args: {
         theme: ButtonTheme.CLEAN,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: darkThemeClean.parameters,
+    globals: darkThemeClean.globals
 }
 
-export const ColorfulDefault : Story = {
-    render: Template,
+export const darkThemeDefault: Story = {
+    name: 'Dark theme - Default',
     args: {
         theme: ButtonTheme.DEFAULT,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: darkThemeClean.parameters,
+    globals: darkThemeClean.globals
 }
 
-export const ColorfulDefaultDisabled : Story = {
-    render: Template,
+export const darkThemeDefaultDisabled: Story = {
+    name: 'Dark theme - Default, Disabled',
     args: {
         theme: ButtonTheme.DEFAULT,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: darkThemeClean.parameters,
+    globals: darkThemeClean.globals
 }
 
-export const ColorfulInverted : Story = {
-    render: Template,
+export const darkThemeInverted: Story = {
+    name: 'Dark theme - Inverted',
     args: {
         theme: ButtonTheme.INVERTED,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+    parameters: darkThemeClean.parameters,
+    globals: darkThemeClean.globals
 }
 
-export const ColorfulInvertedDisabled : Story = {
-    render: Template,
+export const darkThemeInvertedDisabled: Story = {
+    name: 'Dark theme - Inverted, Disabled',
     args: {
         theme: ButtonTheme.INVERTED,
         disabled: true,
     },
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
-}
-
-export const MediumSize: Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-        size: ButtonSize.M,
-    }
-}
-
-export const LargeSize: Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-        size: ButtonSize.L,
-    }
-}
-
-export const XLargeSize: Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-        size: ButtonSize.XL,
-    }
-}
-
-export const SquareVariant: Story = {
-    render: Template,
-    args: {
-        theme: ButtonTheme.DEFAULT,
-        variant: ButtonVariant.SQUARE,
-        children: '>',
-    }
+    parameters: darkThemeClean.parameters,
+    globals: darkThemeClean.globals
 }

@@ -1,30 +1,38 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import { Skeleton, SkeletonProps } from './Skeleton'
+import { Skeleton } from './Skeleton'
 
-const meta: Meta<typeof Skeleton> = {
+const meta = {
     title: 'ui/Skeleton',
     component: Skeleton,
-    argTypes: {},
-};
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof Skeleton>;
  
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
-const Template = (args: SkeletonProps) => <Skeleton {...args} />
 
-export const Default: Story = {
-    render: Template
+export const defaultSkeleton: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const DefaultDark: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
-
-const DefaultColorful: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.COLORFUL)]
+export const darkThemeDefault: Story = {
+    name: 'Dark theme - Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
 }

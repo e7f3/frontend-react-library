@@ -1,15 +1,17 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import { Modal, ModalProps } from './Modal'
+import { Modal } from './Modal'
 import { Text, TextVariant } from '../Text/Text'
 
-const meta: Meta<typeof Modal> = {
+const meta = {
     title: 'ui/Modal',
     component: Modal,
+    parameters: {
+        layout: 'centered',
+    },
     args: {
         children: (
             <Text
@@ -22,18 +24,29 @@ const meta: Meta<typeof Modal> = {
         ),
         isOpen: true,
     },
-};
+    tags: ['autodocs'],
+} satisfies Meta<typeof Modal>;
  
 export default meta;
 type Story = StoryObj<typeof Modal>;
-const Template = (args: ModalProps) => <Modal {...args} />
 
-export const Default: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.LIGHT)]
+export const defaultModal: Story = {
+    name: 'Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.LIGHT
+        }
+    }
 }
 
-export const Dark: Story = {
-    render: Template,
-    decorators: [ThemeDecorator(Theme.DARK)]
+export const darkThemeModal: Story = {
+    name: 'Dark theme - Default',
+    parameters: {
+        backgrounds: {
+            default: Theme.DARK
+        }
+    },
+    globals: {
+        theme: Theme.DARK
+    }
 }
