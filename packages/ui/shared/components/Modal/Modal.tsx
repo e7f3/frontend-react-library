@@ -1,4 +1,6 @@
-import { classNames, Mods } from '@library/core/shared/utils/classNames/classNames'
+import {
+    classNames, Mods 
+} from '@library/core/shared/utils/classNames/classNames'
 import {
     FC,
     MouseEvent,
@@ -17,14 +19,16 @@ import classes from './Modal.module.scss'
 const CLOSE_DELAY = 200
 
 export interface ModalProps extends PropsWithChildren {
-  className?: string
-  isOpen: boolean
-  onClose?: () => void
-  lazy?: boolean
+    className?: string
+    isOpen: boolean
+    onClose?: () => void
+    lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
-    const { className, isOpen, onClose, lazy = true, children } = props
+    const {
+        className, isOpen, onClose, lazy = true, children 
+    } = props
 
     const [isClosing, setIsClosing] = useState(false)
     const [wasOpened, setWasOpened] = useState(false)

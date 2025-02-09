@@ -1,32 +1,11 @@
 .Skeleton {
   display: flex;
   flex-direction: column;
-  gap: 100px;
   align-items: center;
+
+  gap: 10px;
 
   padding: 100px 0;
-}
-
-.Skeleton.listArticles {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-
-  padding: 0;
-}
-
-.Skeleton.gridArticles {
-  grid-column: 1 / -1;
-
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
-  justify-items: left;
-
-  width: 100%;
-  padding: 0;
 }
 
 .SkeletonElement {
@@ -37,142 +16,9 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.SkeletonHeader {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-}
-
-.SkeletonHeaderImage {
-  width: 200px;
-  height: 200px;
-
+.SkeletonElement.rounded {
   border-radius: 50%;
-}
-
-.SkeletonHeaderInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.SkeletonHeaderTitle {
-  width: 350px;
-  height: 32px;
-}
-
-.SkeletonHeaderSubtitle {
-  width: 300px;
-  height: 16px;
-}
-
-.SkeletonHeaderViews {
-  width: 150px;
-  height: 16px;
-}
-
-.SkeletonHeaderDate {
-  width: 150px;
-  height: 16px;
-}
-
-.SkeletonHeaderTags {
-  width: 250px;
-  height: 16px;
-}
-
-.SkeletonBody {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: end;
-
-  width: 100%;
-  height: 100%;
-}
-
-.SkeletonBodyLine {
-  width: 100%;
-  height: 16px;
-}
-
-.SkeletonBodyLine:nth-child(1) {
-  width: calc(100% - 3em);
-}
-
-.SkeletonBodyLine:nth-child(5n):not(:last-child) {
-  width: calc(100% - 3em);
-  margin-top: 1em;
-}
-
-.SkeletonArticles {
-  gap: 30px;
-}
-
-.SkeletonCard {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: left;
-
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-}
-
-.SkeletonCardTitle {
-  align-self: left;
-
-  width: 300px;
-  height: 32px;
-}
-
-.SkeletonCardSubtitle {
-  width: 100%;
-  height: 16px;
-}
-
-.SkeletonCardImage {
-  width: 333px;
-
-  aspect-ratio: 4 / 3;
-}
-
-.SkeletonCardText {
-  width: 100%;
-  height: 16px;
-}
-
-.SkeletonCardButton {
-  width: 200px;
-  height: 32px;
-  margin: 0 auto;
-}
-
-.SkeletonProfile {
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: 100px 1fr;
-
-  margin: 0 15px;
-  padding: 30px;
-
-  column-gap: 30px;
-}
-
-.SkeletonProfileAvatar {
-  grid-column: 1 / 2;
-
-  width: 100px;
-  height: 100px;
-
-  border-radius: 50%;
-}
-
-.SkeletonProfileInput {
-  grid-column: 2 / 3;
+  aspect-ratio: 1 / 1;
 }
 
 @keyframes skeleton-loading {

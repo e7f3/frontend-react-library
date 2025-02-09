@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta, StoryObj 
+} from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import { Button, ButtonProps, ButtonSize, ButtonTheme, ButtonVariant } from './Button'
+import {
+    Button, ButtonProps, ButtonSize, ButtonTheme, ButtonVariant 
+} from './Button'
 
 const meta = {
     title: 'ui/Button',
     component: Button,
-    parameters: {
-        layout: 'centered',
-    },
-    args: {
-        children: 'Text',
-    },
+    parameters: { layout: 'centered', },
+    args: { children: 'Text', },
     tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
  
@@ -22,14 +22,8 @@ type Story = StoryObj<typeof Button>;
 
 export const clean: Story = {
     name: 'Clean',
-    args: {
-        theme: ButtonTheme.CLEAN,
-    },
-    parameters: {
-        backgrounds: {
-            default: Theme.LIGHT
-        }
-    }
+    args: { theme: ButtonTheme.CLEAN, },
+    parameters: { backgrounds: { default: Theme.LIGHT } }
 }
 
 export const cleanDisabled: Story = {
@@ -43,9 +37,7 @@ export const cleanDisabled: Story = {
 
 export const defaultButton: Story = {
     name: 'Default',
-    args: {
-        theme: ButtonTheme.DEFAULT,
-    },
+    args: { theme: ButtonTheme.DEFAULT, },
     parameters: clean.parameters,
 }
 
@@ -60,9 +52,7 @@ export const defaultDisabled: Story = {
 
 export const inverted: Story = {
     name: 'Inverted',
-    args: {
-        theme: ButtonTheme.INVERTED,
-    },
+    args: { theme: ButtonTheme.INVERTED, },
     parameters: clean.parameters,
 }
 
@@ -77,17 +67,9 @@ export const invertedDisabled: Story = {
 
 export const darkThemeClean: Story = {
     name: 'Dark theme - Clean',
-    args: {
-        theme: ButtonTheme.CLEAN,
-    },
-    parameters: {
-        backgrounds: {
-            default: Theme.DARK
-        }
-    },
-    globals: {
-        theme: Theme.DARK
-    }
+    args: { theme: ButtonTheme.CLEAN, },
+    parameters: { backgrounds: { default: Theme.DARK } },
+    globals: { theme: Theme.DARK }
 }
 
 export const darkThemeCleanDisabled: Story = {
@@ -102,9 +84,7 @@ export const darkThemeCleanDisabled: Story = {
 
 export const darkThemeDefault: Story = {
     name: 'Dark theme - Default',
-    args: {
-        theme: ButtonTheme.DEFAULT,
-    },
+    args: { theme: ButtonTheme.DEFAULT, },
     parameters: darkThemeClean.parameters,
     globals: darkThemeClean.globals
 }
@@ -121,9 +101,7 @@ export const darkThemeDefaultDisabled: Story = {
 
 export const darkThemeInverted: Story = {
     name: 'Dark theme - Inverted',
-    args: {
-        theme: ButtonTheme.INVERTED,
-    },
+    args: { theme: ButtonTheme.INVERTED, },
     parameters: darkThemeClean.parameters,
     globals: darkThemeClean.globals
 }

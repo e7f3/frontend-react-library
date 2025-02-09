@@ -5,7 +5,7 @@ import { FC } from 'react'
 import classes from './Loader.module.scss'
 
 export interface LoaderProps {
-  className?: string
+    className?: string
 }
 
 export const Loader: FC<LoaderProps> = (props) => {

@@ -1,21 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta, StoryObj 
+} from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import { Select, SelectProps } from './Select'
+import {
+    Select, SelectProps 
+} from './Select'
 
 const meta = {
     title: 'ui/Select',
     component: Select,
-    parameters: {
-        layout: 'centered',
-    },
+    parameters: { layout: 'centered', },
     args: {
         value: 'Text',
         options: [
-            { value: '1', content: '1' },
-            { value: '2', content: '2' },
+            {
+                value: '1',
+                content: '1' 
+            },
+            {
+                value: '2',
+                content: '2' 
+            },
         ],
         label: 'Label',
         onChange: (value) => {},
@@ -28,11 +36,7 @@ type Story = StoryObj<typeof Select>;
 
 export const defaultSelect: Story = {
     name: 'Default',
-    parameters: {
-        backgrounds: {
-            default: Theme.LIGHT
-        }
-    }
+    parameters: { backgrounds: { default: Theme.LIGHT } }
 }
 
 export const readonlySelect: Story = {
@@ -43,14 +47,8 @@ export const readonlySelect: Story = {
 
 export const darkThemeDefault: Story = {
     name: 'Dark theme - Default',
-    parameters: {
-        backgrounds: {
-            default: Theme.DARK
-        }
-    },
-    globals: {
-        theme: Theme.DARK
-    }
+    parameters: { backgrounds: { default: Theme.DARK } },
+    globals: { theme: Theme.DARK }
 }
 
 export const darkThemeReadonly: Story = {

@@ -1,20 +1,22 @@
 import { classNames } from '@library/core/shared/utils/classNames/classNames'
-import { FC, SVGProps } from 'react'
+import {
+    FC, SVGProps 
+} from 'react'
 
 
 import classes from './Icon.module.scss'
 
 export enum ColoredWith {
-  STROKE = 'stroke',
-  FILL = 'fill',
-  DEFAULT = 'default',
+    STROKE = 'stroke',
+    FILL = 'fill',
+    DEFAULT = 'default',
 }
 
 export interface IconProps {
-  icon: FC<SVGProps<SVGSVGElement>>
-  coloredWith?: ColoredWith
-  coloredDeep?: boolean
-  className?: string
+    icon: FC<SVGProps<SVGSVGElement>>
+    coloredWith?: ColoredWith
+    coloredDeep?: boolean
+    className?: string
 }
 
 export const Icon: FC<IconProps> = (props) => {
@@ -29,9 +31,7 @@ export const Icon: FC<IconProps> = (props) => {
         <IconComponent
             className={classNames(
                 className,
-                {
-                    [classes.coloredDeep]: coloredDeep,
-                },
+                { [classes.coloredDeep]: coloredDeep, },
                 [classes[coloredWith]]
             )}
         />

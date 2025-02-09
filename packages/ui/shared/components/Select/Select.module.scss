@@ -24,10 +24,6 @@
   transition: box-shadow 0.1s ease-in, transform 0.1s ease-in;
 }
 
-.Select:focus {
-  border-radius: 0;
-}
-
 .Select:not(:disabled):active {
   box-shadow: 4px 4px 0 color-mix(in srgb, var(--primary-color), transparent 50%);
 

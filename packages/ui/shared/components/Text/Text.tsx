@@ -1,28 +1,45 @@
 import { classNames } from '@library/core/shared/utils/classNames/classNames'
-import { FC, memo } from 'react'
+import {
+    FC, memo 
+} from 'react'
 
 
 import classes from './Text.module.scss'
 
 export enum TextVariant {
-  TITLE = 'title',
-  SUBTITLE = 'subtitle',
-  PARAGRAPH = 'paragraph',
-  CAPTION = 'caption',
+    TITLE = 'title',
+    SUBTITLE = 'subtitle',
+    PARAGRAPH = 'paragraph',
+    CAPTION = 'caption',
 }
 
 export enum TextMode {
-  DEFAULT = 'default',
-  ERROR = 'error',
+    DEFAULT = 'default',
+    ERROR = 'error',
 }
 
 export interface TextProps {
-  className?: string
-  variant?: TextVariant
-  mode?: TextMode
-  content?: string | number
+    /**
+     * Class name
+     */
+    className?: string
+    /**
+     * Text variant
+     */
+    variant?: TextVariant
+    /**
+     * Text mode
+     */
+    mode?: TextMode
+    /**
+     * Text content
+     */
+    content?: string | number
 }
 
+/**
+ * Text component
+ */
 export const Text: FC<TextProps> = memo((props) => {
     const {
         className,

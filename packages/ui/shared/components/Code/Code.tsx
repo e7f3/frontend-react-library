@@ -1,9 +1,11 @@
-import { FC, PropsWithChildren, ReactNode, memo } from 'react'
+import {
+    FC, PropsWithChildren, ReactNode, memo 
+} from 'react'
 
 import classes from './Code.module.scss'
 
 export interface CodeProps extends PropsWithChildren {
-  className?: string
+    className?: string
 }
 
 export const Code: FC<CodeProps> = memo((props) => {

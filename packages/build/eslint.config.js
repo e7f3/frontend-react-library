@@ -1,6 +1,7 @@
 import eslint from '@eslint/js';
 import storybook from '@storybook/eslint-config-storybook';
 import stylisticJs from '@stylistic/eslint-plugin-js'
+import stylisticTs from '@stylistic/eslint-plugin-ts'
 import airbnb from 'eslint-config-airbnb';
 import eslintImport from 'eslint-plugin-import';
 import eslintJestPlugin from 'eslint-plugin-jest';
@@ -21,6 +22,7 @@ export default tseslint.config(
             'react-hooks': eslintPluginReactHooks,
             'jsx-a11y': eslintPluginJsxA11y,
             '@stylistic/js': stylisticJs,
+            '@stylistic/ts': stylisticTs,
             airbnb,
             storybook,
             eslintJestPlugin,
@@ -31,13 +33,47 @@ export default tseslint.config(
                 typescript: true,
                 node: true,
             },
-            'react': {
-                'version': 'detect',
-            },
+            'react': { 'version': 'detect', },
         },
         rules: {
-            // 'react/jsx-indent': ['error', 'tab'],
-            "indent": ["error", 4],
+            '@stylistic/ts/indent': ['error', 4],
+            '@stylistic/js/key-spacing': ['error', {
+                beforeColon: false,
+                afterColon: true 
+            }],
+            "@stylistic/ts/object-curly-newline": [
+                "error",
+                {
+                    "ObjectExpression": {
+                        "minProperties": 2,
+                        "multiline": true,
+                        // "consistent": true 
+                    },
+                    "ObjectPattern": {
+                        "minProperties": 2,
+                        "multiline": true,
+                        // "consistent": true 
+                    },
+                    "ImportDeclaration": {
+                        "minProperties": 2,
+                        "multiline": true,
+                        // "consistent": true 
+                    },
+                    "ExportDeclaration": {
+                        "minProperties": 2,
+                        "multiline": true,
+                        // "consistent": true 
+                    }
+                }
+            ],
+            "@stylistic/js/object-curly-spacing": ["error", "always"],
+            "@stylistic/js/object-property-newline": [
+                "error",
+                { "allowAllPropertiesOnSameLine": true }
+            ],
+            // "@stylistic/js/object-property-newline": [
+            //     "error", "always"
+            // ],
             'import/order': [
                 'error',
                 {
@@ -89,7 +125,11 @@ export default tseslint.config(
             'no-underscore-dangle': 'off',
             'import/no-import-module-exports': 'off',
           
-            'max-len': [2, { ignoreComments: true, ignoreUrls: true, code: 140 }],
+            'max-len': [2, {
+                ignoreComments: true,
+                ignoreUrls: true,
+                code: 140 
+            }],
             '@typescript-eslint/no-var-requires': 'warn',
             'no-use-before-define': 'off',
             '@typescript-eslint/no-use-before-define': ['error', { enums: false }],

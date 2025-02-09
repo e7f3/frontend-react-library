@@ -1,18 +1,20 @@
 import { classNames } from '@library/core/shared/utils/classNames/classNames'
-import { FC, HTMLAttributes, memo, PropsWithChildren } from 'react'
+import {
+    FC, HTMLAttributes, memo, PropsWithChildren 
+} from 'react'
 
 
 import classes from './Card.module.scss'
 
 export enum CardTheme {
-  DEFAULT = 'default',
-  ACTION = 'action',
-  WARNING = 'warning',
+    DEFAULT = 'default',
+    ACTION = 'action',
+    WARNING = 'warning',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {
-  theme?: CardTheme
-  className?: string
+    theme?: CardTheme
+    className?: string
 }
 
 export const Card: FC<CardProps> = memo((props) => {

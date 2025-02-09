@@ -1,18 +1,22 @@
-import { classNames, Mods } from '@library/core/shared/utils/classNames/classNames'
-import React, { FC, InputHTMLAttributes, memo } from 'react'
+import {
+    classNames, Mods 
+} from '@library/core/shared/utils/classNames/classNames'
+import React, {
+    FC, InputHTMLAttributes, memo 
+} from 'react'
 
 import classes from './Input.module.scss'
 
 type InputAttributes = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
+    InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readOnly'
 >
 
 export interface InputProps extends InputAttributes {
-  className?: string
-  value?: string | number
-  onChange?: (value: string) => void
-  readonly?: boolean
+    className?: string
+    value?: string | number
+    onChange?: (value: string) => void
+    readonly?: boolean
 }
 
 export const Input: FC<InputProps> = memo((props) => {
@@ -29,9 +33,7 @@ export const Input: FC<InputProps> = memo((props) => {
         onChange?.(event.target.value)
     }
 
-    const mods: Mods = {
-        [classes.readonly]: readonly,
-    }
+    const mods: Mods = { [classes.readonly]: readonly, }
 
     return (
         <div className={classNames(classes.inputWrapper, mods, [className])}>

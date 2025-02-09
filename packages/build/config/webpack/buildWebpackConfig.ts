@@ -5,13 +5,17 @@ import { buildDevServer } from './buildDevServer'
 import { buildLoaders } from './buildLoaders'
 import { buildPlugins } from './buildPlugins'
 import { buildResolvers } from './buildResolvers'
-import { BuildEnv, BuildOptions } from './types/config'
+import {
+    BuildEnv, BuildOptions 
+} from './types/config'
 
 
 function createConfig(
     options: BuildOptions
 ): Configuration {
-    const { mode, paths, isDev } = options
+    const {
+        mode, paths, isDev 
+    } = options
     return {
         mode,
         entry: paths.entry,

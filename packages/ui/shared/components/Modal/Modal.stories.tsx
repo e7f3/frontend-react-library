@@ -1,17 +1,19 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta, StoryObj 
+} from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider'
 
 import { Modal } from './Modal'
-import { Text, TextVariant } from '../Text/Text'
+import {
+    Text, TextVariant 
+} from '../Text/Text'
 
 const meta = {
     title: 'ui/Modal',
     component: Modal,
-    parameters: {
-        layout: 'centered',
-    },
+    parameters: { layout: 'centered', },
     args: {
         children: (
             <Text
@@ -32,21 +34,11 @@ type Story = StoryObj<typeof Modal>;
 
 export const defaultModal: Story = {
     name: 'Default',
-    parameters: {
-        backgrounds: {
-            default: Theme.LIGHT
-        }
-    }
+    parameters: { backgrounds: { default: Theme.LIGHT } }
 }
 
 export const darkThemeModal: Story = {
     name: 'Dark theme - Default',
-    parameters: {
-        backgrounds: {
-            default: Theme.DARK
-        }
-    },
-    globals: {
-        theme: Theme.DARK
-    }
+    parameters: { backgrounds: { default: Theme.DARK } },
+    globals: { theme: Theme.DARK }
 }

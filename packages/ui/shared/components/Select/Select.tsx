@@ -1,30 +1,69 @@
-import { classNames, Mods } from '@library/core/shared/utils/classNames/classNames'
-import { FC, memo, SelectHTMLAttributes, useCallback, useMemo } from 'react'
+import {
+    classNames, Mods 
+} from '@library/core/shared/utils/classNames/classNames'
+import {
+    FC, memo, SelectHTMLAttributes, useCallback, useMemo 
+} from 'react'
 
 
 import classes from './Select.module.scss'
 
 type SelectAttributes = Omit<
-  SelectHTMLAttributes<HTMLSelectElement>,
+    SelectHTMLAttributes<HTMLSelectElement>,
   'value' | 'onChange' | 'readOnly'
 >
 
 export interface SelectOption<T extends string> {
-  value: T
-  content: string
+    /**
+     * Option value
+     */
+    value: T
+    /**
+     * Shown text
+     */
+    content: string
 }
 
 export interface SelectProps<T extends string> extends SelectAttributes {
-  className?: string
-  label?: string
-  value?: T
-  onChange?: (value: T) => void
-  options?: SelectOption<T>[]
-  readonly?: boolean
+    /**
+     * Class name
+     */
+    className?: string
+    /**
+     * Label text
+     */
+    label?: string
+    /**
+     * Selected value
+     */
+    value?: T
+    /**
+     * onChange callback
+     * @param value - selected value
+     */
+    onChange?: (value: T) => void
+    /**
+     * List of options to select from
+     */
+    options?: SelectOption<T>[]
+    /**
+     * Readonly flag
+     */
+    readonly?: boolean
 }
 
+/**
+ * Select component
+ */
 export const Select = <T extends string>(props: SelectProps<T>) => {
-    const { className, label, value, onChange, options, readonly = false } = props
+    const {
+        className,
+        label,
+        value,
+        onChange,
+        options,
+        readonly = false 
+    } = props
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -34,16 +73,16 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     )
 
     const optionsList = useMemo(() => {
-        return options?.map(({ value: optionValue, content }) => (
+        return options?.map(({
+            value: optionValue, content 
+        }) => (
             <option className={classes.option} value={optionValue} key={optionValue}>
                 {content}
             </option>
         ))
     }, [options])
 
-    const mods: Mods = {
-        [classes.readonly]: readonly,
-    }
+    const mods: Mods = { [classes.readonly]: readonly, }
     return (
         <div className={classNames(classes.Wrapper, mods, [className])}>
             <select

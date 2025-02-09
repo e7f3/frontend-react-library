@@ -2250,6 +2250,7 @@ __metadata:
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.15"
     "@storybook/eslint-config-storybook": "npm:^4.0.0"
     "@stylistic/eslint-plugin-js": "npm:^3.0.0"
+    "@stylistic/eslint-plugin-ts": "npm:^3.1.0"
     "@svgr/webpack": "npm:^8.1.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@types/jest": "npm:^29.5.14"
@@ -3587,6 +3588,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylistic/eslint-plugin-ts@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@stylistic/eslint-plugin-ts@npm:3.1.0"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.13.0"
+    eslint-visitor-keys: "npm:^4.2.0"
+    espree: "npm:^10.3.0"
+  peerDependencies:
+    eslint: ">=8.40.0"
+  checksum: 9e4d378e29c15ac8182c42e969e6ac2249edbffa9c096a79a083eb182802be14d4870fdc6da818c85f1104138ec2344c55b9f5458b95b7f0e92906448547036a
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0":
   version: 8.0.0
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0"
@@ -4718,7 +4732,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.23.0, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
+"@typescript-eslint/utils@npm:8.23.0, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0, @typescript-eslint/utils@npm:^8.13.0":
   version: 8.23.0
   resolution: "@typescript-eslint/utils@npm:8.23.0"
   dependencies:

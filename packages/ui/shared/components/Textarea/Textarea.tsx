@@ -1,27 +1,46 @@
-import { Mods, classNames } from '@library/core/shared/utils/classNames/classNames'
-import { ChangeEvent, FC, useCallback } from 'react'
-
+import {
+    Mods, classNames 
+} from '@library/core/shared/utils/classNames/classNames'
+import {
+    ChangeEvent, FC, useCallback 
+} from 'react'
 
 import classes from './Textarea.module.scss'
 
 type TextareaAttributes = Omit<
-  React.HTMLAttributes<HTMLTextAreaElement>,
+    React.HTMLAttributes<HTMLTextAreaElement>,
   'value' | 'onChange' | 'readOnly'
 >
 
 export interface TextareaProps extends TextareaAttributes {
-  className?: string
-  value?: string
-  onChange?: (value: string) => void
-  readonly?: boolean
+    /**
+     * Additional classes
+     */
+    className?: string
+    /**
+     * Textarea value
+     */
+    value?: string
+    /**
+     * onChange callback
+     * @param value - new value
+     */
+    onChange?: (value: string) => void
+    /**
+     * Readonly flag
+     */
+    readonly?: boolean
 }
 
+/**
+ * Textarea ui component
+ */
 export const Textarea: FC<TextareaProps> = (props) => {
-    const { className, value, onChange, readonly = false, ...rest } = props
+    const {
+        className, value, onChange, readonly = false, ...rest 
+    } = props
 
-    const mods: Mods = {
-        [classes.readonly]: readonly,
-    }
+    const mods: Mods = { [classes.readonly]: readonly, }
 
     const handleChange = useCallback(
         (event: ChangeEvent<HTMLTextAreaElement>) => {

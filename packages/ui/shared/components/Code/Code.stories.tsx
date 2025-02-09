@@ -1,4 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta, StoryObj 
+} from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
@@ -7,9 +9,7 @@ import { Code } from './Code'
 const meta = {
     title: 'ui/Code',
     component: Code,
-    parameters: {
-        layout: 'centered',
-    },
+    parameters: { layout: 'centered', },
     args: {
         children: `
         for (let i = 0; i < 10; i++) {
@@ -24,21 +24,11 @@ type Story = StoryObj<typeof Code>;
 
 export const defaultCode: Story = {
     name: 'Default',
-    parameters: {
-        backgrounds: {
-            default: Theme.LIGHT
-        }
-    }
+    parameters: { backgrounds: { default: Theme.LIGHT } }
 }
 
 export const darkThemeCode: Story = {
     name: 'Dark theme',
-    parameters: {
-        backgrounds: {
-            default: Theme.DARK
-        }
-    },
-    globals: {
-        theme: Theme.DARK
-    }
+    parameters: { backgrounds: { default: Theme.DARK } },
+    globals: { theme: Theme.DARK }
 }
