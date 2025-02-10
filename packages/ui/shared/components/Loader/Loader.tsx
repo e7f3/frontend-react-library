@@ -1,13 +1,18 @@
 import { classNames } from '@library/core/shared/utils/classNames/classNames'
 import { FC } from 'react'
 
-
 import classes from './Loader.module.scss'
 
 export interface LoaderProps {
+    /**
+     * Additional classes
+     */
     className?: string
 }
 
+/**
+ * Loader component
+ */
 export const Loader: FC<LoaderProps> = (props) => {
     const { className } = props
     return (

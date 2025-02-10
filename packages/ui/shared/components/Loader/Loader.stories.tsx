@@ -3,12 +3,9 @@ import type {
     Meta, StoryObj 
 } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import {
-    Loader, LoaderProps 
-} from './Loader'
+import {Loader,} from './Loader'
 
 const meta = {
     title: 'ui/Loader',

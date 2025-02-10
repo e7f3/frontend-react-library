@@ -1,27 +1,32 @@
 import React, {
     ErrorInfo,
     ReactNode,
-    Suspense 
+    Suspense,
+    FC
 } from 'react'
 
 interface ErrorBoundaryProps {
     /**
-   * Default return - application
-   */
+     * Default return - application
+     */
     children: ReactNode,
     /**
-     * Error placeholder component
+     * Fallback UI
      */
-    PlaceholderComponent: ReactNode,
+    FallbackComponent: FC,
 }
 
 interface ErrorBoundaryState {
     /**
-   * Error flag
-   */
+     * Error flag
+     */
     hasError: boolean
 }
 
+/**
+ * Error boundary component,
+ * catching errors from its children and rendering a fallback UI when necessary.
+ */
 class ErrorBoundary extends React.Component<
     ErrorBoundaryProps,
     ErrorBoundaryState
@@ -47,13 +52,13 @@ class ErrorBoundary extends React.Component<
         const { hasError } = this.state
         const {
             children,
-            PlaceholderComponent,
+            FallbackComponent,
         } = this.props
         if (hasError) {
             // You can render any custom fallback UI
             return (
                 <Suspense fallback=''>
-                    <PlaceholderComponent />
+                    <FallbackComponent />
                 </Suspense>
             )
         }
