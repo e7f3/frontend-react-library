@@ -23,7 +23,8 @@ export interface SkeletonProps {
  */
 export const Skeleton: FC<SkeletonProps> = memo((props) => {
     const {
-        config, className 
+        config,
+        className 
     } = props
 
     return (
