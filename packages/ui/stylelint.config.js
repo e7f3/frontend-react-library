@@ -1,3 +1,4 @@
 import config from '@library/build/stylelint.config';
 
-export default { extends: config };
+export default config
+

@@ -1,15 +1,15 @@
 .stroke {
-  stroke: var(--secondary-color);
+    stroke: var(--secondary-color);
 }
 
 .stroke.coloredDeep * {
-  stroke: var(--secondary-color);
+    stroke: var(--secondary-color);
 }
 
 .fill {
-  fill: var(--secondary-color);
+    fill: var(--secondary-color);
 }
 
 .fill.coloredDeep * {
-  fill: var(--secondary-color);
+    fill: var(--secondary-color);
 }

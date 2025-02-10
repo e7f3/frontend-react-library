@@ -1,13 +1,19 @@
-import { propertyOrdering, selectorOrdering } from 'stylelint-semantic-groups';
+import {
+    propertyOrdering,
+    selectorOrdering 
+} from 'stylelint-semantic-groups';
 
 export default {
     extends: 'stylelint-config-standard-scss',
-    plugins: ['stylelint-order'],
+    plugins: [
+        'stylelint-order',
+        "@stylistic/stylelint-plugin"
+    ],
     rules: {
         'selector-class-pattern': null,
         'order/order': selectorOrdering, // to fine-tune configuration use selectorOrderFactory
         'order/properties-order': propertyOrdering,
         'declaration-empty-line-before': null,
-        'indentation': 4,
+        '@stylistic/indentation': 4,
     },
 };

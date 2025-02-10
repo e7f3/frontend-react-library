@@ -1,10 +1,12 @@
 {
   "name": "@library/ui",
   "type": "module",
+  "private": true,
   "packageManager": "yarn@4.0.2",
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
+    "lint:scss": "stylelint \"**/*.scss\"",
     "storybook": "sb dev",
     "storybook:build": "sb build"
   },
@@ -62,6 +64,7 @@
     "react-router-dom": "^6.0.0"
   },
   "dependencies": {
-    "@library/build": "workspace:^"
+    "@library/build": "workspace:^",
+    "@library/core": "workspace:^"
   }
 }

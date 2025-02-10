@@ -1,103 +1,103 @@
 .Loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  width: 142px;
-  height: 40px;
+    width: 142px;
+    height: 40px;
 
-  background: transparent;
+    background: transparent;
 
-  filter: contrast(20);
-  transform: translateX(-50%) translateY(-50%);
+    filter: contrast(20);
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .Loader .dot {
-  position: absolute;
-  top: 12px;
-  left: 15px;
+    position: absolute;
+    top: 12px;
+    left: 15px;
 
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #000;
+    background: #000;
 
-  filter: blur(4px);
-  transform: translateX(0);
+    filter: blur(4px);
+    transform: translateX(0);
 
-  animation: dot 2.8s infinite;
+    animation: dot 2.8s infinite;
 }
 
 .Loader .dots {
-  margin-top: 12px;
-  margin-left: 31px;
+    margin-top: 12px;
+    margin-left: 31px;
 
-  transform: translateX(0);
+    transform: translateX(0);
 
-  animation: dots 2.8s infinite;
+    animation: dots 2.8s infinite;
 }
 
 .Loader .dots span {
-  display: block;
-  float: left;
+    display: block;
+    float: left;
 
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
+    width: 16px;
+    height: 16px;
+    margin-left: 16px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #000;
+    background: #000;
 
-  filter: blur(4px);
+    filter: blur(4px);
 }
 
 @keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
+    50% {
+        transform: translateX(96px);
+    }
 }
 
 @keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
+    50% {
+        transform: translateX(96px);
+    }
 }
 
 @keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
+    50% {
+        transform: translateX(96px);
+    }
 }
 
 @keyframes dot {
-  50% {
-    transform: translateX(96px);
-  }
+    50% {
+        transform: translateX(96px);
+    }
 }
 
 @keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
+    50% {
+        transform: translateX(-31px);
+    }
 }
 
 @keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
+    50% {
+        transform: translateX(-31px);
+    }
 }
 
 @keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
+    50% {
+        transform: translateX(-31px);
+    }
 }
 
 @keyframes dots {
-  50% {
-    transform: translateX(-31px);
-  }
+    50% {
+        transform: translateX(-31px);
+    }
 }

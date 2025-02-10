@@ -1,29 +1,29 @@
 :root {
-  // Fonts
-  --font-family-main: "Poppins", sans-serif;
-  --font-size-s: 12px;
-  --line-height-s: 16px;
-  --font-s: var(--font-size-s) / var(--line-height-s) var(--font-family-main);
-  --font-size-m: 16px;
-  --line-height-m: 24px;
-  --font-m: var(--font-size-m) / var(--line-height-m) var(--font-family-main);
-  --font-size-l: 24px;
-  --line-height-l: 32px;
-  --font-l: var(--font-size-l) / var(--line-height-l) var(--font-family-main);
-  --font-size-xl: 32px;
-  --line-height-xl: 40px;
-  --font-xl: var(--font-size-xl) / var(--line-height-xl) var(--font-family-main);
+    // Fonts
+    --font-family-main: "Poppins", sans-serif;
+    --font-size-s: 12px;
+    --line-height-s: 16px;
+    --font-s: var(--font-size-s) / var(--line-height-s) var(--font-family-main);
+    --font-size-m: 16px;
+    --line-height-m: 24px;
+    --font-m: var(--font-size-m) / var(--line-height-m) var(--font-family-main);
+    --font-size-l: 24px;
+    --line-height-l: 32px;
+    --font-l: var(--font-size-l) / var(--line-height-l) var(--font-family-main);
+    --font-size-xl: 32px;
+    --line-height-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--line-height-xl) var(--font-family-main);
 
-  // Sizes
-  --navbar-height: 60px;
-  --sidebar-width: 200px;
-  --sidebar-width-collapsed: 100px;
-  --article-header-image-height: 200px;
-  --page-content-width: 1440px;
-  --page-content-padding: 150px;
+    // Sizes
+    --navbar-height: 60px;
+    --sidebar-width: 200px;
+    --sidebar-width-collapsed: 100px;
+    --article-header-image-height: 200px;
+    --page-content-width: 1440px;
+    --page-content-padding: 150px;
 
-  // Z-indexes
-  --modal-z-index-closed: -1;
-  --modal-z-index-opened: 10;
-  --navbar-shadow: 0 1px 3px #4d484533, 0 6px 10px #4d484526;
+    // Z-indexes
+    --modal-z-index-closed: -1;
+    --modal-z-index-opened: 10;
+    --navbar-shadow: 0 1px 3px #4d484533, 0 6px 10px #4d484526;
 }

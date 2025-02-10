@@ -6,22 +6,22 @@
 
 html,
 body {
-  color: var(--secondary-color);
-  font: var(--font-m);
+    color: var(--secondary-color);
+    font: var(--font-m);
 }
 
 .app {
-  height: 100wh;
+    height: 100vh;
 }
 
 .page-content {
-  display: flex;
+    display: flex;
 
-  max-height: calc(100vh - var(--navbar-height));
+    max-height: calc(100vh - var(--navbar-height));
 
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .page {
-  flex-grow: 1;
+    flex-grow: 1;
 }
