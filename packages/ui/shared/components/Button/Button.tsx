@@ -83,8 +83,8 @@ export const Button: FC<ButtonProps> = memo((props) => {
 
     return (
         <button
-            className={classNames(classes.Button, mods, [className])}
-            type='button'
+            className={classNames(classes.Button, mods, [ className ])}
+            type="button"
             disabled={disabled}
             {...restProps}
         >

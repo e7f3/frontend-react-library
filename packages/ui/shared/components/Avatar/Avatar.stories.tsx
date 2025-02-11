@@ -15,7 +15,7 @@ const meta = {
         alt: 'Avatar',
         src: StorybookAvatar,
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Avatar>;
  
 export default meta;

@@ -9,9 +9,7 @@ export const buildCssLoader = (isDev: boolean) => {
             // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
-                options: {
-                    modules: true,
-                },
+                options: { modules: true, },
             },
             // Compiles Sass to CSS
             'sass-loader',

@@ -18,7 +18,7 @@ const meta = {
         value: 'Text',
         placeholder: 'Placeholder',
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Input>;
  
 export default meta;

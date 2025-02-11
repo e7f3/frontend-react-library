@@ -5,13 +5,13 @@ import type {
 
 import { Theme } from 'shared/providers/ThemeProvider'
 
-import {Loader,} from './Loader'
+import { Loader, } from './Loader'
 
 const meta = {
     title: 'ui/Loader',
     component: Loader,
     parameters: { layout: 'centered', },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Loader>;
  
 export default meta;

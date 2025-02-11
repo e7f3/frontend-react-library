@@ -17,11 +17,11 @@ import classes from './ThemeDecorator.module.scss'
  * @param context - context
  */
 export const ThemeDecorator: DecoratorFunction<ReactRenderer> = (Story, context) => {
-    const [{ theme }] = useGlobals();
+    const [ { theme } ] = useGlobals();
 
     return (
         <ThemeProvider initialTheme={theme ?? Theme.LIGHT}>
-            <div className={classNames('app', {}, [classes.ThemeDecorator, theme])}>
+            <div className={classNames('app', {}, [ classes.ThemeDecorator, theme ])}>
                 <Story />
             </div>
         </ThemeProvider>

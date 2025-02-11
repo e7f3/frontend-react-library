@@ -1,4 +1,4 @@
-import { AppRouteProps } from "shared/config/router/model/router.model"
+import { AppRouteProps } from 'shared/config/router/model/router.model'
 
 export interface Crumb {
     path: string
@@ -21,7 +21,7 @@ export const generateCrumbs = (route: AppRouteProps): Crumb[] => {
                 path: `/${array.slice(0, index + 1).join('/')}`,
                 title: 'test',
             }
-            return [...accumulator, crumb]
+            return [ ...accumulator, crumb ]
         }, [] as Crumb[]) || []
 
     return crumbs

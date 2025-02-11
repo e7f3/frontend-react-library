@@ -17,7 +17,7 @@ const meta = {
         icon: CalendarIcon,
         coloredWith: ColoredWith.STROKE,
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Icon>;
 
 export default meta;

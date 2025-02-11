@@ -57,7 +57,7 @@ class ErrorBoundary extends React.Component<
         if (hasError) {
             // You can render any custom fallback UI
             return (
-                <Suspense fallback=''>
+                <Suspense fallback="">
                     <FallbackComponent />
                 </Suspense>
             )

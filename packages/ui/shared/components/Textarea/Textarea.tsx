@@ -46,7 +46,7 @@ export const Textarea: FC<TextareaProps> = (props) => {
         (event: ChangeEvent<HTMLTextAreaElement>) => {
             onChange?.(event.target.value)
         },
-        [onChange]
+        [ onChange ]
     )
 
     const onInput = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -55,7 +55,7 @@ export const Textarea: FC<TextareaProps> = (props) => {
     }, [])
 
     return (
-        <div className={classNames(classes.Wrapper, mods, [className])}>
+        <div className={classNames(classes.Wrapper, mods, [ className ])}>
             <textarea
                 className={classes.Textarea}
                 value={value}

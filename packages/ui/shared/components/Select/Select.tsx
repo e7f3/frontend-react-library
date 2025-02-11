@@ -69,7 +69,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         (event: React.ChangeEvent<HTMLSelectElement>) => {
             onChange?.(event.target.value as T)
         },
-        [onChange]
+        [ onChange ]
     )
 
     const optionsList = useMemo(() => {
@@ -80,11 +80,11 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
                 {content}
             </option>
         ))
-    }, [options])
+    }, [ options ])
 
     const mods: Mods = { [classes.readonly]: readonly, }
     return (
-        <div className={classNames(classes.Wrapper, mods, [className])}>
+        <div className={classNames(classes.Wrapper, mods, [ className ])}>
             <select
                 className={classNames(classes.Select, {}, [])}
                 value={value}

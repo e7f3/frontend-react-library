@@ -49,7 +49,7 @@ export const Text: FC<TextProps> = memo((props) => {
     } = props
 
     return (
-        <div className={classNames(classes.Text, {}, [className, classes[mode]])}>
+        <div className={classNames(classes.Text, {}, [ className, classes[mode] ])}>
             {content && <p className={classes[variant]}>{content}</p>}
         </div>
     )

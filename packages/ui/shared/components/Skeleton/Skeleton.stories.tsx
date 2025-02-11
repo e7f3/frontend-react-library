@@ -13,14 +13,16 @@ const meta = {
     args: {
         config: [
             {
-                width: '400px', height: '100px' 
+                width: '400px',
+                height: '100px' 
             },
             {
-                width: '400px', height: '100px' 
+                width: '400px',
+                height: '100px' 
             }
         ] 
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Skeleton>;
  
 export default meta;

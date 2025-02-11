@@ -14,9 +14,9 @@ const meta = {
     parameters: { layout: 'centered', },
     args: {
         children: 
-            <Text content='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo odit laboriosam!' />,
+            <Text content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo odit laboriosam!" />,
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Card>;
 
 export default meta;

@@ -26,7 +26,7 @@ const meta = {
         ),
         isOpen: true,
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Modal>;
  
 export default meta;

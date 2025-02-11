@@ -39,11 +39,11 @@ export const Avatar: FC<AvatarProps> = memo((props) => {
                     height: String(size).concat('px'),
                 }
                 : {},
-        [size]
+        [ size ]
     )
     return (
         <img
-            className={classNames(classes.Avatar, {}, [className])}
+            className={classNames(classes.Avatar, {}, [ className ])}
             src={src}
             alt={alt}
             style={style}

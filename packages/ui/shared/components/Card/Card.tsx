@@ -27,7 +27,7 @@ export const Card: FC<CardProps> = memo((props) => {
     } = props
     return (
         <div
-            className={classNames(classes.Card, {}, [classes[theme], className])}
+            className={classNames(classes.Card, {}, [ classes[theme], className ])}
             onClick={onClick}
             role={role}
         >

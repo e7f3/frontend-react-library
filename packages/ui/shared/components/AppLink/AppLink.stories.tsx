@@ -15,7 +15,7 @@ const meta = {
         to: '/some-path',
         children: 'Click me',
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof AppLink>;
 
 export default meta;

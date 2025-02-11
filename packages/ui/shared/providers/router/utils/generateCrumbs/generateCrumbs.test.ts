@@ -1,6 +1,6 @@
-import { AppRouteProps } from "shared/config/router/model/router.model";
+import { AppRouteProps } from 'shared/config/router/model/router.model';
 
-import { generateCrumbs } from "./generateCrumbs";
+import { generateCrumbs } from './generateCrumbs';
 
 describe('generateCrumbs', () => {
     it('should generate correct crumbs for a simple path', () => {
@@ -49,7 +49,8 @@ describe('generateCrumbs', () => {
   
     it('should handle root path correctly', () => {
         const route: AppRouteProps = {
-            path: '/', name: 'Main'
+            path: '/',
+            name: 'Main'
         };
   
         const result = generateCrumbs(route);
@@ -59,7 +60,8 @@ describe('generateCrumbs', () => {
   
     it('should handle empty path correctly', () => {
         const route: AppRouteProps = {
-            path: '', name: 'Root'
+            path: '',
+            name: 'Root'
         };
   
         const result = generateCrumbs(route);
@@ -69,7 +71,8 @@ describe('generateCrumbs', () => {
   
     it('should handle path with trailing slash correctly', () => {
         const route: AppRouteProps = {
-            path: '/users/profile/', name: 'User profile'
+            path: '/users/profile/',
+            name: 'User profile'
         };
   
         const result = generateCrumbs(route);
@@ -88,7 +91,8 @@ describe('generateCrumbs', () => {
   
     it('should handle undefined path correctly', () => {
         const route: AppRouteProps = {
-            path: undefined, name: ''
+            path: undefined,
+            name: ''
         };
   
         const result = generateCrumbs(route);

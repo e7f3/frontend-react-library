@@ -32,7 +32,7 @@ export const Icon: FC<IconProps> = (props) => {
             className={classNames(
                 className,
                 { [classes.coloredDeep]: coloredDeep, },
-                [classes[coloredWith]]
+                [ classes[coloredWith] ]
             )}
         />
     )

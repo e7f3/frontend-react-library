@@ -16,7 +16,7 @@ export interface LoaderProps {
 export const Loader: FC<LoaderProps> = (props) => {
     const { className } = props
     return (
-        <div className={classNames(classes.Loader, {}, [className])}>
+        <div className={classNames(classes.Loader, {}, [ className ])}>
             <span className={classes.dot} />
             <div className={classes.dots}>
                 <span />

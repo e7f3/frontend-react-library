@@ -14,7 +14,7 @@ export default tseslint.config(
     eslint.configs.recommended,
     tseslint.configs.recommended,
     {
-        ignores: ["**/.eslint.config.js"],
+        ignores: [ '**/.eslint.config.js' ],
 
         plugins: {
             'import': eslintImport,
@@ -29,58 +29,74 @@ export default tseslint.config(
             eslintPluginReactHooks
         },
         settings: {
-            "import/resolver": {
+            'import/resolver': {
                 typescript: true,
                 node: true,
             },
             'react': { 'version': 'detect', },
         },
         rules: {
-            '@stylistic/ts/indent': ['error', 4],
-            '@stylistic/js/key-spacing': ['error', {
-                beforeColon: false,
-                afterColon: true 
-            }],
-            "@stylistic/ts/object-curly-newline": [
-                "error",
+            '@stylistic/ts/indent': [ 'error', 4 ],
+            '@stylistic/js/array-bracket-spacing': [ 'error', 'always' ],
+            '@stylistic/js/array-bracket-newline': [
+                'error',
                 {
-                    "ObjectExpression": {
-                        "minProperties": 2,
-                        "multiline": true,
-                        // "consistent": true 
+                    minItems: 3,
+                    multiline: true 
+                } 
+            ],
+            '@stylistic/js/array-element-newline': [
+                'error',
+                {
+                    minItems: 3,
+                    consistent: true,
+                    multiline: true 
+                } 
+            ],
+            '@stylistic/ts/object-curly-newline': [
+                'error',
+                {
+                    'ObjectExpression': {
+                        'minProperties': 3,
+                        'multiline': true,
+                        'consistent': true 
                     },
-                    "ObjectPattern": {
-                        "minProperties": 2,
-                        "multiline": true,
-                        // "consistent": true 
+                    'ObjectPattern': {
+                        'minProperties': 3,
+                        'multiline': true,
+                        'consistent': true 
                     },
-                    "ImportDeclaration": {
-                        "minProperties": 2,
-                        "multiline": true,
-                        // "consistent": true 
+                    'ImportDeclaration': {
+                        'minProperties': 3,
+                        'multiline': true,
+                        'consistent': true 
                     },
-                    "ExportDeclaration": {
-                        "minProperties": 2,
-                        "multiline": true,
-                        // "consistent": true 
+                    'ExportDeclaration': {
+                        'minProperties': 3,
+                        'multiline': true,
+                        'consistent': true 
                     }
+                } 
+            ],
+            '@stylistic/js/object-curly-spacing': [ 'error', 'always' ],
+            '@stylistic/js/object-property-newline': [ 'error' ],
+            '@stylistic/ts/object-property-newline': [ 'error' ],
+            '@stylistic/js/quotes': [
+                'error',
+                'single',
+                {
+                    'avoidEscape': true,
+                    'allowTemplateLiterals': true
                 }
             ],
-            "@stylistic/js/object-curly-spacing": ["error", "always"],
-            "@stylistic/js/object-property-newline": [
-                "error",
-                { "allowAllPropertiesOnSameLine": true }
-            ],
-            // "@stylistic/js/object-property-newline": [
-            //     "error", "always"
-            // ],
+            '@stylistic/js/jsx-quotes': [ 'error', 'prefer-double' ],
             'import/order': [
                 'error',
                 {
                     groups: [
-                        ['external', 'builtin'],
+                        [ 'external', 'builtin' ],
                         'internal',
-                        ['sibling', 'parent'],
+                        [ 'sibling', 'parent' ],
                         'index',
                     ],
                     pathGroups: [
@@ -92,26 +108,34 @@ export default tseslint.config(
                         {
                             pattern: '@src/**',
                             group: 'internal',
-                        },
+                        }, 
                     ],
-                    pathGroupsExcludedImportTypes: ['internal', 'react'],
+                    pathGroupsExcludedImportTypes: [ 'internal', 'react' ],
                     'newlines-between': 'always',
                     alphabetize: {
                         order: 'asc',
                         caseInsensitive: true,
                     },
-                },
+                }, 
             ],
             semi: 'off',
             'react/function-component-definition': [
                 2,
                 {
-                    namedComponents: ['arrow-function', 'function-declaration'],
-                    unnamedComponents: ['arrow-function', 'function-expression'],
-                },
+                    namedComponents: [ 'arrow-function', 'function-declaration' ],
+                    unnamedComponents: [ 'arrow-function', 'function-expression' ],
+                }, 
             ],
-            'jsx-quotes': ['error', 'prefer-single'],
-            'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.jsx', '.js'] }],
+            'react/jsx-filename-extension': [
+                2,
+                {
+                    extensions: [
+                        '.tsx',
+                        '.jsx',
+                        '.js' 
+                    ] 
+                } 
+            ],
             'import/no-unresolved': 'off',
             'react/require-default-props': 'off',
             'import/no-extraneous-dependencies': 'off',
@@ -125,14 +149,17 @@ export default tseslint.config(
             'no-underscore-dangle': 'off',
             'import/no-import-module-exports': 'off',
           
-            'max-len': [2, {
-                ignoreComments: true,
-                ignoreUrls: true,
-                code: 140 
-            }],
+            'max-len': [
+                2,
+                {
+                    ignoreComments: true,
+                    ignoreUrls: true,
+                    code: 140 
+                } 
+            ],
             '@typescript-eslint/no-var-requires': 'warn',
             'no-use-before-define': 'off',
-            '@typescript-eslint/no-use-before-define': ['error', { enums: false }],
+            '@typescript-eslint/no-use-before-define': [ 'error', { enums: false } ],
             // 'i18next/no-literal-string': [
             //   'error',
             //   {
@@ -147,9 +174,9 @@ export default tseslint.config(
             'jsx-a11y/click-events-have-key-events': 'warn',
             'jsx-a11y/no-static-element-interactions': 'warn',
             // 'no-param-reassign': 'off',
-            'no-param-reassign': ['warn', { props: false }],
+            'no-param-reassign': [ 'warn', { props: false } ],
             '@typescript-eslint/ban-ts-comment': 'warn',
-            'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
+            'react/jsx-no-useless-fragment': [ 2, { allowExpressions: true } ],
         }
     }
 )

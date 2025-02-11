@@ -36,14 +36,14 @@ export const Input: FC<InputProps> = memo((props) => {
     const mods: Mods = { [classes.readonly]: readonly, }
 
     return (
-        <div className={classNames(classes.inputWrapper, mods, [className])}>
+        <div className={classNames(classes.inputWrapper, mods, [ className ])}>
             <input
                 className={classNames(classes.Input, {}, [])}
                 value={value}
                 onChange={handleChange}
                 type={type}
                 readOnly={readonly}
-                data-testid='input'
+                data-testid="input"
                 {...restProps}
             />
         </div>

@@ -14,7 +14,7 @@ const meta = {
     component: Button,
     parameters: { layout: 'centered', },
     args: { children: 'Text', },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Button>;
  
 export default meta;

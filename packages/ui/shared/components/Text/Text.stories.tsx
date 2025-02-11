@@ -13,7 +13,7 @@ const meta = {
     component: Text,
     args: { content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.' },
     parameters: { layout: 'centered', },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Text>;
  
 export default meta;

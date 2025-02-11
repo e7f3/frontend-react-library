@@ -24,9 +24,7 @@ function createConfig(
             filename: '[name].[contenthash].js',
             clean: true,
         },
-        module: {
-            rules: buildLoaders(options),
-        },
+        module: { rules: buildLoaders(options), },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
         devtool: isDev ? 'inline-source-map' : undefined,

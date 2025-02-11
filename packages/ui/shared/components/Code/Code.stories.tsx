@@ -16,7 +16,7 @@ const meta = {
             console.log(i)
         }`,
     },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Code>;
 
 export default meta;

@@ -30,8 +30,8 @@ export const Modal: FC<ModalProps> = (props) => {
         className, isOpen, onClose, lazy = true, children 
     } = props
 
-    const [isClosing, setIsClosing] = useState(false)
-    const [wasOpened, setWasOpened] = useState(false)
+    const [ isClosing, setIsClosing ] = useState(false)
+    const [ wasOpened, setWasOpened ] = useState(false)
     const timeoutIdRef: MutableRefObject<ReturnType<typeof setTimeout> | null> = useRef(null)
 
     const handleClose = useCallback(() => {
@@ -44,7 +44,7 @@ export const Modal: FC<ModalProps> = (props) => {
                 setIsClosing(false)
             }, CLOSE_DELAY)
         }
-    }, [onClose, isOpen])
+    }, [ onClose, isOpen ])
 
     const handleContentClick = (event: MouseEvent) => {
         event.stopPropagation()
@@ -56,14 +56,14 @@ export const Modal: FC<ModalProps> = (props) => {
                 handleClose()
             }
         },
-        [handleClose]
+        [ handleClose ]
     )
 
     useEffect(() => {
         if (isOpen && !wasOpened) {
             setWasOpened(true)
         }
-    }, [isOpen, wasOpened])
+    }, [ isOpen, wasOpened ])
 
     useEffect(() => {
         if (isOpen) {
@@ -75,7 +75,7 @@ export const Modal: FC<ModalProps> = (props) => {
             }
             window.removeEventListener('keydown', handleKeyDown)
         }
-    }, [isOpen, handleKeyDown])
+    }, [ isOpen, handleKeyDown ])
 
     const mods: Mods = {
         [classes.opened]: isOpen,
@@ -89,8 +89,8 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div
-                className={classNames(classes.Modal, mods, [className])}
-                data-testid='modal-window'
+                className={classNames(classes.Modal, mods, [ className ])}
+                data-testid="modal-window"
             >
                 <div className={classes.overlay} onClick={handleClose}>
                     <div className={classes.content} onClick={handleContentClick}>

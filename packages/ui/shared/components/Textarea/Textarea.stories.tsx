@@ -13,7 +13,7 @@ const meta = {
     title: 'ui/Textarea',
     component: Textarea,
     parameters: { layout: 'centered', },
-    tags: ['autodocs'],
+    tags: [ 'autodocs' ],
 } satisfies Meta<typeof Textarea>;
  
 export default meta;
