@@ -1,8 +1,8 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
 export enum Theme {
     LIGHT = 'ui_theme_light',
-    DARK = 'ui_theme_dark',
+    DARK = 'ui_theme_dark'
 }
 
 export interface ThemeContextProps {
@@ -20,9 +20,9 @@ export interface ThemeContextProps {
 /**
  * Theme context for ThemeProvider
  */
-export const ThemeContext = createContext<ThemeContextProps>({})
+export const ThemeContext = createContext<ThemeContextProps>({});
 
 /**
  * Default theme
  */
-export const DEFAULT_THEME = Theme.LIGHT
+export const DEFAULT_THEME = Theme.LIGHT;

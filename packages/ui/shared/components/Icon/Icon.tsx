@@ -1,15 +1,16 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, SVGProps 
-} from 'react'
+    FC,
+    SVGProps 
+} from 'react';
 
 
-import classes from './Icon.module.scss'
+import classes from './Icon.module.scss';
 
 export enum ColoredWith {
     STROKE = 'stroke',
     FILL = 'fill',
-    DEFAULT = 'default',
+    DEFAULT = 'default'
 }
 
 export interface IconProps {
@@ -25,15 +26,15 @@ export const Icon: FC<IconProps> = (props) => {
         coloredWith = ColoredWith.DEFAULT,
         coloredDeep = false,
         className,
-    } = props
+    } = props;
 
     return (
         <IconComponent
             className={classNames(
                 className,
-                { [classes.coloredDeep]: coloredDeep, },
+                { [classes.coloredDeep]: coloredDeep },
                 [ classes[coloredWith] ]
             )}
         />
-    )
-}
+    );
+};

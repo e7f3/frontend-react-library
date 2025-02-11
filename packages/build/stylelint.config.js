@@ -7,7 +7,7 @@ export default {
     extends: 'stylelint-config-standard-scss',
     plugins: [
         'stylelint-order',
-        '@stylistic/stylelint-plugin' 
+        '@stylistic/stylelint-plugin', 
     ],
     rules: {
         'selector-class-pattern': null,

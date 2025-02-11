@@ -2,18 +2,20 @@ import {
     memo,
     Suspense,
     useCallback 
-} from 'react'
+} from 'react';
 import {
-    Route, Routes 
-} from 'react-router-dom'
+    Route,
+    Routes 
+} from 'react-router-dom';
 
-import { Loader } from 'shared/components/Loader/Loader'
+import { Loader } from 'shared/components/Loader/Loader';
 import {
-    AppRouteConfig, AppRouteProps 
-} from 'shared/config/router/model/router.model'
+    AppRouteConfig,
+    AppRouteProps 
+} from 'shared/config/router/model/router.model';
 
-import { RequireAuth } from './RequireAuth'
-import { RouteLink } from './RouteLink'
+import { RequireAuth } from './RequireAuth';
+import { RouteLink } from './RouteLink';
 
 const CRUMB = { crumb: RouteLink };
 
@@ -27,7 +29,7 @@ export interface AppRouterProps {
 export const AppRouter = memo<AppRouterProps>(({ config }) => {
     const {
         routeConfig,
-        defaultPath
+        defaultPath,
     } = config;
 
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
@@ -36,9 +38,9 @@ export const AppRouter = memo<AppRouterProps>(({ config }) => {
             element,
             authOnly = false,
             // name 
-        } = route
-        const content = <Suspense fallback={<Loader />}>{element}</Suspense>
-        const wrapper = authOnly ? <RequireAuth defaultPath={defaultPath}>{content}</RequireAuth> : content
+        } = route;
+        const content = <Suspense fallback={<Loader />}>{element}</Suspense>;
+        const wrapper = authOnly ? <RequireAuth defaultPath={defaultPath}>{content}</RequireAuth> : content;
 
         return (
             <Route
@@ -47,12 +49,12 @@ export const AppRouter = memo<AppRouterProps>(({ config }) => {
                 element={wrapper}
                 handle={CRUMB}
             />
-        )
-    }, [ defaultPath ])
+        );
+    }, [ defaultPath ]);
 
     return (
         <Suspense fallback={<Loader />}>
             <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
         </Suspense>
-    )
-})
+    );
+});

@@ -1,15 +1,17 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
-import { useGlobals } from '@storybook/preview-api'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
+import { useGlobals } from '@storybook/preview-api';
 import {
-    Decorator, ReactRenderer 
-} from '@storybook/react'
-import { DecoratorFunction } from 'storybook/internal/types'
+    Decorator,
+    ReactRenderer 
+} from '@storybook/react';
+import { DecoratorFunction } from 'storybook/internal/types';
 
 import {
-    Theme, ThemeProvider 
-} from 'shared/providers/ThemeProvider'
+    Theme,
+    ThemeProvider 
+} from 'shared/providers/ThemeProvider';
 
-import classes from './ThemeDecorator.module.scss'
+import classes from './ThemeDecorator.module.scss';
 
 /**
  * Storybook Decorator for setting theme
@@ -25,5 +27,5 @@ export const ThemeDecorator: DecoratorFunction<ReactRenderer> = (Story, context)
                 <Story />
             </div>
         </ThemeProvider>
-    )
+    );
 };

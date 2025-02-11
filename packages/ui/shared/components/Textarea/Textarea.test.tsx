@@ -1,14 +1,15 @@
 import {
-    render, screen 
-} from '@testing-library/react'
+    render,
+    screen 
+} from '@testing-library/react';
 
-import { Textarea } from './Textarea'
+import { Textarea } from './Textarea';
 
 describe('Textarea ui component', () => {
     test('Appearance on screen', () => {
-        render(<Textarea>Textarea</Textarea>)
+        render(<Textarea>Textarea</Textarea>);
 
-        screen.debug()
-        expect(screen.getByText('Textarea')).toBeInTheDocument()
-    })
-})
+        screen.debug();
+        expect(screen.getByText('Textarea')).toBeInTheDocument();
+    });
+});

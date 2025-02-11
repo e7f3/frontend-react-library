@@ -1,11 +1,11 @@
 import {
     FC,
     PropsWithChildren 
-} from 'react'
+} from 'react';
 import {
     Navigate,
     useLocation 
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 interface RequireAuthProps extends PropsWithChildren {
     defaultPath?: string
@@ -16,13 +16,13 @@ export const RequireAuth: FC<RequireAuthProps> = (props) => {
     const {
         children,
         defaultPath = '/',
-        isAuth
-    } = props
-    const location = useLocation()
+        isAuth,
+    } = props;
+    const location = useLocation();
 
     if (!isAuth) {
-        return <Navigate to={defaultPath} state={{ from: location }} replace />
+        return <Navigate to={defaultPath} state={{ from: location }} replace />;
     }
 
-    return children
-}
+    return children;
+};

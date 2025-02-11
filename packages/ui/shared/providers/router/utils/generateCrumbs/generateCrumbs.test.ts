@@ -6,7 +6,7 @@ describe('generateCrumbs', () => {
     it('should generate correct crumbs for a simple path', () => {
         const route: AppRouteProps = {
             path: '/users/profile',
-            name: 'User profile' 
+            name: 'User profile', 
         };
   
         const result = generateCrumbs(route);
@@ -26,7 +26,7 @@ describe('generateCrumbs', () => {
     it('should generate correct crumbs for a path with multiple segments', () => {
         const route: AppRouteProps = {
             path: '/users/settings/privacy',
-            name: 'Privacy settings'
+            name: 'Privacy settings',
         };
   
         const result = generateCrumbs(route);
@@ -50,7 +50,7 @@ describe('generateCrumbs', () => {
     it('should handle root path correctly', () => {
         const route: AppRouteProps = {
             path: '/',
-            name: 'Main'
+            name: 'Main',
         };
   
         const result = generateCrumbs(route);
@@ -61,7 +61,7 @@ describe('generateCrumbs', () => {
     it('should handle empty path correctly', () => {
         const route: AppRouteProps = {
             path: '',
-            name: 'Root'
+            name: 'Root',
         };
   
         const result = generateCrumbs(route);
@@ -72,7 +72,7 @@ describe('generateCrumbs', () => {
     it('should handle path with trailing slash correctly', () => {
         const route: AppRouteProps = {
             path: '/users/profile/',
-            name: 'User profile'
+            name: 'User profile',
         };
   
         const result = generateCrumbs(route);
@@ -92,7 +92,7 @@ describe('generateCrumbs', () => {
     it('should handle undefined path correctly', () => {
         const route: AppRouteProps = {
             path: undefined,
-            name: ''
+            name: '',
         };
   
         const result = generateCrumbs(route);

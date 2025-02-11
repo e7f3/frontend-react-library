@@ -1,16 +1,19 @@
 import {
-    classNames, Mods 
-} from '@library/core/shared/utils/classNames/classNames'
+    classNames,
+    Mods 
+} from '@library/core/shared/utils/classNames/classNames';
 import React, {
-    FC, InputHTMLAttributes, memo 
-} from 'react'
+    FC,
+    InputHTMLAttributes,
+    memo 
+} from 'react';
 
-import classes from './Input.module.scss'
+import classes from './Input.module.scss';
 
 type InputAttributes = Omit<
     InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readOnly'
->
+>;
 
 export interface InputProps extends InputAttributes {
     className?: string
@@ -27,13 +30,13 @@ export const Input: FC<InputProps> = memo((props) => {
         readonly = false,
         type = 'text',
         ...restProps
-    } = props
+    } = props;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(event.target.value)
-    }
+        onChange?.(event.target.value);
+    };
 
-    const mods: Mods = { [classes.readonly]: readonly, }
+    const mods: Mods = { [classes.readonly]: readonly };
 
     return (
         <div className={classNames(classes.inputWrapper, mods, [ className ])}>
@@ -47,5 +50,5 @@ export const Input: FC<InputProps> = memo((props) => {
                 {...restProps}
             />
         </div>
-    )
-})
+    );
+});

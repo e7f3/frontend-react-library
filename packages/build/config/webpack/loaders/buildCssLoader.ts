@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export const buildCssLoader = (isDev: boolean) => {
     const cssLoader = {
@@ -9,12 +9,12 @@ export const buildCssLoader = (isDev: boolean) => {
             // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
-                options: { modules: true, },
+                options: { modules: true },
             },
             // Compiles Sass to CSS
             'sass-loader',
         ],
-    }
+    };
 
-    return cssLoader
-}
+    return cssLoader;
+};

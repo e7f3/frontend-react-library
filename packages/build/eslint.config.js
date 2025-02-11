@@ -1,8 +1,9 @@
 import eslint from '@eslint/js';
 import storybook from '@storybook/eslint-config-storybook';
-import stylisticJs from '@stylistic/eslint-plugin-js'
-import stylisticTs from '@stylistic/eslint-plugin-ts'
+import stylisticJs from '@stylistic/eslint-plugin-js';
+import stylisticTs from '@stylistic/eslint-plugin-ts';
 import airbnb from 'eslint-config-airbnb';
+import canonical from 'eslint-plugin-canonical';
 import eslintImport from 'eslint-plugin-import';
 import eslintJestPlugin from 'eslint-plugin-jest';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -15,7 +16,6 @@ export default tseslint.config(
     tseslint.configs.recommended,
     {
         ignores: [ '**/.eslint.config.js' ],
-
         plugins: {
             'import': eslintImport,
             'react': react,
@@ -24,16 +24,19 @@ export default tseslint.config(
             '@stylistic/js': stylisticJs,
             '@stylistic/ts': stylisticTs,
             airbnb,
+            canonical,
             storybook,
             eslintJestPlugin,
-            eslintPluginReactHooks
+            eslintPluginReactHooks,
         },
         settings: {
             'import/resolver': {
                 typescript: true,
                 node: true,
             },
-            'react': { 'version': 'detect', },
+            'react': {
+                'version': 'detect', 
+            },
         },
         rules: {
             '@stylistic/ts/indent': [ 'error', 4 ],
@@ -42,54 +45,116 @@ export default tseslint.config(
                 'error',
                 {
                     minItems: 3,
-                    multiline: true 
-                } 
+                    multiline: true, 
+                }, 
             ],
             '@stylistic/js/array-element-newline': [
                 'error',
                 {
                     minItems: 3,
                     consistent: true,
-                    multiline: true 
-                } 
+                    multiline: true, 
+                }, 
+            ],
+            '@stylistic/js/object-curly-newline': [
+                'error',
+                {
+                    'ObjectExpression': {
+                        'minProperties': 2,
+                        'multiline': true,
+                        'consistent': true, 
+                    },
+                    'ObjectPattern': {
+                        'minProperties': 2,
+                        'multiline': true,
+                        'consistent': true, 
+                    },
+                    'ImportDeclaration': {
+                        'minProperties': 2,
+                        'multiline': true,
+                        'consistent': true, 
+                    },
+                    'ExportDeclaration': {
+                        'minProperties': 2,
+                        'multiline': true,
+                        'consistent': true, 
+                    },
+                }, 
             ],
             '@stylistic/ts/object-curly-newline': [
                 'error',
                 {
                     'ObjectExpression': {
-                        'minProperties': 3,
+                        'minProperties': 2,
                         'multiline': true,
-                        'consistent': true 
+                        'consistent': true, 
                     },
                     'ObjectPattern': {
-                        'minProperties': 3,
+                        'minProperties': 2,
                         'multiline': true,
-                        'consistent': true 
+                        'consistent': true, 
                     },
                     'ImportDeclaration': {
-                        'minProperties': 3,
+                        'minProperties': 2,
                         'multiline': true,
-                        'consistent': true 
+                        'consistent': true, 
                     },
                     'ExportDeclaration': {
-                        'minProperties': 3,
+                        'minProperties': 2,
                         'multiline': true,
-                        'consistent': true 
-                    }
-                } 
+                        'consistent': true, 
+                    },
+                }, 
             ],
             '@stylistic/js/object-curly-spacing': [ 'error', 'always' ],
-            '@stylistic/js/object-property-newline': [ 'error' ],
-            '@stylistic/ts/object-property-newline': [ 'error' ],
+            '@stylistic/js/object-property-newline': [
+                'error',
+                {
+                    'allowAllPropertiesOnSameLine': false,
+                }, 
+            ],
+            '@stylistic/ts/object-property-newline': [
+                'error',
+                {
+                    'allowAllPropertiesOnSameLine': false,
+                }, 
+            ],
             '@stylistic/js/quotes': [
                 'error',
                 'single',
                 {
                     'avoidEscape': true,
-                    'allowTemplateLiterals': true
-                }
+                    'allowTemplateLiterals': true,
+                },
             ],
             '@stylistic/js/jsx-quotes': [ 'error', 'prefer-double' ],
+            '@stylistic/js/comma-dangle': [
+                'error',
+                {
+                    'arrays': 'always-multiline',
+                    'objects': 'always-multiline',
+                    'imports': 'never',
+                    'exports': 'never',
+                    'functions': 'never',
+                    'importAttributes': 'never',
+                    'dynamicImports': 'never',
+                }, 
+            ],
+            '@stylistic/ts/comma-dangle': [
+                'error',
+                {
+                    'arrays': 'always-multiline',
+                    'objects': 'always-multiline',
+                    'imports': 'never',
+                    'exports': 'never',
+                    'functions': 'never',
+                    'importAttributes': 'never',
+                    'dynamicImports': 'never',
+                }, 
+            ],
+            '@stylistic/js/semi': [ 'error', 'always' ],
+            '@stylistic/ts/semi': [ 'error', 'always' ],
+            'canonical/import-specifier-newline': 'error',
             'import/order': [
                 'error',
                 {
@@ -132,9 +197,9 @@ export default tseslint.config(
                     extensions: [
                         '.tsx',
                         '.jsx',
-                        '.js' 
-                    ] 
-                } 
+                        '.js', 
+                    ], 
+                }, 
             ],
             'import/no-unresolved': 'off',
             'react/require-default-props': 'off',
@@ -154,12 +219,17 @@ export default tseslint.config(
                 {
                     ignoreComments: true,
                     ignoreUrls: true,
-                    code: 140 
-                } 
+                    code: 140, 
+                }, 
             ],
             '@typescript-eslint/no-var-requires': 'warn',
             'no-use-before-define': 'off',
-            '@typescript-eslint/no-use-before-define': [ 'error', { enums: false } ],
+            '@typescript-eslint/no-use-before-define': [
+                'error',
+                {
+                    enums: false, 
+                }, 
+            ],
             // 'i18next/no-literal-string': [
             //   'error',
             //   {
@@ -174,9 +244,19 @@ export default tseslint.config(
             'jsx-a11y/click-events-have-key-events': 'warn',
             'jsx-a11y/no-static-element-interactions': 'warn',
             // 'no-param-reassign': 'off',
-            'no-param-reassign': [ 'warn', { props: false } ],
+            'no-param-reassign': [
+                'warn',
+                {
+                    props: false, 
+                }, 
+            ],
             '@typescript-eslint/ban-ts-comment': 'warn',
-            'react/jsx-no-useless-fragment': [ 2, { allowExpressions: true } ],
-        }
+            'react/jsx-no-useless-fragment': [
+                2,
+                {
+                    allowExpressions: true, 
+                }, 
+            ],
+        },
     }
-)
+);

@@ -1,11 +1,12 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, memo 
-} from 'react'
+    FC,
+    memo 
+} from 'react';
 
 
-import { SkeletonConfig } from './Skeleton.const'
-import classes from './Skeleton.module.scss'
+import { SkeletonConfig } from './Skeleton.const';
+import classes from './Skeleton.module.scss';
 
 export interface SkeletonProps {
     /**
@@ -24,8 +25,8 @@ export interface SkeletonProps {
 export const Skeleton: FC<SkeletonProps> = memo((props) => {
     const {
         config,
-        className 
-    } = props
+        className, 
+    } = props;
 
     return (
         <div 
@@ -47,6 +48,6 @@ export const Skeleton: FC<SkeletonProps> = memo((props) => {
                 />
             ))}
         </div>
-    )
+    );
     
-})
+});

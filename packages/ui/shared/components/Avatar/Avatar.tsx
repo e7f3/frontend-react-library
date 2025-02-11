@@ -1,9 +1,12 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, ImgHTMLAttributes, memo, useMemo 
-} from 'react'
+    FC,
+    ImgHTMLAttributes,
+    memo,
+    useMemo 
+} from 'react';
 
-import classes from './Avatar.module.scss'
+import classes from './Avatar.module.scss';
 
 export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
     /**
@@ -30,7 +33,7 @@ export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
 export const Avatar: FC<AvatarProps> = memo((props) => {
     const {
         className, src, alt, size, ...rest 
-    } = props
+    } = props;
     const style = useMemo(
         () =>
             size || size === 0
@@ -40,7 +43,7 @@ export const Avatar: FC<AvatarProps> = memo((props) => {
                 }
                 : {},
         [ size ]
-    )
+    );
     return (
         <img
             className={classNames(classes.Avatar, {}, [ className ])}
@@ -49,5 +52,5 @@ export const Avatar: FC<AvatarProps> = memo((props) => {
             style={style}
             {...rest}
         />
-    )
-})
+    );
+});

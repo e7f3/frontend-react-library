@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path'
+import path from 'path';
 
 export default {
     // Automatically clear mock calls, instances and results before every test
@@ -25,7 +25,7 @@ export default {
         'ts',
         'tsx',
         'json',
-        'node' 
+        'node', 
     ],
 
     // The root directory that Jest should scan for tests and modules within
@@ -198,4 +198,4 @@ export default {
 
     // Whether to use watchman for file crawling
     // watchman: true,
-}
+};

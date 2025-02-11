@@ -1,4 +1,4 @@
-export type SkeletonShape = 'rectangle' | 'circle'
+export type SkeletonShape = 'rectangle' | 'circle';
 
 interface BaseSkeletonConfig<TShape extends SkeletonShape = SkeletonShape> {
     /*
@@ -44,4 +44,4 @@ export type SkeletonElementConfig<TShape extends SkeletonShape = SkeletonShape> 
 /**
  * Config for skeleton
  */
-export type SkeletonConfig = SkeletonElementConfig[]
+export type SkeletonConfig = SkeletonElementConfig[];

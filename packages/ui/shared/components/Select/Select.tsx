@@ -1,17 +1,22 @@
 import {
-    classNames, Mods 
-} from '@library/core/shared/utils/classNames/classNames'
+    classNames,
+    Mods 
+} from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, memo, SelectHTMLAttributes, useCallback, useMemo 
-} from 'react'
+    FC,
+    memo,
+    SelectHTMLAttributes,
+    useCallback,
+    useMemo 
+} from 'react';
 
 
-import classes from './Select.module.scss'
+import classes from './Select.module.scss';
 
 type SelectAttributes = Omit<
     SelectHTMLAttributes<HTMLSelectElement>,
   'value' | 'onChange' | 'readOnly'
->
+>;
 
 export interface SelectOption<T extends string> {
     /**
@@ -62,27 +67,27 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         value,
         onChange,
         options,
-        readonly = false 
-    } = props
+        readonly = false, 
+    } = props;
 
     const handleChange = useCallback(
         (event: React.ChangeEvent<HTMLSelectElement>) => {
-            onChange?.(event.target.value as T)
+            onChange?.(event.target.value as T);
         },
         [ onChange ]
-    )
+    );
 
     const optionsList = useMemo(() => {
         return options?.map(({
-            value: optionValue, content 
+            value: optionValue, content, 
         }) => (
             <option className={classes.option} value={optionValue} key={optionValue}>
                 {content}
             </option>
-        ))
-    }, [ options ])
+        ));
+    }, [ options ]);
 
-    const mods: Mods = { [classes.readonly]: readonly, }
+    const mods: Mods = { [classes.readonly]: readonly };
     return (
         <div className={classNames(classes.Wrapper, mods, [ className ])}>
             <select
@@ -100,5 +105,5 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
             </select>
             {label && value && <span className={classes.label}>{label}</span>}
         </div>
-    )
-}
+    );
+};

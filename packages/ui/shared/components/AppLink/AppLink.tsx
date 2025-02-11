@@ -1,16 +1,19 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, memo, PropsWithChildren 
-} from 'react'
+    FC,
+    memo,
+    PropsWithChildren 
+} from 'react';
 import {
-    Link, LinkProps 
-} from 'react-router-dom'
+    Link,
+    LinkProps 
+} from 'react-router-dom';
 
-import classes from './AppLink.module.scss'
+import classes from './AppLink.module.scss';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
-    SECONDARY = 'secondary',
+    SECONDARY = 'secondary'
 }
 
 export interface AppLinkProps extends LinkProps, PropsWithChildren {
@@ -34,7 +37,7 @@ export const AppLink: FC<AppLinkProps> = memo((props) => {
         children,
         theme = AppLinkTheme.PRIMARY,
         ...restProps
-    } = props
+    } = props;
 
     return (
         <Link
@@ -44,5 +47,5 @@ export const AppLink: FC<AppLinkProps> = memo((props) => {
         >
             {children}
         </Link>
-    )
-})
+    );
+});

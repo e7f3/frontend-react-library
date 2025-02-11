@@ -1,15 +1,18 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames'
+import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
-    FC, HTMLAttributes, memo, PropsWithChildren 
-} from 'react'
+    FC,
+    HTMLAttributes,
+    memo,
+    PropsWithChildren 
+} from 'react';
 
 
-import classes from './Card.module.scss'
+import classes from './Card.module.scss';
 
 export enum CardTheme {
     DEFAULT = 'default',
     ACTION = 'action',
-    WARNING = 'warning',
+    WARNING = 'warning'
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement>, PropsWithChildren {
@@ -24,7 +27,7 @@ export const Card: FC<CardProps> = memo((props) => {
         onClick,
         role,
         children,
-    } = props
+    } = props;
     return (
         <div
             className={classNames(classes.Card, {}, [ classes[theme], className ])}
@@ -33,5 +36,5 @@ export const Card: FC<CardProps> = memo((props) => {
         >
             {children}
         </div>
-    )
-})
+    );
+});

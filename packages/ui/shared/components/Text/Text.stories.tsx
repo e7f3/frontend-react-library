@@ -1,18 +1,21 @@
 import type {
-    Meta, StoryObj 
+    Meta,
+    StoryObj 
 } from '@storybook/react';
 
-import { Theme } from 'shared/providers/ThemeProvider'
+import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
-    Text, TextMode, TextVariant 
-} from './Text'
+    Text,
+    TextMode,
+    TextVariant 
+} from './Text';
 
 const meta = {
     title: 'ui/Text',
     component: Text,
     args: { content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.' },
-    parameters: { layout: 'centered', },
+    parameters: { layout: 'centered' },
     tags: [ 'autodocs' ],
 } satisfies Meta<typeof Text>;
  
@@ -21,26 +24,26 @@ type Story = StoryObj<typeof Text>;
 
 export const paragraph: Story = {
     name: 'Paragraph',
-    parameters: { backgrounds: { default: Theme.LIGHT } }
-}
+    parameters: { backgrounds: { default: Theme.LIGHT } },
+};
 
 export const subtitle: Story = {
     name: 'Subtitle',
-    args: { variant: TextVariant.SUBTITLE, },
-    parameters: paragraph.parameters
-}
+    args: { variant: TextVariant.SUBTITLE },
+    parameters: paragraph.parameters,
+};
 
 export const title: Story = {
     name: 'Title',
-    args: { variant: TextVariant.TITLE, },
-    parameters: paragraph.parameters
-}
+    args: { variant: TextVariant.TITLE },
+    parameters: paragraph.parameters,
+};
 
 export const paragraphError: Story = {
     name: 'Paragraph Error',
-    args: { mode: TextMode.ERROR, },
+    args: { mode: TextMode.ERROR },
     parameters: paragraph.parameters,
-}
+};
 
 export const subtitleError: Story = {
     name: 'Subtitle Error',
@@ -48,8 +51,8 @@ export const subtitleError: Story = {
         mode: TextMode.ERROR,
         variant: TextVariant.SUBTITLE,
     },
-    parameters: paragraph.parameters
-}
+    parameters: paragraph.parameters,
+};
 
 export const titleError: Story = {
     name: 'Title Error',
@@ -57,36 +60,36 @@ export const titleError: Story = {
         mode: TextMode.ERROR,
         variant: TextVariant.TITLE,
     },
-    parameters: paragraph.parameters
-}
+    parameters: paragraph.parameters,
+};
 
 export const darkThemeParagraph: Story = {
     name: 'Dark theme - Paragraph',
-    parameters: { backgrounds: { default: Theme.DARK, } },
-    globals: { theme: Theme.DARK, }
-}
+    parameters: { backgrounds: { default: Theme.DARK } },
+    globals: { theme: Theme.DARK },
+};
 
 export const darkThemeSubtitle: Story = {
     name: 'Dark theme - Subtitle',
-    args: { variant: TextVariant.SUBTITLE, },
+    args: { variant: TextVariant.SUBTITLE },
     parameters: darkThemeParagraph.parameters,
-    globals: darkThemeParagraph.globals
-}
+    globals: darkThemeParagraph.globals,
+};
 
 
 export const darkThemeTitle: Story = {
     name: 'Dark theme - Title',
-    args: { variant: TextVariant.TITLE, },
+    args: { variant: TextVariant.TITLE },
     parameters: darkThemeParagraph.parameters,
-    globals: darkThemeParagraph.globals
-}
+    globals: darkThemeParagraph.globals,
+};
 
 export const darkThemeParagraphError: Story = {
     name: 'Dark theme - Paragraph Error',
-    args: { mode: TextMode.ERROR, },
+    args: { mode: TextMode.ERROR },
     parameters: darkThemeParagraph.parameters,
     globals: darkThemeParagraph.globals,
-}
+};
 
 export const darkThemeSubtitleError: Story = {
     name: 'Dark theme - Subtitle Error',
@@ -95,8 +98,8 @@ export const darkThemeSubtitleError: Story = {
         variant: TextVariant.SUBTITLE,
     },
     parameters: darkThemeParagraph.parameters,
-    globals: darkThemeParagraph.globals
-}
+    globals: darkThemeParagraph.globals,
+};
 
 export const darkThemeTitleError: Story = {
     name: 'Dark theme - Title Error',
@@ -105,5 +108,5 @@ export const darkThemeTitleError: Story = {
         variant: TextVariant.TITLE,
     },
     parameters: darkThemeParagraph.parameters,
-    globals: darkThemeParagraph.globals
-}
+    globals: darkThemeParagraph.globals,
+};

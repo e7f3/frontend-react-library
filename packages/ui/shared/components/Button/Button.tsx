@@ -1,12 +1,16 @@
 import {
-    classNames, Mods 
-} from '@library/core/shared/utils/classNames/classNames'
+    classNames,
+    Mods 
+} from '@library/core/shared/utils/classNames/classNames';
 import {
-    ButtonHTMLAttributes, FC, memo, PropsWithChildren 
-} from 'react'
+    ButtonHTMLAttributes,
+    FC,
+    memo,
+    PropsWithChildren 
+} from 'react';
 
 
-import classes from './Button.module.scss'
+import classes from './Button.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, PropsWithChildren {
     /**
@@ -38,24 +42,24 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, Pr
 export enum ButtonTheme {
     'CLEAN' = 'cleanTheme',
     'DEFAULT' = 'defaultTheme',
-    'INVERTED' = 'invertedTheme',
+    'INVERTED' = 'invertedTheme'
 }
 
 export enum ButtonColorScheme {
     'DEFAULT' = 'defaultColorScheme',
     'ACTION' = 'actionColorScheme',
-    'WARNING' = 'warningColorScheme',
+    'WARNING' = 'warningColorScheme'
 }
 
 export enum ButtonVariant {
     'DEFAULT' = 'defaultVariant',
-    'SQUARE' = 'squareVariant',
+    'SQUARE' = 'squareVariant'
 }
 
 export enum ButtonSize {
     'M' = 'size_m',
     'L' = 'size_l',
-    'XL' = 'size_xl',
+    'XL' = 'size_xl'
 }
 
 /**
@@ -71,7 +75,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         children,
         disabled = false,
         ...restProps
-    } = props
+    } = props;
 
     const mods: Mods = {
         [classes[theme]]: Boolean(theme),
@@ -79,7 +83,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         [classes[size]]: Boolean(size),
         [classes[variant]]: Boolean(variant),
         [classes.disabled]: disabled,
-    }
+    };
 
     return (
         <button
@@ -90,5 +94,5 @@ export const Button: FC<ButtonProps> = memo((props) => {
         >
             {children}
         </button>
-    )
-})
+    );
+});

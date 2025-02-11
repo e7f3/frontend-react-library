@@ -1,16 +1,18 @@
 import type {
-    Meta, StoryObj 
+    Meta,
+    StoryObj 
 } from '@storybook/react';
 
 import {
-    AppLink, AppLinkTheme 
+    AppLink,
+    AppLinkTheme 
 } from './AppLink';
 import { Theme } from '../../providers/ThemeProvider';
 
 const meta = {
     title: 'ui/AppLink',
     component: AppLink,
-    parameters: { layout: 'centered', },
+    parameters: { layout: 'centered' },
     args: {
         to: '/some-path',
         children: 'Click me',
@@ -23,26 +25,26 @@ type Story = StoryObj<typeof AppLink>;
 
 export const primary: Story = {
     name: 'Primary',
-    args: { theme: AppLinkTheme.PRIMARY, },
-    parameters: { backgrounds: { default: Theme.LIGHT } }
+    args: { theme: AppLinkTheme.PRIMARY },
+    parameters: { backgrounds: { default: Theme.LIGHT } },
 };
 
 export const secondary: Story = {
     name: 'Secondary',
-    args: { theme: AppLinkTheme.SECONDARY, },
+    args: { theme: AppLinkTheme.SECONDARY },
     parameters: primary.parameters,
 };
 
 export const darkThemePrimary: Story = {
     name: 'Dark theme - Primary',
-    args: { theme: AppLinkTheme.PRIMARY, },
+    args: { theme: AppLinkTheme.PRIMARY },
     parameters: { backgrounds: { default: Theme.DARK } },
-    globals: { theme: Theme.DARK }
+    globals: { theme: Theme.DARK },
 };
 
 export const darkThemeSecondary: Story = {
     name: 'Dark theme - Secondary',
-    args: { theme: AppLinkTheme.SECONDARY, },
+    args: { theme: AppLinkTheme.SECONDARY },
     parameters: darkThemePrimary.parameters,
     globals: darkThemePrimary.globals,
 };

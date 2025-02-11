@@ -1,1 +1,1 @@
-export { AppRouteConfig } from './model/router.model'
+export { AppRouteConfig } from './model/router.model';

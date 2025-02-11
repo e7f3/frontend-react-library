@@ -1,21 +1,22 @@
-import * as path from 'path'
-import { Configuration } from 'webpack'
+import * as path from 'path';
+import { Configuration } from 'webpack';
 
-import { buildDevServer } from './buildDevServer'
-import { buildLoaders } from './buildLoaders'
-import { buildPlugins } from './buildPlugins'
-import { buildResolvers } from './buildResolvers'
+import { buildDevServer } from './buildDevServer';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
 import {
-    BuildEnv, BuildOptions 
-} from './types/config'
+    BuildEnv,
+    BuildOptions 
+} from './types/config';
 
 
 function createConfig(
     options: BuildOptions
 ): Configuration {
     const {
-        mode, paths, isDev 
-    } = options
+        mode, paths, isDev, 
+    } = options;
     return {
         mode,
         entry: paths.entry,
@@ -24,12 +25,12 @@ function createConfig(
             filename: '[name].[contenthash].js',
             clean: true,
         },
-        module: { rules: buildLoaders(options), },
+        module: { rules: buildLoaders(options) },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
-    }
+    };
 }
 
 export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configuration => {
@@ -38,13 +39,13 @@ export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configu
         html: path.resolve(rootPath, 'public', 'index.html'),
         build: path.resolve(rootPath, 'dist'),
         src: path.resolve(rootPath, 'src'),
-    }
+    };
 
-    const mode = env.mode || 'development'
-    const isDev = mode === 'development'
-    const PORT = env.port || 3000
-    const open = true
-    const project = 'frontend'
+    const mode = env.mode || 'development';
+    const isDev = mode === 'development';
+    const PORT = env.port || 3000;
+    const open = true;
+    const project = 'frontend';
 
     const config: Configuration = createConfig({
         mode,
@@ -53,7 +54,7 @@ export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configu
         port: PORT,
         open,
         project,
-    })
+    });
 
-    return config
-}
+    return config;
+};

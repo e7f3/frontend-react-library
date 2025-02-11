@@ -1,6 +1,7 @@
 import {
-    classNames, Mods 
-} from '@library/core/shared/utils/classNames/classNames'
+    classNames,
+    Mods 
+} from '@library/core/shared/utils/classNames/classNames';
 import {
     FC,
     MouseEvent,
@@ -9,14 +10,14 @@ import {
     useCallback,
     useEffect,
     useRef,
-    useState,
-} from 'react'
+    useState
+} from 'react';
 
-import { Portal } from 'shared/components/Portal/Portal'
+import { Portal } from 'shared/components/Portal/Portal';
 
-import classes from './Modal.module.scss'
+import classes from './Modal.module.scss';
 
-const CLOSE_DELAY = 200
+const CLOSE_DELAY = 200;
 
 export interface ModalProps extends PropsWithChildren {
     className?: string
@@ -27,63 +28,63 @@ export interface ModalProps extends PropsWithChildren {
 
 export const Modal: FC<ModalProps> = (props) => {
     const {
-        className, isOpen, onClose, lazy = true, children 
-    } = props
+        className, isOpen, onClose, lazy = true, children, 
+    } = props;
 
-    const [ isClosing, setIsClosing ] = useState(false)
-    const [ wasOpened, setWasOpened ] = useState(false)
-    const timeoutIdRef: MutableRefObject<ReturnType<typeof setTimeout> | null> = useRef(null)
+    const [ isClosing, setIsClosing ] = useState(false);
+    const [ wasOpened, setWasOpened ] = useState(false);
+    const timeoutIdRef: MutableRefObject<ReturnType<typeof setTimeout> | null> = useRef(null);
 
     const handleClose = useCallback(() => {
         if (isOpen) {
-            setIsClosing(true)
+            setIsClosing(true);
             timeoutIdRef.current = setTimeout(() => {
                 if (onClose) {
-                    onClose()
+                    onClose();
                 }
-                setIsClosing(false)
-            }, CLOSE_DELAY)
+                setIsClosing(false);
+            }, CLOSE_DELAY);
         }
-    }, [ onClose, isOpen ])
+    }, [ onClose, isOpen ]);
 
     const handleContentClick = (event: MouseEvent) => {
-        event.stopPropagation()
-    }
+        event.stopPropagation();
+    };
 
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
-                handleClose()
+                handleClose();
             }
         },
         [ handleClose ]
-    )
+    );
 
     useEffect(() => {
         if (isOpen && !wasOpened) {
-            setWasOpened(true)
+            setWasOpened(true);
         }
-    }, [ isOpen, wasOpened ])
+    }, [ isOpen, wasOpened ]);
 
     useEffect(() => {
         if (isOpen) {
-            window.addEventListener('keydown', handleKeyDown)
+            window.addEventListener('keydown', handleKeyDown);
         }
         return () => {
             if (timeoutIdRef?.current) {
-                clearTimeout(timeoutIdRef?.current)
+                clearTimeout(timeoutIdRef?.current);
             }
-            window.removeEventListener('keydown', handleKeyDown)
-        }
-    }, [ isOpen, handleKeyDown ])
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [ isOpen, handleKeyDown ]);
 
     const mods: Mods = {
         [classes.opened]: isOpen,
         [classes.isClosing]: isClosing,
-    }
+    };
 
     if (!wasOpened) {
-        return null
+        return null;
     }
 
     return (
@@ -99,5 +100,5 @@ export const Modal: FC<ModalProps> = (props) => {
                 </div>
             </div>
         </Portal>
-    )
-}
+    );
+};
