@@ -15,6 +15,10 @@ export default tseslint.config(
     eslint.configs.recommended,
     tseslint.configs.recommended,
     {
+        languageOptions: {
+            sourceType: 'module',
+            globals: { ...globals.node },
+        },
         ignores: [ '**/.eslint.config.js' ],
         plugins: {
             'import': eslintImport,

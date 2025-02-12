@@ -8,7 +8,9 @@
     "lint:fix": "eslint --fix",
     "lint:scss": "stylelint \"**/*.scss\"",
     "storybook": "sb dev",
-    "storybook:build": "sb build"
+    "storybook:build": "sb build",
+    "test:unit": "jest --config ./jest.config.cjs",
+    "test:unit:watch": "jest --watch --config ./jest.config.cjs"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",

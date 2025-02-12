@@ -3,9 +3,20 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from 'path';
+const path = require('path');
 
-export default {
+/** @type {import('jest').Config} */
+module.exports = {
+    // A preset that is used as a base for Jest's configuration
+    preset: 'ts-jest',
+
+    // A map from regular expressions to paths to transformers
+    transform: {
+        '^.+\\.tsx?$': 'ts-jest',
+    },
+
+    // extensionsToTreatAsEsm: ['.ts', '.tsx'],
+
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
 
@@ -45,7 +56,7 @@ export default {
     },
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: [ path.resolve(__dirname, 'setupTests.ts') ],
+    setupFilesAfterEnv: [ path.resolve(__dirname, 'setupTests.cjs') ],
 
     // A set of global variables that need to be available in all test environments
     globals: {
@@ -114,9 +125,6 @@ export default {
     // An enum that specifies notification mode. Requires { notify: true }
     // notifyMode: "failure-change",
 
-    // A preset that is used as a base for Jest's configuration
-    // preset: undefined,
-
     // Run tests from one or more projects
     // projects: undefined,
 
@@ -177,9 +185,6 @@ export default {
 
     // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
     // timers: "real",
-
-    // A map from regular expressions to paths to transformers
-    // transform: undefined,
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
     // transformIgnorePatterns: [
