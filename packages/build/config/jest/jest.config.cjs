@@ -2,7 +2,7 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
-
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 /** @type {import('jest').Config} */

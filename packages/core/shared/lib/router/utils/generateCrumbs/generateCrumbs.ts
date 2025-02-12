@@ -21,7 +21,9 @@ export interface Crumb {
  * @returns array of breadcrumb objects
  */
 export const generateCrumbs = (route: AppRouteProps): Crumb[] => {
-    const { path, name } = route;
+    const {
+        path, name, 
+    } = route;
     const crumbs: Crumb[] =
     path
         ?.split('/')

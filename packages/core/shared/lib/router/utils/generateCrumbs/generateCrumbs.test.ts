@@ -1,6 +1,6 @@
+import { generateCrumbs } from './generateCrumbs';
 import { AppRouteProps } from '../../model/router.model';
 
-import { generateCrumbs } from './generateCrumbs';
 
 describe('generateCrumbs', () => {
     it('should generate correct crumbs for a simple path', () => {

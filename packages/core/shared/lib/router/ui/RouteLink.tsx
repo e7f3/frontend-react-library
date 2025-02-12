@@ -1,9 +1,9 @@
+import { AppLink } from '@library/ui/shared/components/AppLink/AppLink';
 import {
     FC,
     ReactNode 
 } from 'react';
 
-import { AppLink } from '@library/ui/shared/components/AppLink/AppLink';
 
 export interface RouteLinkProps {
     data: ReactNode,

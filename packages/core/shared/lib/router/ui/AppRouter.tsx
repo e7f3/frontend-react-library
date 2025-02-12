@@ -1,3 +1,4 @@
+import { Loader } from '@library/ui/shared/components/Loader/Loader';
 import {
     memo,
     Suspense,
@@ -8,14 +9,12 @@ import {
     Routes 
 } from 'react-router-dom';
 
-import { Loader } from '@library/ui/shared/components/Loader/Loader';
+import { RequireAuth } from './RequireAuth';
+import { RouteLink } from './RouteLink';
 import {
     AppRouteConfig,
     AppRouteProps 
 } from '../model/router.model';
-
-import { RequireAuth } from './RequireAuth';
-import { RouteLink } from './RouteLink';
 
 const CRUMB = { crumb: RouteLink };
 
