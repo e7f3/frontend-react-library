@@ -8,11 +8,11 @@ import {
     Routes 
 } from 'react-router-dom';
 
-import { Loader } from 'shared/components/Loader/Loader';
+import { Loader } from '@library/ui/shared/components/Loader/Loader';
 import {
     AppRouteConfig,
     AppRouteProps 
-} from 'shared/config/router/model/router.model';
+} from '../model/router.model';
 
 import { RequireAuth } from './RequireAuth';
 import { RouteLink } from './RouteLink';
@@ -20,11 +20,33 @@ import { RouteLink } from './RouteLink';
 const CRUMB = { crumb: RouteLink };
 
 export interface AppRouterProps {
+    /**
+     * Route config
+     */
     config: AppRouteConfig
 }
 
 /**
- * AppRouter
+ * Main application router
+ *
+ * @prop {AppRouteConfig} config - route config
+ *
+ * @example
+ * const routeConfig: AppRouteConfig = {
+ *     routeConfig: {
+ *         '/': {
+ *             name: 'Main',
+ *             element: <Main />,
+ *         },
+ *         '/about': {
+ *             name: 'About',
+ *             element: <About />,
+ *         },
+ *     },
+ *     defaultPath: '/',
+ * };
+ *
+ * @returns {JSX.Element}
  */
 export const AppRouter = memo<AppRouterProps>(({ config }) => {
     const {

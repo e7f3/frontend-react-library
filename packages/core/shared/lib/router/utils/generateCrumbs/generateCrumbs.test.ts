@@ -1,4 +1,4 @@
-import { AppRouteProps } from 'shared/config/router/model/router.model';
+import { AppRouteProps } from '../../model/router.model';
 
 import { generateCrumbs } from './generateCrumbs';
 

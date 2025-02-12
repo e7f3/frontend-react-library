@@ -1,4 +1,4 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames';
+import { classNames } from '@library/core/shared/lib/utils/classNames/classNames';
 import { FC } from 'react';
 
 import classes from './Loader.module.scss';

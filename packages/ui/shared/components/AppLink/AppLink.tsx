@@ -1,4 +1,3 @@
-import { classNames } from '@library/core/shared/utils/classNames/classNames';
 import {
     FC,
     memo,
@@ -10,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 import classes from './AppLink.module.scss';
+import { classNames } from '@library/core/shared/lib/utils/classNames/classNames';
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',

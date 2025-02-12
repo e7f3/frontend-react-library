@@ -1,7 +1,7 @@
 import {
     classNames,
     Mods 
-} from '@library/core/shared/utils/classNames/classNames';
+} from '@library/core/shared/lib/utils/classNames/classNames';
 import {
     FC,
     MouseEvent,

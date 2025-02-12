@@ -26,6 +26,12 @@ interface ErrorBoundaryState {
 /**
  * Error boundary component,
  * catching errors from its children and rendering a fallback UI when necessary.
+ * 
+ * @param props - The properties for the ErrorBoundary component.
+ * @param props.children - The child components that will be wrapped by the error boundary.
+ * @param props.FallbackComponent - The fallback UI to be rendered when an error occurs.
+ * 
+ * @returns The child components wrapped by the error boundary, or the fallback UI if an error occurs.
  */
 class ErrorBoundary extends React.Component<
     ErrorBoundaryProps,

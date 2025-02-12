@@ -9,6 +9,7 @@ import eslintJestPlugin from 'eslint-plugin-jest';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(

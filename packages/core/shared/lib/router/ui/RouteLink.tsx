@@ -3,7 +3,7 @@ import {
     ReactNode 
 } from 'react';
 
-import { AppLink } from 'shared/components/AppLink/AppLink';
+import { AppLink } from '@library/ui/shared/components/AppLink/AppLink';
 
 export interface RouteLinkProps {
     data: ReactNode,
