@@ -13,7 +13,7 @@ import {
     ReducersList,
     StateSchema,
     StoreWithReducerManager 
-} from '../../StoreProvider';
+} from '../StoreProvider';
 
 export interface DynamicReducerLoaderProps<TState extends object> extends PropsWithChildren {
     /**
