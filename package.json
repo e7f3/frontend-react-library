@@ -2,7 +2,6 @@
   "name": "frontend-react-library",
   "type": "module",
   "packageManager": "yarn@4.0.2",
-  "private": true,
   "scripts": {
     "test:unit": "lerna run test"
   },

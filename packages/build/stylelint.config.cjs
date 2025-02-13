@@ -1,9 +1,12 @@
-import {
+ 
+const {
     propertyOrdering,
-    selectorOrdering 
-} from 'stylelint-semantic-groups';
+    selectorOrdering, 
+    //eslint-disable-next-line @typescript-eslint/no-require-imports
+} = require('stylelint-semantic-groups');
 
-export default {
+/** @type {import('stylelint').Config} */
+module.exports = {
     extends: 'stylelint-config-standard-scss',
     plugins: [
         'stylelint-order',
@@ -17,3 +20,4 @@ export default {
         '@stylistic/indentation': 4,
     },
 };
+

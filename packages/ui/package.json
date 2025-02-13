@@ -1,7 +1,6 @@
 {
   "name": "@library/ui",
   "type": "module",
-  "private": true,
   "packageManager": "yarn@4.0.2",
   "scripts": {
     "lint": "eslint",
@@ -43,7 +42,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.5",
     "babel-loader": "^9.2.1",
-    "css-loader": "6",
+    "css-loader": "^7.1.2",
     "eslint": "^9.19.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "jest": "^29.7.0",
@@ -51,9 +50,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.0.0",
     "sass": "1.69",
-    "sass-loader": "13",
+    "sass-loader": "^16.0.4",
     "storybook": "^8.5.3",
-    "style-loader": "3",
+    "style-loader": "^4.0.0",
     "stylelint": "^16.14.1",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.2",

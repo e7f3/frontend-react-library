@@ -1,7 +1,6 @@
 {
   "name": "@library/build",
   "type": "module",
-  "private": true,
   "packageManager": "yarn@4.0.2",
   "dependencies": {
     "@babel/core": "^7.26.0",
@@ -20,7 +19,6 @@
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "@typescript-eslint/parser": "^8.21.0",
-    "css-loader": "^7.1.2",
     "eslint": "^9.18.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-typescript": "^3.7.0",
@@ -34,8 +32,6 @@
     "mini-css-extract-plugin": "^2.9.2",
     "react-refresh": "^0.16.0",
     "regenerator-runtime": "^0.14.1",
-    "sass-loader": "^16.0.4",
-    "style-loader": "^4.0.0",
     "stylelint": "^16.13.2",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-order": "^6.0.4",
@@ -53,10 +49,13 @@
     "@types/identity-obj-proxy": "^3",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.1",
+    "css-loader": "^7.1.2",
     "eslint-plugin-canonical": "^5.1.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2"
   }
