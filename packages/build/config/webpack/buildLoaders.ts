@@ -26,7 +26,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: '/node-modules/',
+        exclude: /(node_modules|\.stories\.tsx$)/,
     };
 
     const cssLoader = buildCssLoader(true);
