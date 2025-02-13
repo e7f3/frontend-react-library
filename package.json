@@ -9,18 +9,18 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@storybook/react-webpack5": "^8.5.3",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "lerna": "^8.1.9",
-    "storybook": "^8.5.3"
-  },
-  "dependencies": {
-    "@library/build": "workspace:^",
-    "@library/core": "workspace:^",
-    "@library/ui": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.0.0"
+    "react-router-dom": "^6.0.0",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.0.0",
+    "typescript": "^5.7.3"
   }
 }

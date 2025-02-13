@@ -24,17 +24,17 @@ export const generateCrumbs = (route: AppRouteProps): Crumb[] => {
     const {
         path, name, 
     } = route;
-    const crumbs: Crumb[] =
-    path
-        ?.split('/')
-        .filter(Boolean)
-        .reduce((accumulator, current, index, array) => {
-            const crumb: Crumb = {
-                path: `/${array.slice(0, index + 1).join('/')}`,
-                title: index === array.length - 1 ? name : '/', // Set title to route name for the last segment
-            };
-            return [ ...accumulator, crumb ];
-        }, [] as Crumb[]) || [];
-
+    const crumbs: Crumb[] = (
+        path
+            ?.split('/')
+            .filter(Boolean)
+            .reduce((accumulator, current, index, array) => {
+                const crumb: Crumb = {
+                    path: `/${array.slice(0, index + 1).join('/')}`,
+                    title: 'test', // Set title to route name for the last segment
+                };
+                return [ ...accumulator, crumb ];
+            }, [] as Crumb[]) || []
+    );
     return crumbs;
 };

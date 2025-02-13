@@ -3,7 +3,6 @@ import type {
     StoryObj 
 } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {

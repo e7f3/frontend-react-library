@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const baseConfig = require('@library/build/config/jest/jest.config');
+const baseConfig = require('@library/build/config/jest/jest.config.cjs');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
