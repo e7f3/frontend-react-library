@@ -15,7 +15,7 @@ function createConfig(
     options: BuildOptions
 ): Configuration {
     const {
-        mode, paths, isDev, 
+        mode, paths, isDev
     } = options;
     return {
         mode,
@@ -54,6 +54,7 @@ export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configu
         port: PORT,
         open,
         project,
+        rootPath,
     });
 
     return config;

@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import { SharedPathPlugin } from './plugins/sharedPathPlugin';
 
 import { BuildOptions } from './types/config';
 
@@ -21,6 +22,7 @@ export function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project),
         }),
+        SharedPathPlugin,
     ];
 
     if (isDev) {
