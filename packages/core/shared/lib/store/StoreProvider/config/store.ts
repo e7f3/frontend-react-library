@@ -1,35 +1,39 @@
 import {
-    AnyAction,
-    CombinedState,
     configureStore,
     Reducer,
-    ReducersMapObject
+    ReducersMapObject,
+    UnknownAction
 } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
-import { scrollPositionReducer } from 'features/SaveScrollPosition';
-import {
-    NavigateOptions,
-    To 
-} from 'react-router-dom';
 
 import { $api } from 'shared/api/api';
 
 import { createReducerManager } from './reducerManager';
 import type {
+    CombinedState,
     StateSchema,
     ThunkExtraArgument 
 } from './stateSchema.model';
 
-export const createReduxStore = (
-    initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>
+/**
+ * Creates a Redux store with the given initial state and reducers.
+ *
+ * @param initialState - The initial state of the store.
+ * @param reducers - An object of reducers to be included in the store.
+ *
+ * @returns The created Redux store.
+ *
+ * @example
+ * const store = createReduxStore(
+ *     { counter: 0 },
+ *     { counter: counterReducer }
+ * );
+ */
+export const createReduxStore = <TState extends object>(
+    initialState?: StateSchema<TState>,
+    reducers?: ReducersMapObject<StateSchema<TState>>
 ) => {
-    const rootReducers: ReducersMapObject<StateSchema> = {
-        ...asyncReducers,
-        counter: counterReducer,
-        user: userReducer,
-        scrollPosition: scrollPositionReducer,
+    const rootReducers: ReducersMapObject<StateSchema<TState>> = {
+        ...reducers
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -38,8 +42,8 @@ export const createReduxStore = (
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
-            CombinedState<StateSchema>,
-            AnyAction
+            CombinedState<StateSchema<TState>>,
+            UnknownAction
         >,
         devTools: __IS_DEV__,
         preloadedState: initialState,
@@ -57,7 +61,7 @@ export const createReduxStore = (
     return store;
 };
 
-export type RootState = ReducersMapObject<StateSchema>;
+export type RootState<TState extends object> = ReducersMapObject<StateSchema<TState>>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
 
