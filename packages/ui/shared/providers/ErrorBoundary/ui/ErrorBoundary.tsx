@@ -2,14 +2,11 @@ import React, {
     ErrorInfo,
     ReactNode,
     Suspense,
-    FC
+    FC,
+    PropsWithChildren
 } from 'react';
 
-interface ErrorBoundaryProps {
-    /**
-     * Default return - application
-     */
-    children: ReactNode,
+interface ErrorBoundaryProps extends PropsWithChildren {
     /**
      * Fallback UI
      */
