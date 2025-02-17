@@ -13,7 +13,8 @@ export interface BuildOptions {
     isDev: boolean
     port: number
     open: boolean
-    project: 'frontend' | 'jest'
+    project: 'frontend' | 'jest',
+    rootPath: string,
 }
 
 export interface BuildEnv {
