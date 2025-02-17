@@ -1,0 +1,188 @@
+.steps-list {
+    display: grid;
+
+    overflow: hidden;
+
+    .item {
+        display: grid;
+        gap: 0.5rem 2rem;
+    }
+
+    &.column {
+        grid-auto-flow: row;
+        grid-template-columns: max-content 1fr;
+
+        .item {
+            grid-column: 1 / -1;
+
+            grid-auto-flow: column;
+            grid-template-columns: subgrid;
+
+            .marker {
+                z-index: 2;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: fit-content;
+                padding: 0.5rem 0;
+
+                background-color: var(--secondary-bg-color);
+            }
+
+            .line {
+                z-index: 1;
+
+                display: block;
+
+                width: 2px;
+                height: 100%;
+
+                background-color: var(--secondary-color);
+
+                transform: translateX(calc(0.2rem));
+            }
+
+            .content {
+                padding: 0.5rem 0;
+            }
+        }
+
+        .item:first-of-type {
+            .marker {
+                padding-top: 0;
+            }
+
+            .content {
+                padding-top: 0;
+            }
+        }
+
+        .item:last-of-type {
+            .marker {
+                padding-bottom: 0;
+            }
+
+            .content {
+                padding-bottom: 0;
+            }
+        }
+
+        .item:not(:first-of-type) {
+            .marker {
+                margin-top: auto;
+            }
+        }
+
+        .item + .item .content {
+            margin-top: 3rem;
+        }
+
+
+        .marker-container {
+            position: relative;
+
+            display: flex;
+            place-self: center center;
+
+            width: 100%;
+            height: 100%;
+
+            &.with-line {
+                .marker {
+                    margin-left: -2px;
+                }
+            }
+        }
+    }
+
+    &.row {
+        grid-auto-flow: column;
+
+        .item {
+            grid-auto-flow: row;
+
+            .marker { // stylelint-disable-line no-descending-specificity
+                z-index: 2;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: fit-content;
+                height: 100%;
+                padding: 0 0.5rem;
+
+                background-color: var(--secondary-bg-color);
+            }
+
+            .line {
+                z-index: 1;
+
+                display: block;
+
+                width: 100%;
+                height: 2px;
+
+                background-color: var(--secondary-color);
+
+                transform: translateY(0.75rem);
+            }
+
+            .content { // stylelint-disable-line no-descending-specificity
+                padding: 0 0.5rem;
+            }
+        }
+
+        .marker-container {
+            position: relative;
+
+            display: flex;
+            place-self: center center;
+
+            width: 100%;
+            height: 100%;
+
+            &.with-line {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .item:not(:first-of-type, :last-of-type) {
+            .marker-container.marker-container.with-line {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .item:first-of-type {
+            .marker {
+                padding-left: 0;
+            }
+
+            .content {
+                padding-left: 0;
+            }
+        }
+
+        .item:last-of-type {
+            .marker-container.with-line {
+                flex-direction: row;
+            }
+
+            .marker {
+                padding-right: 0;
+            }
+
+            .content {
+                padding-right: 0;
+            }
+        }        
+    }
+}
+
+
+
