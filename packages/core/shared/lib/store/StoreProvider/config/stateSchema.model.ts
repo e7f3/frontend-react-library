@@ -4,45 +4,82 @@ import {
     UnknownAction,
     EnhancedStore,
     Reducer,
-    ReducersMapObject
+    ReducersMapObject,
+    StateFromReducersMapObject,
+    combineReducers
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
+/**
+ * The type of the base state of the store.
+ */
+export interface BaseSchema {
+    isLoading?: boolean;
+    error?: string;
+}
+
+/**
+ * The type of the state of a feature in the store.
+ */
+export interface FeatureState<T> extends BaseSchema {
+    data: T;
+}
+
+/**
+ * Key for dynamic state registration
+ */
+export type StateSchemaKey = string;
+
+/**
+ * The type of the generic state of the store.
+ */
+export type GenericStateSchema<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> = TRequired & Partial<TOptional>;
+
 /**
  * The type of the combined state of the store.
  */
-export type CombinedState<TState> = {
-    [K in keyof TState]: TState[K];
-};
-
-/**
- * The type of the state of the store with optional slices.
- */
-export type StateSchema<TState extends object> = {
-    [key: string]: TState | undefined; // Allow optional slices
+export type CombinedState<TRequired> = {
+    [K in keyof TRequired]: TRequired[K];
 };
 
 /**
  * The type of the list of reducers for the store.
  */
-export type ReducersList<TState extends object> = {
-    [name in keyof StateSchema<TState>]?: Reducer
+export type ReducersList<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> = {
+    [K in keyof GenericStateSchema<TRequired, TOptional>]?: Reducer<GenericStateSchema<TRequired, TOptional>[K]>;
 };
 
 /**
  * The type of the reducer manager for the store.
  */
-export interface ReducerManager<TState extends object> {
-    getReducerMap: () => ReducersMapObject<StateSchema<TState>>
-    reduce: (state: StateSchema<TState>, action: UnknownAction) => CombinedState<StateSchema<TState>>
-    add: (key: keyof StateSchema<TState>, reducer: Reducer) => void
-    remove: (key: keyof StateSchema<TState>) => void
+export interface ReducerManager<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> {
+    getReducerMap: () => ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+    reduce: (
+        state: GenericStateSchema<TRequired, TOptional> | undefined, 
+        action: UnknownAction
+    ) => StateFromReducersMapObject<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>;
+    add: <K extends keyof GenericStateSchema<TRequired, TOptional>>(key: K, reducer: Reducer) => void
+    remove: <K extends keyof GenericStateSchema<TRequired, TOptional>>(key: K) => void
 }
 
 /**
  * The type of the store with the reducer manager.
  */
-export interface StoreWithReducerManager<TState extends object> extends EnhancedStore<StateSchema<TState>> {
-    reducerManager: ReducerManager<TState>
+export interface StoreWithReducerManager<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+>
+    extends EnhancedStore<GenericStateSchema<TRequired, TOptional>> {
+    reducerManager: ReducerManager<TRequired, TOptional>
 }
 
 /**
@@ -55,8 +92,12 @@ export interface ThunkExtraArgument {
 /**
  * The type of the configuration for a thunk.
  */
-export interface ThunkApiConfig<T, TState extends object> {
-    rejectValue: T
+export interface ThunkApiConfig<
+    TReject,
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> {
+    rejectValue: TReject
     extra: ThunkExtraArgument
-    state: StateSchema<TState>
+    state: GenericStateSchema<TRequired, TOptional>
 }

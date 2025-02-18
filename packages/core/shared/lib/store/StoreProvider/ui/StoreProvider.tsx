@@ -6,12 +6,18 @@ import {
 import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import type { StateSchema } from '../config/stateSchema.model';
+import type {
+    FeatureState,
+    GenericStateSchema 
+} from '../config/stateSchema.model';
 import { createReduxStore } from '../config/store';
 
-export interface StoreProviderProps<TState extends object> extends PropsWithChildren {
-    initialState?: StateSchema<TState>
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema<TState>>>
+export interface StoreProviderProps<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> extends PropsWithChildren {
+    initialState?: GenericStateSchema<TRequired, TOptional>
+    asyncReducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
 }
 
 /**
@@ -22,19 +28,23 @@ export interface StoreProviderProps<TState extends object> extends PropsWithChil
  * @param props.asyncReducers - An object of async reducers to be included in the store.
  * @param props.children - The child components that will have access to the store.
  *
- * @template TState - The type of the state schema.
+ * @template TRequired - The type of the required state schema.
+ * @template TOptional - The type of the optional state schema.
  *
  * @returns A React Redux Provider component that provides the Redux store to its children.
  */
 
-export const StoreProvider = <TState extends object>(props: StoreProviderProps<TState>) => {
+export const StoreProvider = <
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+>(props: StoreProviderProps<TRequired, TOptional>) => {
     const {
         initialState, children, asyncReducers, 
     } = props;
     // const navigate = useNavigate()
     const store = createReduxStore(
         initialState,
-        asyncReducers as ReducersMapObject<StateSchema<TState>>
+        asyncReducers as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
     // navigate
     );
     console.log('render');

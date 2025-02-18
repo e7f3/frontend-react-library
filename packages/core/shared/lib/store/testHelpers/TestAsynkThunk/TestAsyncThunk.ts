@@ -4,7 +4,10 @@ import {
 } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
-import { StateSchema } from '../../StoreProvider';
+import {
+    GenericStateSchema,
+    FeatureState 
+} from '../../StoreProvider';
 
 jest.mock('axios');
 
@@ -45,7 +48,13 @@ type ActionCreatorType<TReturned, TArg, TRejectValue> = (
  *     expect(result.payload).toBe(userData)
  *})
  */
-export class TestAsyncThunk<TReturned, TArg, TRejectValue, TState extends object> {
+export class TestAsyncThunk<
+    TReturned,
+    TArg,
+    TRejectValue,
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> {
     dispatch: Dispatch;
 
     api: jest.MockedFunctionDeep<AxiosStatic>;
@@ -53,17 +62,17 @@ export class TestAsyncThunk<TReturned, TArg, TRejectValue, TState extends object
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: jest.MockedFn<any>;
 
-    getState: () => StateSchema<TState>;
+    getState: () => GenericStateSchema<TRequired, TOptional>;
 
     actionCreator: ActionCreatorType<TReturned, TArg, TRejectValue>;
 
     constructor(
         actionCreator: ActionCreatorType<TReturned, TArg, TRejectValue>,
-        state?: DeepPartial<StateSchema<TState>>
+        state?: DeepPartial<GenericStateSchema<TRequired, TOptional>>
     ) {
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn(() => state as StateSchema<TState>);
+        this.getState = jest.fn(() => state as GenericStateSchema<TRequired, TOptional>);
         this.api = mockedAxios;
         this.navigate = jest.fn();
     }

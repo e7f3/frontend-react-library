@@ -3,11 +3,16 @@ import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
 import {
-    StateSchema,
+    GenericStateSchema,
     StoreProvider 
 } from 'shared/lib/store/StoreProvider';
 
-export interface ComponentRenderOptions<TState extends object> {
+import { FeatureState } from '../../StoreProvider/config/stateSchema.model';
+
+export interface ComponentRenderOptions<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> {
     /**
    * URL to emulate for the component
    */
@@ -15,7 +20,7 @@ export interface ComponentRenderOptions<TState extends object> {
     /**
    * Initial state of the store
    */
-    initialState?: DeepPartial<StateSchema<TState>>
+    initialState?: DeepPartial<GenericStateSchema<TRequired, TOptional>>
 }
 
 /**
@@ -25,16 +30,19 @@ export interface ComponentRenderOptions<TState extends object> {
  * @param options - options for rendering
  * @returns result of the @testing-library/react render function
  */
-export function componentRender<TState extends object>(
+export function componentRender<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+>(
     component: ReactNode,
-    options: ComponentRenderOptions<TState> = {}
+    options: ComponentRenderOptions<TRequired, TOptional> = {}
 ) {
     const {
         route = '/', initialState, 
     } = options;
     return render(
         <MemoryRouter initialEntries={[ route ]}>
-            <StoreProvider initialState={initialState as StateSchema<TState>}>
+            <StoreProvider initialState={initialState as GenericStateSchema<TRequired, TOptional>}>
                 {component}
             </StoreProvider>
         </MemoryRouter>

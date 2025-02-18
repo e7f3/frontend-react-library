@@ -10,7 +10,8 @@ import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
 import type {
     CombinedState,
-    StateSchema,
+    FeatureState,
+    GenericStateSchema,
     ThunkExtraArgument 
 } from './stateSchema.model';
 
@@ -28,13 +29,16 @@ import type {
  *     { counter: counterReducer }
  * );
  */
-export const createReduxStore = <TState extends object>(
-    initialState?: StateSchema<TState>,
-    reducers?: ReducersMapObject<StateSchema<TState>>
+export const createReduxStore = <
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+>(
+    initialState?: GenericStateSchema<TRequired, TOptional>,
+    reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
 ) => {
-    const rootReducers: ReducersMapObject<StateSchema<TState>> = {
-        ...reducers
-    };
+    const rootReducers = {
+        ...reducers,
+    } as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
 
     const reducerManager = createReducerManager(rootReducers);
 
@@ -42,7 +46,7 @@ export const createReduxStore = <TState extends object>(
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
-            CombinedState<StateSchema<TState>>,
+            CombinedState<GenericStateSchema<TRequired>>,
             UnknownAction
         >,
         devTools: __IS_DEV__,
@@ -61,11 +65,10 @@ export const createReduxStore = <TState extends object>(
     return store;
 };
 
-export type RootState<TState extends object> = ReducersMapObject<StateSchema<TState>>;
+export type RootState<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> = ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store.dispatch

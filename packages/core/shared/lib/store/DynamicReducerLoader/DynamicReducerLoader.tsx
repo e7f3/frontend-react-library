@@ -1,6 +1,4 @@
-import { Reducer } from '@reduxjs/toolkit';
 import {
-    FC,
     PropsWithChildren,
     useEffect 
 } from 'react';
@@ -11,15 +9,19 @@ import {
 
 import {
     ReducersList,
-    StateSchema,
+    GenericStateSchema,
     StoreWithReducerManager 
 } from '../StoreProvider';
+import { FeatureState } from '../StoreProvider/config/stateSchema.model';
 
-export interface DynamicReducerLoaderProps<TState extends object> extends PropsWithChildren {
+export interface DynamicReducerLoaderProps<
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+> extends PropsWithChildren {
     /**
    * Object with reducers to add to the store. The keys of the object should match the state keys,
    */
-    reducers: ReducersList<TState>
+    reducers: ReducersList<TRequired, TOptional>
     /**
    * Whether to remove the reducers from the store when the component is unmounted
    */
@@ -46,22 +48,25 @@ export interface DynamicReducerLoaderProps<TState extends object> extends PropsW
  *   );
  * };
  */
-export const DynamicReducerLoader = <TState extends object>(props: DynamicReducerLoaderProps<TState>) => {
+export const DynamicReducerLoader = <
+    TRequired extends Record<string, FeatureState<any>>,
+    TOptional extends Record<string, FeatureState<any>> = {}
+>(props: DynamicReducerLoaderProps<TRequired, TOptional>) => {
     const {
         reducers, removeAfterUnmount = true, children, 
     } = props;
 
     const dispatch = useDispatch();
-    const store = useStore() as StoreWithReducerManager<TState>;
+    const store = useStore() as StoreWithReducerManager<TRequired, TOptional>;
 
     useEffect(() => {
         const mountedReducers = store.reducerManager.getReducerMap();
 
         Object.entries(reducers).forEach(([ reducerKey, reducer ]) => {
-            const mounted = Boolean(mountedReducers[reducerKey as keyof StateSchema<TState>]);
+            const mounted = Boolean(mountedReducers[reducerKey as keyof GenericStateSchema<TRequired>]);
 
             if (!mounted) {
-                store.reducerManager.add(reducerKey as keyof StateSchema<TState>, reducer!);
+                store.reducerManager.add(reducerKey as keyof GenericStateSchema<TRequired, TOptional>, reducer);
                 dispatch({ type: `@INIT ${reducerKey} reducer` });
             }
         });
@@ -69,7 +74,7 @@ export const DynamicReducerLoader = <TState extends object>(props: DynamicReduce
         return () => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([ reducerKey, _ ]) => {
-                    store.reducerManager.remove(reducerKey as  keyof StateSchema<TState>);
+                    store.reducerManager.remove(reducerKey as  keyof GenericStateSchema<TRequired>);
                     dispatch({ type: `@DESTROY ${reducerKey} reducer` });
                 });
             }
