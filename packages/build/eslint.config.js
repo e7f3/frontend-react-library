@@ -211,6 +211,8 @@ export default tseslint.config(
             'import/no-extraneous-dependencies': 'off',
             'no-shadow': 'off',
             '@typescript-eslint/no-shadow': 'warn',
+            '@typescript-eslint/no-explicit-any': 'warn',
+            '@typescript-eslint/no-empty-object-type': 'warn',
             'import/extensions': 'off',
             'import/prefer-default-export': 'off',
             'no-unused-vars': 'off',

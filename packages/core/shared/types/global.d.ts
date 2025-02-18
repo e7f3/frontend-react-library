@@ -13,7 +13,7 @@ declare module '*.svg' {
     export default SVG;
 }
 
-type DeepPartial<T> = T extends Record<string, FeatureState<any>>
+type DeepPartial<T> = T extends object
     ? {
         [P in keyof T]?: DeepPartial<T[P]>
     }
