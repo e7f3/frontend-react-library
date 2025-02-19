@@ -25,7 +25,19 @@ export interface FeatureState<T> extends BaseSchema {
     data?: T;
 }
 
-export type RequiredState = Record<string, FeatureState<unknown>>;
+/**
+ * The type of the simple state of the store.
+ */
+export type SimpleState = Record<string, unknown>;
+
+/**
+ * The type of the required state of the store.
+ */
+export type RequiredState = Record<string, FeatureState<unknown> | SimpleState>;
+
+/**
+ * The type of the optional state of the store.
+ */
 export type OptionalState = Partial<RequiredState>;
 
 /**

@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
+import { createApi } from 'shared/api/api';
 import {
     GenericStateSchema,
     StoreProvider,
@@ -41,9 +42,12 @@ export function componentRender<
     const {
         route = '/', initialState, 
     } = options;
+
+    const api = createApi();
+
     return render(
         <MemoryRouter initialEntries={[ route ]}>
-            <StoreProvider initialState={initialState as GenericStateSchema<TRequired, TOptional>}>
+            <StoreProvider api={api} initialState={initialState as GenericStateSchema<TRequired, TOptional>}>
                 {component}
             </StoreProvider>
         </MemoryRouter>
