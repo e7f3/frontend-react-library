@@ -6,7 +6,8 @@ import {
     Reducer,
     ReducersMapObject,
     StateFromReducersMapObject,
-    combineReducers
+    combineReducers,
+    EntityState
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -26,6 +27,11 @@ export interface FeatureState<T> extends BaseSchema {
 }
 
 /**
+ * The type of the state of an entity in the store.
+ */
+export type EntityAdapterState<T, Id extends string = string> = BaseSchema & EntityState<T, Id>;
+
+/**
  * The type of the simple state of the store.
  */
 export type SimpleState = Record<string, unknown>;
@@ -33,7 +39,7 @@ export type SimpleState = Record<string, unknown>;
 /**
  * The type of the required state of the store.
  */
-export type RequiredState = Record<string, FeatureState<unknown> | SimpleState>;
+export type RequiredState = Record<string, FeatureState<unknown> | EntityAdapterState<unknown> | SimpleState>;
 
 /**
  * The type of the optional state of the store.
