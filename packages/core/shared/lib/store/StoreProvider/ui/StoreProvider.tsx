@@ -1,4 +1,5 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { CreateAxiosDefaults } from 'axios';
 import {
     FC,
     PropsWithChildren 
@@ -18,6 +19,7 @@ export interface StoreProviderProps<
     TOptional extends OptionalState = {}
 > extends PropsWithChildren {
     initialState?: GenericStateSchema<TRequired, TOptional>
+    apiConfig?: CreateAxiosDefaults
     asyncReducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
 }
 
@@ -40,11 +42,15 @@ export const StoreProvider = <
     TOptional extends OptionalState = {}
 >(props: StoreProviderProps<TRequired, TOptional>) => {
     const {
-        initialState, children, asyncReducers, 
+        initialState,
+        apiConfig,
+        asyncReducers,
+        children,
     } = props;
     // const navigate = useNavigate()
     const store = createReduxStore(
         initialState,
+        apiConfig,
         asyncReducers as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
     // navigate
     );
