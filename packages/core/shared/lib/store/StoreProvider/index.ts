@@ -7,7 +7,7 @@ export {
     BaseSchema,
     GenericStateSchema,
     StoreWithReducerManager,
-    ThunkApiConfig,
+    GenericThunkApiConfig,
     ReducersList,
     FeatureState
 } from './config/stateSchema.model';

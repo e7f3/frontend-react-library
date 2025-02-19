@@ -92,7 +92,7 @@ export interface ThunkExtraArgument {
 /**
  * The type of the configuration for a thunk.
  */
-export interface ThunkApiConfig<
+export interface GenericThunkApiConfig<
     TReject,
     TRequired extends Record<string, FeatureState<unknown>>,
     TOptional extends Record<string, FeatureState<unknown>> = {}
