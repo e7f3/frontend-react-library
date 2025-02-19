@@ -46,6 +46,7 @@ export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configu
     const PORT = env.port || 3000;
     const open = true;
     const project = 'frontend';
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     const config: Configuration = createConfig({
         mode,
@@ -55,6 +56,7 @@ export const buildWebpackConfig = (env: BuildEnv, rootPath = __dirname): Configu
         open,
         project,
         rootPath,
+        apiUrl,
     });
 
     return config;
