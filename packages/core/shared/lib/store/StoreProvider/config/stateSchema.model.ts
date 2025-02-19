@@ -79,18 +79,31 @@ export type ReducersList<
 /**
  * The type of the reducer manager for the store.
  */
+// export interface ReducerManager<
+//     TRequired extends RequiredState,
+//     TOptional extends OptionalState = {}
+// > {
+//     getReducerMap: () => ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+//     reduce: (
+//         state: GenericStateSchema<TRequired, TOptional> | undefined, 
+//         action: UnknownAction
+//     ) => StateFromReducersMapObject<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>;
+//     add: <K extends keyof TOptional>(key: K, reducer: Reducer) => void
+//     remove: <K extends keyof GenericStateSchema<TRequired, TOptional>>(key: K) => void
+// }
+
 export interface ReducerManager<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 > {
-    getReducerMap: () => ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+    getReducerMap: () => ReducersMapObject<TState>
     reduce: (
-        state: GenericStateSchema<TRequired, TOptional> | undefined, 
+        state: TState, 
         action: UnknownAction
-    ) => StateFromReducersMapObject<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>;
-    add: <K extends keyof TOptional>(key: K, reducer: Reducer) => void
-    remove: <K extends keyof GenericStateSchema<TRequired, TOptional>>(key: K) => void
+    ) => TState;
+    add: <K extends keyof TState>(key: K, reducer: Reducer) => void
+    remove: <K extends keyof TState>(key: K) => void
 }
+
 
 /**
  * The type of the store with the reducer manager.
@@ -100,7 +113,7 @@ export interface StoreWithReducerManager<
     TOptional extends OptionalState = {}
 >
     extends EnhancedStore<GenericStateSchema<TRequired, TOptional>> {
-    reducerManager: ReducerManager<TRequired, TOptional>
+    reducerManager: ReducerManager<GenericStateSchema<TRequired, TOptional>>
 }
 
 /**
