@@ -14,7 +14,8 @@ export interface BuildOptions {
     port: number
     open: boolean
     project: 'frontend' | 'jest',
-    rootPath: string,
+    rootPath: string
+    apiUrl?: string
 }
 
 export interface BuildEnv {
