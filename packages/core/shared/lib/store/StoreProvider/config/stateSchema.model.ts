@@ -22,7 +22,7 @@ export interface BaseSchema {
  * The type of the state of a feature in the store.
  */
 export interface FeatureState<T> extends BaseSchema {
-    data: T;
+    data?: T;
 }
 
 export type RequiredState = Record<string, FeatureState<unknown>>;
