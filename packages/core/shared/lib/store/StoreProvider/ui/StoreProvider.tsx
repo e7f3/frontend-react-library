@@ -17,7 +17,7 @@ export interface StoreProviderProps<
 > extends PropsWithChildren {
     api: AxiosInstance;
     initialState?: GenericStateSchema<TRequired, TOptional>
-    asyncReducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
+    reducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
 }
 
 /**
@@ -26,7 +26,7 @@ export interface StoreProviderProps<
  * @param props - The properties for the StoreProvider component.
  * @param props.api - The Axios instance to use for API requests.
  * @param props.initialState - The initial state of the Redux store.
- * @param props.asyncReducers - An object of async reducers to be included in the store.
+ * @param props.reducers - An object of reducers to be included in the store.
  * @param props.children - The child components that will have access to the store.
  *
  * @template TRequired - The type of the required state schema.
@@ -42,14 +42,14 @@ export const StoreProvider = <
     const {
         api,
         initialState,
-        asyncReducers,
+        reducers,
         children,
     } = props;
     // const navigate = useNavigate()
     const store = createReduxStore(
         api,
         initialState,
-        asyncReducers as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+        reducers as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
     // navigate
     );
     console.log('render');
