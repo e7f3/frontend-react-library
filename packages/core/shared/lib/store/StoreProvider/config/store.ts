@@ -4,7 +4,10 @@ import {
     ReducersMapObject,
     UnknownAction
 } from '@reduxjs/toolkit';
-import { CreateAxiosDefaults } from 'axios';
+import {
+    AxiosInstance,
+    CreateAxiosDefaults 
+} from 'axios';
 
 
 import { createApi } from 'shared/api/api';
@@ -22,6 +25,7 @@ import type {
 /**
  * Creates a Redux store with the given initial state and reducers.
  *
+ * @param api - The Axios instance to use for API requests.
  * @param initialState - The initial state of the store.
  * @param reducers - An object of reducers to be included in the store.
  *
@@ -37,8 +41,8 @@ export const createReduxStore = <
     TRequired extends RequiredState,
     TOptional extends OptionalState = {}
 >(
+    api: AxiosInstance,
     initialState?: GenericStateSchema<TRequired, TOptional>,
-    apiConfig?: CreateAxiosDefaults,
     reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
 ) => {
     const rootReducers = {
@@ -47,7 +51,7 @@ export const createReduxStore = <
 
     const reducerManager = createReducerManager(rootReducers);
 
-    const extraArg: ThunkExtraArgument = { api: createApi(apiConfig) };
+    const extraArg: ThunkExtraArgument = { api };
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
