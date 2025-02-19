@@ -43,9 +43,11 @@ export function createReducerManager<
     initialReducers: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
 ): ReducerManager<TRequired> {
     // Destructure the initial reducers object to create a mutable copy.
-    const reducers = { ...initialReducers } as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
+    const reducers = { ...initialReducers };
     // Create a combined reducer from the initial reducers.
+    console.log('reducers', reducers);
     let combinedReducer = combineReducers(reducers);
+    console.log('combinedReducer', combinedReducer);
     // Keep track of keys to be removed.
     let keysToRemove: (keyof GenericStateSchema<TRequired, TOptional>)[] = [];
 
