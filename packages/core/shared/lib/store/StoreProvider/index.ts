@@ -11,6 +11,7 @@ export {
     ReducersList,
     SimpleState,
     FeatureState,
+    EntityAdapterState,
     RequiredState,
     OptionalState
 } from './config/stateSchema.model';
