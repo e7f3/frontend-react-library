@@ -7,14 +7,15 @@ import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import type {
-    FeatureState,
-    GenericStateSchema 
+    GenericStateSchema, 
+    OptionalState, 
+    RequiredState
 } from '../config/stateSchema.model';
 import { createReduxStore } from '../config/store';
 
 export interface StoreProviderProps<
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 > extends PropsWithChildren {
     initialState?: GenericStateSchema<TRequired, TOptional>
     asyncReducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
@@ -35,8 +36,8 @@ export interface StoreProviderProps<
  */
 
 export const StoreProvider = <
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 >(props: StoreProviderProps<TRequired, TOptional>) => {
     const {
         initialState, children, asyncReducers, 

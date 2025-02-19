@@ -12,7 +12,9 @@ import {
 import type {
     ReducerManager,
     GenericStateSchema, 
-    FeatureState
+    FeatureState,
+    RequiredState,
+    OptionalState
 } from './stateSchema.model';
 
 
@@ -34,8 +36,8 @@ import type {
  * @template TOptional - The type of the optional state schema.
  */
 export function createReducerManager<
-    TRequired extends Record<string | number | symbol, FeatureState<unknown>>,
-    TOptional extends Record<string | number | symbol, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 >(
     // initialReducers: ReducersList<TRequired, TOptional>
     initialReducers: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
@@ -96,7 +98,7 @@ export function createReducerManager<
             }
 
             // Cast the reducer to the appropriate type.
-            reducers[key] = reducer as ReducerFromReducersMapObject<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>;
+            reducers[key] = reducer as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>[keyof TOptional];
             combinedReducer = combineReducers(reducers);
         },
 

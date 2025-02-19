@@ -4,14 +4,15 @@ import { MemoryRouter } from 'react-router-dom';
 
 import {
     GenericStateSchema,
-    StoreProvider 
+    StoreProvider,
+    OptionalState,
+    RequiredState 
 } from 'shared/lib/store/StoreProvider';
 
-import { FeatureState } from '../../StoreProvider/config/stateSchema.model';
 
 export interface ComponentRenderOptions<
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 > {
     /**
    * URL to emulate for the component
@@ -31,8 +32,8 @@ export interface ComponentRenderOptions<
  * @returns result of the @testing-library/react render function
  */
 export function componentRender<
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 >(
     component: ReactNode,
     options: ComponentRenderOptions<TRequired, TOptional> = {}

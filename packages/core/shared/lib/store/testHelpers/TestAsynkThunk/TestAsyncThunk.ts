@@ -6,8 +6,9 @@ import axios, { AxiosStatic } from 'axios';
 
 import {
     GenericStateSchema,
-    FeatureState 
-} from '../../StoreProvider';
+    RequiredState,
+    OptionalState
+} from 'shared/lib/store/StoreProvider';
 
 jest.mock('axios');
 
@@ -52,8 +53,8 @@ export class TestAsyncThunk<
     TReturned,
     TArg,
     TRejectValue,
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 > {
     dispatch: Dispatch;
 

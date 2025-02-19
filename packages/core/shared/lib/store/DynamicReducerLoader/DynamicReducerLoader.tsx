@@ -9,14 +9,16 @@ import {
 
 import {
     ReducersList,
-    GenericStateSchema,
     StoreWithReducerManager 
 } from '../StoreProvider';
-import { FeatureState } from '../StoreProvider/config/stateSchema.model';
+import {
+    OptionalState,
+    RequiredState 
+} from '../StoreProvider/config/stateSchema.model';
 
 export interface DynamicReducerLoaderProps<
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 > extends PropsWithChildren {
     /**
    * Object with reducers to add to the store. The keys of the object should match the state keys,
@@ -49,8 +51,8 @@ export interface DynamicReducerLoaderProps<
  * };
  */
 export const DynamicReducerLoader = <
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 >(props: DynamicReducerLoaderProps<TRequired, TOptional>) => {
     const {
         reducers, removeAfterUnmount = true, children, 
@@ -63,10 +65,10 @@ export const DynamicReducerLoader = <
         const mountedReducers = store.reducerManager.getReducerMap();
 
         Object.entries(reducers).forEach(([ reducerKey, reducer ]) => {
-            const mounted = Boolean(mountedReducers[reducerKey as keyof GenericStateSchema<TRequired>]);
+            const mounted = Boolean(mountedReducers[reducerKey]);
 
             if (!mounted) {
-                store.reducerManager.add(reducerKey as keyof GenericStateSchema<TRequired, TOptional>, reducer);
+                store.reducerManager.add(reducerKey, reducer);
                 dispatch({ type: `@INIT ${reducerKey} reducer` });
             }
         });
@@ -74,7 +76,7 @@ export const DynamicReducerLoader = <
         return () => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([ reducerKey, _ ]) => {
-                    store.reducerManager.remove(reducerKey as  keyof GenericStateSchema<TRequired>);
+                    store.reducerManager.remove(reducerKey);
                     dispatch({ type: `@DESTROY ${reducerKey} reducer` });
                 });
             }

@@ -12,6 +12,8 @@ import type {
     CombinedState,
     FeatureState,
     GenericStateSchema,
+    OptionalState,
+    RequiredState,
     ThunkExtraArgument 
 } from './stateSchema.model';
 
@@ -30,8 +32,8 @@ import type {
  * );
  */
 export const createReduxStore = <
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 >(
     initialState?: GenericStateSchema<TRequired, TOptional>,
     reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
@@ -46,7 +48,7 @@ export const createReduxStore = <
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
-            CombinedState<GenericStateSchema<TRequired>>,
+            CombinedState<GenericStateSchema<TRequired, TOptional>>,
             UnknownAction
         >,
         devTools: __IS_DEV__,
@@ -66,8 +68,8 @@ export const createReduxStore = <
 };
 
 export type RootState<
-    TRequired extends Record<string, FeatureState<unknown>>,
-    TOptional extends Record<string, FeatureState<unknown>> = {}
+    TRequired extends RequiredState,
+    TOptional extends OptionalState = {}
 > = ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
