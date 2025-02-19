@@ -4,6 +4,7 @@ export {
     RootState, AppStore, AppDispatch 
 } from './config/store';
 export {
+    BaseSchema,
     GenericStateSchema,
     StoreWithReducerManager,
     ThunkApiConfig,
