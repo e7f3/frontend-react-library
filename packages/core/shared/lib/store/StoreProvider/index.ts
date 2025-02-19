@@ -9,6 +9,7 @@ export {
     StoreWithReducerManager,
     GenericThunkApiConfig,
     ReducersList,
+    SimpleState,
     FeatureState,
     RequiredState,
     OptionalState
