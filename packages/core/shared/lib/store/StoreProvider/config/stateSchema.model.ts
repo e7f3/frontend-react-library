@@ -34,8 +34,8 @@ export type StateSchemaKey = string;
  * The type of the generic state of the store.
  */
 export type GenericStateSchema<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > = TRequired & Partial<TOptional>;
 
 /**
@@ -49,8 +49,8 @@ export type CombinedState<TRequired> = {
  * The type of the list of reducers for the store.
  */
 export type ReducersList<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > = {
     [K in keyof GenericStateSchema<TRequired, TOptional>]?: Reducer<GenericStateSchema<TRequired, TOptional>[K]>;
 };
@@ -59,8 +59,8 @@ export type ReducersList<
  * The type of the reducer manager for the store.
  */
 export interface ReducerManager<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > {
     getReducerMap: () => ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
     reduce: (
@@ -75,8 +75,8 @@ export interface ReducerManager<
  * The type of the store with the reducer manager.
  */
 export interface StoreWithReducerManager<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 >
     extends EnhancedStore<GenericStateSchema<TRequired, TOptional>> {
     reducerManager: ReducerManager<TRequired, TOptional>
@@ -94,8 +94,8 @@ export interface ThunkExtraArgument {
  */
 export interface ThunkApiConfig<
     TReject,
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > {
     rejectValue: TReject
     extra: ThunkExtraArgument

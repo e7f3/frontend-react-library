@@ -10,8 +10,8 @@ import {
 import { FeatureState } from '../../StoreProvider/config/stateSchema.model';
 
 export interface ComponentRenderOptions<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > {
     /**
    * URL to emulate for the component
@@ -31,8 +31,8 @@ export interface ComponentRenderOptions<
  * @returns result of the @testing-library/react render function
  */
 export function componentRender<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 >(
     component: ReactNode,
     options: ComponentRenderOptions<TRequired, TOptional> = {}

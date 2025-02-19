@@ -13,8 +13,8 @@ import type {
 import { createReduxStore } from '../config/store';
 
 export interface StoreProviderProps<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > extends PropsWithChildren {
     initialState?: GenericStateSchema<TRequired, TOptional>
     asyncReducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
@@ -35,8 +35,8 @@ export interface StoreProviderProps<
  */
 
 export const StoreProvider = <
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 >(props: StoreProviderProps<TRequired, TOptional>) => {
     const {
         initialState, children, asyncReducers, 

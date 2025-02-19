@@ -15,8 +15,8 @@ import {
 import { FeatureState } from '../StoreProvider/config/stateSchema.model';
 
 export interface DynamicReducerLoaderProps<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > extends PropsWithChildren {
     /**
    * Object with reducers to add to the store. The keys of the object should match the state keys,
@@ -49,8 +49,8 @@ export interface DynamicReducerLoaderProps<
  * };
  */
 export const DynamicReducerLoader = <
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 >(props: DynamicReducerLoaderProps<TRequired, TOptional>) => {
     const {
         reducers, removeAfterUnmount = true, children, 

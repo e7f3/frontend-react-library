@@ -30,8 +30,8 @@ import type {
  * );
  */
 export const createReduxStore = <
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 >(
     initialState?: GenericStateSchema<TRequired, TOptional>,
     reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
@@ -66,8 +66,8 @@ export const createReduxStore = <
 };
 
 export type RootState<
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > = ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];

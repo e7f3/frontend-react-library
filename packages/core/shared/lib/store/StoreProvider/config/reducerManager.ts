@@ -34,8 +34,8 @@ import type {
  * @template TOptional - The type of the optional state schema.
  */
 export function createReducerManager<
-    TRequired extends Record<string | number | symbol, FeatureState<any>>,
-    TOptional extends Record<string | number | symbol, FeatureState<any>> = {}
+    TRequired extends Record<string | number | symbol, FeatureState<unknown>>,
+    TOptional extends Record<string | number | symbol, FeatureState<unknown>> = {}
 >(
     // initialReducers: ReducersList<TRequired, TOptional>
     initialReducers: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>

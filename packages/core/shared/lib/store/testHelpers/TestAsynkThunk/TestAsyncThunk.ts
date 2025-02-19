@@ -52,14 +52,13 @@ export class TestAsyncThunk<
     TReturned,
     TArg,
     TRejectValue,
-    TRequired extends Record<string, FeatureState<any>>,
-    TOptional extends Record<string, FeatureState<any>> = {}
+    TRequired extends Record<string, FeatureState<unknown>>,
+    TOptional extends Record<string, FeatureState<unknown>> = {}
 > {
     dispatch: Dispatch;
 
     api: jest.MockedFunctionDeep<AxiosStatic>;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: jest.MockedFn<any>;
 
     getState: () => GenericStateSchema<TRequired, TOptional>;
