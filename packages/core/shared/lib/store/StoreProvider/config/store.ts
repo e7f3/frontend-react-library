@@ -4,8 +4,10 @@ import {
     ReducersMapObject,
     UnknownAction
 } from '@reduxjs/toolkit';
+import { CreateAxiosDefaults } from 'axios';
 
-import { $api } from 'shared/api/api';
+
+import { createApi } from 'shared/api/api';
 
 import { createReducerManager } from './reducerManager';
 import type {
@@ -36,6 +38,7 @@ export const createReduxStore = <
     TOptional extends OptionalState = {}
 >(
     initialState?: GenericStateSchema<TRequired, TOptional>,
+    apiConfig?: CreateAxiosDefaults,
     reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
 ) => {
     const rootReducers = {
@@ -44,7 +47,7 @@ export const createReduxStore = <
 
     const reducerManager = createReducerManager(rootReducers);
 
-    const extraArg: ThunkExtraArgument = { api: $api };
+    const extraArg: ThunkExtraArgument = { api: createApi(apiConfig) };
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
