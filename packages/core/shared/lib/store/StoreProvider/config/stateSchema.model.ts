@@ -54,26 +54,38 @@ export type StateSchemaKey = string;
 /**
  * The type of the generic state of the store.
  */
-export type GenericStateSchema<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
-> = TRequired & Partial<TOptional>;
+// export type GenericStateSchema<
+//     TRequired extends RequiredState,
+//     TOptional extends OptionalState = {}
+// > = TRequired & TOptional;
+
+export type State = Partial<Record<string, unknown>>;
 
 /**
  * The type of the combined state of the store.
  */
-export type CombinedState<TRequired> = {
-    [K in keyof TRequired]: TRequired[K];
+// export type CombinedState<TRequired> = {
+//     [K in keyof TRequired]: TRequired[K];
+// };
+
+export type CombinedState<TState extends State> = {
+    [K in keyof TState]: TState[K];
 };
 
 /**
  * The type of the list of reducers for the store.
  */
+// export type ReducersList<
+//     TRequired extends RequiredState,
+//     TOptional extends OptionalState = {}
+// > = {
+//     [K in keyof GenericStateSchema<TRequired, TOptional>]?: Reducer<GenericStateSchema<TRequired, TOptional>[K]>;
+// };
+
 export type ReducersList<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends State
 > = {
-    [K in keyof GenericStateSchema<TRequired, TOptional>]?: Reducer<GenericStateSchema<TRequired, TOptional>[K]>;
+    [K in keyof TState]?: Reducer<TState[K]>;
 };
 
 /**
@@ -93,7 +105,7 @@ export type ReducersList<
 // }
 
 export interface ReducerManager<
-    TState extends {}
+    TState extends State
 > {
     getReducerMap: () => ReducersMapObject<TState>
     reduce: (
@@ -108,13 +120,21 @@ export interface ReducerManager<
 /**
  * The type of the store with the reducer manager.
  */
+// export interface StoreWithReducerManager<
+//     TRequired extends RequiredState,
+//     TOptional extends OptionalState = {}
+// >
+//     extends EnhancedStore<GenericStateSchema<TRequired, TOptional>> {
+//     reducerManager: ReducerManager<GenericStateSchema<TRequired, TOptional>>
+// }
+
 export interface StoreWithReducerManager<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends State
 >
-    extends EnhancedStore<GenericStateSchema<TRequired, TOptional>> {
-    reducerManager: ReducerManager<GenericStateSchema<TRequired, TOptional>>
+    extends EnhancedStore<TState> {
+    reducerManager: ReducerManager<TState>
 }
+
 
 /**
  * The type of the extra argument for a thunk.
@@ -126,12 +146,22 @@ export interface ThunkExtraArgument {
 /**
  * The type of the configuration for a thunk.
  */
+// export interface GenericThunkApiConfig<
+//     TReject,
+//     TRequired extends RequiredState,
+//     TOptional extends OptionalState = {}
+// > {
+//     rejectValue: TReject
+//     extra: ThunkExtraArgument
+//     state: GenericStateSchema<TRequired, TOptional>
+// }
+
 export interface GenericThunkApiConfig<
     TReject,
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends State
 > {
     rejectValue: TReject
     extra: ThunkExtraArgument
-    state: GenericStateSchema<TRequired, TOptional>
+    state: TState
 }
+

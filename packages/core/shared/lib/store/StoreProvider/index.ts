@@ -5,7 +5,7 @@ export {
 } from './config/store';
 export {
     BaseSchema,
-    GenericStateSchema,
+    // GenericStateSchema,
     StoreWithReducerManager,
     GenericThunkApiConfig,
     ReducersList,

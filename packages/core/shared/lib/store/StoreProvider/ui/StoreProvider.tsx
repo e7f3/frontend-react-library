@@ -5,19 +5,18 @@ import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import type {
-    GenericStateSchema, 
+    // GenericStateSchema, 
     OptionalState, 
     RequiredState
 } from '../config/stateSchema.model';
 import { createReduxStore } from '../config/store';
 
 export interface StoreProviderProps<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 > extends PropsWithChildren {
     api: AxiosInstance;
-    initialState?: GenericStateSchema<TRequired, TOptional>
-    reducers?: DeepPartial<ReducersMapObject<GenericStateSchema<TRequired, TOptional>>>
+    initialState?: TState
+    reducers?: DeepPartial<ReducersMapObject<TState>>
 }
 
 /**
@@ -36,9 +35,8 @@ export interface StoreProviderProps<
  */
 
 export const StoreProvider = <
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
->(props: StoreProviderProps<TRequired, TOptional>) => {
+    TState extends {}
+>(props: StoreProviderProps<TState>) => {
     const {
         api,
         initialState,
@@ -49,7 +47,7 @@ export const StoreProvider = <
     const store = createReduxStore(
         api,
         initialState,
-        reducers as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+        reducers as ReducersMapObject<TState>
     // navigate
     );
     console.log('render');

@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { createApi } from 'shared/api/api';
 import {
-    GenericStateSchema,
+    // GenericStateSchema,
     StoreProvider,
     OptionalState,
     RequiredState 
@@ -12,8 +12,7 @@ import {
 
 
 export interface ComponentRenderOptions<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 > {
     /**
    * URL to emulate for the component
@@ -22,7 +21,7 @@ export interface ComponentRenderOptions<
     /**
    * Initial state of the store
    */
-    initialState?: DeepPartial<GenericStateSchema<TRequired, TOptional>>
+    initialState?: DeepPartial<TState>
 }
 
 /**
@@ -33,11 +32,10 @@ export interface ComponentRenderOptions<
  * @returns result of the @testing-library/react render function
  */
 export function componentRender<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 >(
     component: ReactNode,
-    options: ComponentRenderOptions<TRequired, TOptional> = {}
+    options: ComponentRenderOptions<TState> = {}
 ) {
     const {
         route = '/', initialState, 
@@ -47,7 +45,7 @@ export function componentRender<
 
     return render(
         <MemoryRouter initialEntries={[ route ]}>
-            <StoreProvider api={api} initialState={initialState as GenericStateSchema<TRequired, TOptional>}>
+            <StoreProvider api={api} initialState={initialState as TState}>
                 {component}
             </StoreProvider>
         </MemoryRouter>

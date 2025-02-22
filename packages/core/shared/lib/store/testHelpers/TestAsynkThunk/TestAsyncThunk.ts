@@ -5,7 +5,7 @@ import {
 import axios, { AxiosStatic } from 'axios';
 
 import {
-    GenericStateSchema,
+    // GenericStateSchema,
     RequiredState,
     OptionalState
 } from 'shared/lib/store/StoreProvider';
@@ -53,8 +53,7 @@ export class TestAsyncThunk<
     TReturned,
     TArg,
     TRejectValue,
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 > {
     dispatch: Dispatch;
 
@@ -62,17 +61,17 @@ export class TestAsyncThunk<
 
     navigate: jest.MockedFn<any>;
 
-    getState: () => GenericStateSchema<TRequired, TOptional>;
+    getState: () => TState;
 
     actionCreator: ActionCreatorType<TReturned, TArg, TRejectValue>;
 
     constructor(
         actionCreator: ActionCreatorType<TReturned, TArg, TRejectValue>,
-        state?: DeepPartial<GenericStateSchema<TRequired, TOptional>>
+        state?: DeepPartial<TState>
     ) {
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn(() => state as GenericStateSchema<TRequired, TOptional>);
+        this.getState = jest.fn(() => state as TState);
         this.api = mockedAxios;
         this.navigate = jest.fn();
     }

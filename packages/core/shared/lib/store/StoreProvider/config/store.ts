@@ -16,7 +16,7 @@ import { createReducerManager } from './reducerManager';
 import type {
     CombinedState,
     FeatureState,
-    GenericStateSchema,
+    // GenericStateSchema,
     OptionalState,
     RequiredState,
     ThunkExtraArgument 
@@ -38,16 +38,15 @@ import type {
  * );
  */
 export const createReduxStore = <
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends {}
 >(
     api: AxiosInstance,
-    initialState?: GenericStateSchema<TRequired, TOptional>,
-    reducers?: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>
+    initialState?: TState,
+    reducers?: ReducersMapObject<TState>
 ) => {
     const rootReducers = {
         ...reducers,
-    } as ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
+    } as ReducersMapObject<TState>;
 
     const reducerManager = createReducerManager(rootReducers);
 
@@ -55,7 +54,7 @@ export const createReduxStore = <
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<
-            CombinedState<GenericStateSchema<TRequired, TOptional>>,
+            CombinedState<TState>,
             UnknownAction
         >,
         devTools: __IS_DEV__,
@@ -75,9 +74,8 @@ export const createReduxStore = <
 };
 
 export type RootState<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
-> = ReducersMapObject<GenericStateSchema<TRequired, TOptional>>;
+    TState
+> = ReducersMapObject<TState>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
 
