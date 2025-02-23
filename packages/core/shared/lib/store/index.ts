@@ -16,7 +16,7 @@ export {
     ReducersList
 } from './StoreProvider/config/stateSchema.model';
 
-export { useAppDispatch } from './StoreProvider/hooks/useAppDispatch';
+export { createTypedDispatch } from './StoreProvider/hooks/useAppDispatch';
 
 export { createTypedSelector } from './StoreProvider/hooks/useAppSelector';
 

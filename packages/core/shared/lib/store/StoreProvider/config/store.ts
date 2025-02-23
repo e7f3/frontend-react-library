@@ -2,6 +2,7 @@ import {
     configureStore,
     Reducer,
     ReducersMapObject,
+    ThunkDispatch,
     UnknownAction
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
@@ -67,5 +68,8 @@ export type RootState<
     TState extends {}
 > = ReducersMapObject<TState>;
 export type AppStore = ReturnType<typeof createReduxStore>;
-export type AppDispatch = AppStore['dispatch'];
+// export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch<
+    TState extends {}
+> = ThunkDispatch<TState, ThunkExtraArgument, UnknownAction>;
 
