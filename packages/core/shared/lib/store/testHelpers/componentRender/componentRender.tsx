@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
 import { createApi } from 'shared/api/api';
-import { StoreProvider } from 'shared/lib/store/StoreProvider';
+import { StoreProvider } from 'shared/lib/store';
 
 
 export interface ComponentRenderOptions<

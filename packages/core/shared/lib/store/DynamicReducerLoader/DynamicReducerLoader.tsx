@@ -10,7 +10,7 @@ import {
 import {
     ReducersList,
     StoreWithReducerManager 
-} from '../StoreProvider';
+} from '..';
 import {
     State
 } from '../StoreProvider/config/stateSchema.model';
