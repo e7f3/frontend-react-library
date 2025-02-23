@@ -4,6 +4,9 @@ import {
 } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
+import '@testing-library/jest-dom';
+import '@jest/globals';
+
 jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios, { shallow: false });
