@@ -8,6 +8,9 @@ jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios, { shallow: false });
 
+/**
+ * The type of the action creator for an asynchronous thunk.
+ */
 type ActionCreatorType<TReturned, TArg, TRejectValue> = (
     arg: TArg
 ) => AsyncThunkAction<TReturned, TArg, { rejectValue: TRejectValue }>;

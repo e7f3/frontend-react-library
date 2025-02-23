@@ -4,21 +4,11 @@ import {
     ReducersMapObject,
     UnknownAction
 } from '@reduxjs/toolkit';
-import {
-    AxiosInstance,
-    CreateAxiosDefaults 
-} from 'axios';
-
-
-import { createApi } from 'shared/api/api';
+import { AxiosInstance } from 'axios';
 
 import { createReducerManager } from './reducerManager';
 import type {
     CombinedState,
-    // FeatureState,
-    // GenericStateSchema,
-    // OptionalState,
-    // RequiredState,
     ThunkExtraArgument 
 } from './stateSchema.model';
 

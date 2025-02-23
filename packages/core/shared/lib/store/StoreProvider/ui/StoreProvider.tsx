@@ -23,8 +23,7 @@ export interface StoreProviderProps<
  * @param props.reducers - An object of reducers to be included in the store.
  * @param props.children - The child components that will have access to the store.
  *
- * @template TRequired - The type of the required state schema.
- * @template TOptional - The type of the optional state schema.
+ * @template TState - The type of the state of the Redux store.
  *
  * @returns A React Redux Provider component that provides the Redux store to its children.
  */

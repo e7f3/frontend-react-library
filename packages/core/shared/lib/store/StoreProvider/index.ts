@@ -4,14 +4,9 @@ export {
     RootState, AppStore, AppDispatch 
 } from './config/store';
 export {
-    BaseSchema,
-    // GenericStateSchema,
+    BaseFetchStateSchema,
+    State,
     StoreWithReducerManager,
     GenericThunkApiConfig,
     ReducersList
-    // SimpleState,
-    // FeatureState,
-    // EntityAdapterState,
-    // RequiredState,
-    // OptionalState
 } from './config/stateSchema.model';
