@@ -21,7 +21,3 @@ export { createTypedDispatch } from './StoreProvider/hooks/useAppDispatch';
 export { createTypedSelector } from './StoreProvider/hooks/useAppSelector';
 
 export { DynamicReducerLoader } from './DynamicReducerLoader/DynamicReducerLoader';
-
-export { componentRender } from './testHelpers/componentRender/componentRender';
-
-export { TestAsyncThunk } from './testHelpers/TestAsyncThunk/TestAsyncThunk';
