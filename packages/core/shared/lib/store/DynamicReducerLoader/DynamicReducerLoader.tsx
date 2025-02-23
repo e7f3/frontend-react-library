@@ -13,17 +13,17 @@ import {
 } from '../StoreProvider';
 import {
     OptionalState,
-    RequiredState 
+    RequiredState, 
+    State
 } from '../StoreProvider/config/stateSchema.model';
 
 export interface DynamicReducerLoaderProps<
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
+    TState extends State
 > extends PropsWithChildren {
     /**
    * Object with reducers to add to the store. The keys of the object should match the state keys,
    */
-    reducers: ReducersList<TRequired, TOptional>
+    reducers: ReducersList<TState>
     /**
    * Whether to remove the reducers from the store when the component is unmounted
    */
@@ -51,15 +51,14 @@ export interface DynamicReducerLoaderProps<
  * };
  */
 export const DynamicReducerLoader = <
-    TRequired extends RequiredState,
-    TOptional extends OptionalState = {}
->(props: DynamicReducerLoaderProps<TRequired, TOptional>) => {
+    TState extends State
+>(props: DynamicReducerLoaderProps<TState>) => {
     const {
         reducers, removeAfterUnmount = true, children, 
     } = props;
 
     const dispatch = useDispatch();
-    const store = useStore() as StoreWithReducerManager<TRequired, TOptional>;
+    const store = useStore() as StoreWithReducerManager<TState>;
 
     useEffect(() => {
         const mountedReducers = store.reducerManager.getReducerMap();
