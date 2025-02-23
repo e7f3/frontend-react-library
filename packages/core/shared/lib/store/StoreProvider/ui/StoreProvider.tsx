@@ -4,11 +4,6 @@ import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import type {
-    // GenericStateSchema, 
-    OptionalState, 
-    RequiredState
-} from '../config/stateSchema.model';
 import { createReduxStore } from '../config/store';
 
 export interface StoreProviderProps<

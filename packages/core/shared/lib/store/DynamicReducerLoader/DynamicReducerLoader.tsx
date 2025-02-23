@@ -12,8 +12,6 @@ import {
     StoreWithReducerManager 
 } from '../StoreProvider';
 import {
-    OptionalState,
-    RequiredState, 
     State
 } from '../StoreProvider/config/stateSchema.model';
 

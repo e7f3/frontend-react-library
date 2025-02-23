@@ -5,9 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { createApi } from 'shared/api/api';
 import {
     // GenericStateSchema,
-    StoreProvider,
-    OptionalState,
-    RequiredState 
+    StoreProvider
+    // OptionalState,
+    // RequiredState 
 } from 'shared/lib/store/StoreProvider';
 
 

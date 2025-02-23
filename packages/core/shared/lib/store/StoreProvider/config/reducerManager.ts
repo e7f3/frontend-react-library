@@ -4,18 +4,18 @@ import {
     combineReducers,
     Reducer,
     ReducersMapObject,
-    StateFromReducersMapObject,
-    ActionFromReducersMapObject,
+    // StateFromReducersMapObject,
+    // ActionFromReducersMapObject,
     ReducerFromReducersMapObject,
     ActionFromReducer
 } from '@reduxjs/toolkit';
 
 import type {
-    ReducerManager,
+    ReducerManager
     // GenericStateSchema, 
-    FeatureState,
-    RequiredState,
-    OptionalState
+    // FeatureState,
+    // RequiredState,
+    // OptionalState
 } from './stateSchema.model';
 
 
@@ -33,12 +33,10 @@ import type {
  *   - `remove`: Marks a reducer for removal from the reducer map and updates the
  *     combined reducer.
  *
- * @template TRequired - The type of the required state schema.
- * @template TOptional - The type of the optional state schema.
+ * @template TState - The type of the state schema.
  */
 // export function createReducerManager<
-//     TRequired extends RequiredState,
-//     TOptional extends OptionalState = {}
+//     TState extends State
 // >(
 //     // initialReducers: ReducersList<TRequired, TOptional>
 //     initialReducers: ReducersMapObject<GenericStateSchema<TRequired, TOptional>>

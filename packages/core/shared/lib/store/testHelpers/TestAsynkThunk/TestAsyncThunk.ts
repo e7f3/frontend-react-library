@@ -4,12 +4,6 @@ import {
 } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
-import {
-    // GenericStateSchema,
-    RequiredState,
-    OptionalState
-} from 'shared/lib/store/StoreProvider';
-
 jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios, { shallow: false });

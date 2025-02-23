@@ -15,10 +15,10 @@ import { createApi } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
 import type {
     CombinedState,
-    FeatureState,
+    // FeatureState,
     // GenericStateSchema,
-    OptionalState,
-    RequiredState,
+    // OptionalState,
+    // RequiredState,
     ThunkExtraArgument 
 } from './stateSchema.model';
 

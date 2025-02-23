@@ -4,10 +4,10 @@ import {
     UnknownAction,
     EnhancedStore,
     Reducer,
-    ReducersMapObject,
-    StateFromReducersMapObject,
-    combineReducers,
-    EntityState
+    ReducersMapObject
+    // StateFromReducersMapObject,
+    // combineReducers,
+    // EntityState
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
@@ -22,29 +22,29 @@ export interface BaseSchema {
 /**
  * The type of the state of a feature in the store.
  */
-export interface FeatureState<T> extends BaseSchema {
-    data?: T;
-}
+// export interface FeatureState<T> extends BaseSchema {
+//     data?: T;
+// }
 
 /**
  * The type of the state of an entity in the store.
  */
-export type EntityAdapterState<T, Id extends string = string> = BaseSchema & EntityState<T, Id>;
+// export type EntityAdapterState<T, Id extends string = string> = BaseSchema & EntityState<T, Id>;
 
 /**
  * The type of the simple state of the store.
  */
-export type SimpleState = Record<string, unknown>;
+// export type SimpleState = Record<string, unknown>;
 
 /**
  * The type of the required state of the store.
  */
-export type RequiredState = Record<string, FeatureState<unknown> | EntityAdapterState<unknown> | SimpleState>;
+// export type RequiredState = Record<string, FeatureState<unknown> | EntityAdapterState<unknown> | SimpleState>;
 
 /**
  * The type of the optional state of the store.
  */
-export type OptionalState = Partial<RequiredState>;
+// export type OptionalState = Partial<RequiredState>;
 
 /**
  * Key for dynamic state registration

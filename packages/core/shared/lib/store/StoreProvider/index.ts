@@ -8,10 +8,10 @@ export {
     // GenericStateSchema,
     StoreWithReducerManager,
     GenericThunkApiConfig,
-    ReducersList,
-    SimpleState,
-    FeatureState,
-    EntityAdapterState,
-    RequiredState,
-    OptionalState
+    ReducersList
+    // SimpleState,
+    // FeatureState,
+    // EntityAdapterState,
+    // RequiredState,
+    // OptionalState
 } from './config/stateSchema.model';
