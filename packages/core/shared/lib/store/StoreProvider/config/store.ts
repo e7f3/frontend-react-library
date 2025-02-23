@@ -64,7 +64,7 @@ export const createReduxStore = <
 };
 
 export type RootState<
-    TState
+    TState extends {}
 > = ReducersMapObject<TState>;
 export type AppStore = ReturnType<typeof createReduxStore>;
 export type AppDispatch = AppStore['dispatch'];
