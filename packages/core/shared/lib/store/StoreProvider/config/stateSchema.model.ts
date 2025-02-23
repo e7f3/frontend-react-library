@@ -59,7 +59,7 @@ export type StateSchemaKey = string;
 //     TOptional extends OptionalState = {}
 // > = TRequired & TOptional;
 
-export type State = Partial<Record<string, unknown>>;
+export type State = Partial<Record<string, unknown extends {} ? {} : unknown>>;
 
 /**
  * The type of the combined state of the store.
