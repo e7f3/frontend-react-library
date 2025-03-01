@@ -62,6 +62,7 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
         __PROJECT__: 'jest',
+        __API_URL__: '',
     },
 
     modulePaths: [ '<rootDir>/src' ],

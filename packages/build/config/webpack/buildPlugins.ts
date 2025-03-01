@@ -10,6 +10,7 @@ export function buildPlugins({
     paths,
     isDev,
     project,
+    apiUrl,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({ template: paths.html }),
@@ -21,6 +22,7 @@ export function buildPlugins({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __PROJECT__: JSON.stringify(project),
+            __API_URL__: JSON.stringify(apiUrl),
         }),
         SharedPathPlugin,
     ];
