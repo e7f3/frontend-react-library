@@ -22,7 +22,7 @@ export type StateSchemaKey = string;
 /**
  * The type of the generic state of the store.
  */
-export type State = Partial<Record<string, unknown extends {} ? {} : unknown>>;
+export type State = Partial<Record<string, unknown>>;
 
 /**
  * The type of the combined state of the store.
