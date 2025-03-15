@@ -244,7 +244,16 @@ export default tseslint.config(
             //     ignoreAttribute: ['data-testid', 'to'],
             //   },
             // ],
-            '@typescript-eslint/naming-convention': 'warn',
+            '@typescript-eslint/naming-convention': [
+                'warn',
+                {
+                    format: [
+                        'camelCase',
+                        'PascalCase',
+                        'snake_case', 
+                    ], 
+                }, 
+            ],
             'react/display-name': 'off',
             'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
             'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies

@@ -24,7 +24,7 @@ export interface IProps<TData extends TableNode> {
  * @param props - Props for the Table component.
  * @returns Table component.
  */
-export const Table = memo(<TData extends TableNode>(props: IProps<TData>) => {
+const TableComponent = <TData extends TableNode>(props: IProps<TData>) => {
     const {
         data, columns, 
     } = props;
@@ -35,4 +35,6 @@ export const Table = memo(<TData extends TableNode>(props: IProps<TData>) => {
             columns={columns}
         />
     );
-});
+};
+
+export const Table = memo(TableComponent) as typeof TableComponent;
