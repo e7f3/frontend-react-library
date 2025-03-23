@@ -1,51 +1,38 @@
-import { classNames } from './classNames';
+import { classNames, Mods } from './classNames';
 
 describe('classNames', () => {
-    test('Base class name (string)', () => {
+    it('should return a string with the base class name', () => {
         expect(classNames('test')).toBe('test');
     });
 
-    test('Some class names (in array)', () => {
+    it('should return a string with the base class name and additional class names from an array', () => {
         const classNamesArray = [
             'test1',
             'test2',
             'test3', 
         ];
+
         const result = classNamesArray.join(' ');
+
         expect(classNames('', {}, classNamesArray)).toBe(result);
     });
 
-    test('Some class names (in object)', () => {
-        const classNamesObj = {
-            test1: true,
-            test2: false,
-            test3: true,
-        };
-        expect(classNames('', classNamesObj, [])).toBe('test1 test3');
-    });
-
-    test('Base class name + some classNames (in object)', () => {
-        const classNamesObj = {
+    it('should return a string with the base class name and additional class names from an object filtered by boolean values', () => {
+        const className = 'test1';
+        const classNamesObj: Mods = {
             test2: true,
             test3: false,
             test4: true,
         };
-        expect(classNames('test1', classNamesObj, [])).toBe('test1 test2 test4');
+
+        const result = `${className} ${Object.keys(classNamesObj).filter(key => classNamesObj[key]).join(' ')}`
+
+        expect(classNames(className, classNamesObj, [])).toBe(result);
     });
 
-    test('Base class name + some class names (in array)', () => {
-        const baseClassName = 'test1';
-        const classNamesArray = [
-            'test2',
-            'test3',
-            'test4', 
-        ];
-        const result = `${baseClassName} ${classNamesArray.join(' ')}`;
-        expect(classNames(baseClassName, {}, classNamesArray)).toBe(result);
-    });
-
-    test('All together', () => {
-        const classNamesObj = {
+    it('should return a string with the base class name and additional class names from an array and an object filtered by boolean values', () => {
+        const className = 'test1';
+        const classNamesObj: Mods = {
             test2: true,
             test3: false,
             test4: true,
@@ -55,8 +42,9 @@ describe('classNames', () => {
             'test6',
             'test7', 
         ];
-        expect(classNames('test1', classNamesObj, classNamesArray)).toBe(
-            'test1 test2 test4 test5 test6 test7'
-        );
+
+        const result = `${className} ${Object.keys(classNamesObj).filter(key => classNamesObj[key]).join(' ')} ${classNamesArray.join(' ')}`
+
+        expect(classNames(className, classNamesObj, classNamesArray)).toBe(result);
     });
 });
