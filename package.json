@@ -1,11 +1,11 @@
 {
   "name": "@e7f3/frontend-react-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared React library for frontend projects",
   "author": "e7f3",
   "license": "MIT",
   "type": "module",
-  "packageManager": "yarn@4.0.2",
+  "packageManager": "yarn@4.7.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/e7f3/frontend-react-library"
@@ -16,8 +16,8 @@
   },
   "scripts": {
     "test:unit": "yarn workspaces foreach --parallel run test",
-    "build:all": "yarn workspaces foreach --topological-dev --verbose run build",
-    "clean": "yarn workspaces foreach --parallel run clean && rm -rf node_modules/.cache",
+    "build:all": "yarn workspaces foreach --all --parallel --verbose run build",
+    "clean:all": "yarn workspaces foreach --all --parallel run clean",
     "version:check": "yarn version check --interactive",
     "version:apply": "yarn version apply --all"
   },
