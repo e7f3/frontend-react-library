@@ -1,10 +1,30 @@
 {
-  "name": "@library/build",
+  "name": "@e7f3/build",
+  "version": "1.0.0",
+  "description": "Build configuration and tooling for React projects",
   "type": "module",
   "packageManager": "yarn@4.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e7f3/frontend-react-library",
+    "directory": "packages/build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "main": "./config/webpack/buildWebpackConfig.ts",
+  "types": "./config/webpack/buildWebpackConfig.ts",
+  "exports": {
+    ".": "./config/webpack/buildWebpackConfig.ts",
+    "./config/*": "./config/*",
+    "./babel.config.json": "./babel.config.json",
+    "./eslint.config.js": "./eslint.config.js",
+    "./stylelint.config.cjs": "./stylelint.config.cjs"
+  },
   "dependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
+    "@babel/core": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@eslint/js": "^9.19.0",
@@ -17,15 +37,20 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@types/identity-obj-proxy": "^3",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/react-refresh": "^0.14.6",
     "@types/regenerator-runtime": "^0.13.8",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "@typescript-eslint/parser": "^8.21.0",
+    "babel-plugin-react-compiler": "^19.0.0-beta-0dec889-20241115",
+    "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
     "dotenv-webpack": "^8.1.0",
+    "esbuild-loader": "^4.2.2",
     "eslint": "^9.18.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-typescript": "^3.7.0",
@@ -34,6 +59,7 @@
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-0dec889-20241115",
     "eslint-plugin-react-hooks": "^5.1.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
@@ -55,6 +81,7 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.22.0",
     "webpack": "^5.97.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
   },
@@ -66,6 +93,7 @@
   },
   "devDependencies": {
     "@types/dotenv-webpack": "^7.0.8",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
     "tsconfig-paths-webpack-plugin": "^4.2.0"
   }
 }

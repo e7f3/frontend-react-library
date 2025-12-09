@@ -1,4 +1,4 @@
-import { Loader } from '@library/ui/shared/components/Loader/Loader';
+import { Loader } from '@e7f3/ui/shared/components/Loader/Loader';
 import {
     memo,
     Suspense,

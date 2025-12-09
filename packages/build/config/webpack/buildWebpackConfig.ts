@@ -7,7 +7,7 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import {
     BuildEnv,
-    BuildOptions 
+    BuildOptions
 } from './types/config';
 
 
@@ -15,7 +15,7 @@ function createConfig(
     options: BuildOptions
 ): Configuration {
     const {
-        mode, paths, isDev,
+        mode, paths, isDev, rootPath,
     } = options;
     return {
         mode,
@@ -24,6 +24,16 @@ function createConfig(
             path: paths.build,
             filename: '[name].[contenthash].js',
             clean: true,
+        },
+        // Persistent filesystem cache for faster rebuilds
+        cache: {
+            type: 'filesystem',
+            cacheDirectory: path.resolve(rootPath, '.webpack_cache'),
+            buildDependencies: {
+                config: [__filename],
+            },
+            compression: 'gzip',
+            name: `${mode}-cache`,
         },
         module: { rules: buildLoaders(options) },
         resolve: buildResolvers(options),
