@@ -14,31 +14,30 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && (test -d dist/core && cp -r dist/core/* dist/ && rm -rf dist/core dist/ui || true)",
+    "build": "tsup",
     "clean": "rm -rf dist",
     "prepublishOnly": "yarn clean && yarn build",
     "test": "jest --config ./jest.config.cjs",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./*": "./dist/*"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "@e7f3/build": "workspace:^",
-    "@e7f3/ui": "workspace:^",
     "axios": "^1.13.2"
   },
   "devDependencies": {
+    "@e7f3/build": "workspace:^",
     "@reduxjs/toolkit": "^2.5.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.1",
@@ -48,6 +47,7 @@
     "react-redux": "^9.2.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
