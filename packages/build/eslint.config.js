@@ -8,6 +8,7 @@ import eslintImport from 'eslint-plugin-import';
 import eslintJestPlugin from 'eslint-plugin-jest';
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
+import reactCompiler from 'eslint-plugin-react-compiler';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -20,11 +21,12 @@ export default tseslint.config(
             sourceType: 'module',
             globals: { ...globals.node },
         },
-        ignores: [ '**/.eslint.config.js' ],
+        ignores: ['**/.eslint.config.js'],
         plugins: {
             'import': eslintImport,
             'react': react,
             'react-hooks': eslintPluginReactHooks,
+            'react-compiler': reactCompiler,
             'jsx-a11y': eslintPluginJsxA11y,
             '@stylistic/js': stylisticJs,
             '@stylistic/ts': stylisticTs,
@@ -40,26 +42,26 @@ export default tseslint.config(
                 node: true,
             },
             'react': {
-                'version': 'detect', 
+                'version': 'detect',
             },
         },
         rules: {
-            '@stylistic/ts/indent': [ 'error', 4 ],
-            '@stylistic/js/array-bracket-spacing': [ 'error', 'always' ],
+            '@stylistic/ts/indent': ['error', 4],
+            '@stylistic/js/array-bracket-spacing': ['error', 'always'],
             '@stylistic/js/array-bracket-newline': [
                 'error',
                 {
                     minItems: 3,
-                    multiline: true, 
-                }, 
+                    multiline: true,
+                },
             ],
             '@stylistic/js/array-element-newline': [
                 'error',
                 {
                     minItems: 3,
                     consistent: true,
-                    multiline: true, 
-                }, 
+                    multiline: true,
+                },
             ],
             '@stylistic/js/object-curly-newline': [
                 'error',
@@ -67,24 +69,24 @@ export default tseslint.config(
                     'ObjectExpression': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ObjectPattern': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ImportDeclaration': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ExportDeclaration': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
-                }, 
+                },
             ],
             '@stylistic/ts/object-curly-newline': [
                 'error',
@@ -92,37 +94,37 @@ export default tseslint.config(
                     'ObjectExpression': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ObjectPattern': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ImportDeclaration': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
                     'ExportDeclaration': {
                         'minProperties': 2,
                         'multiline': true,
-                        'consistent': true, 
+                        'consistent': true,
                     },
-                }, 
+                },
             ],
-            '@stylistic/js/object-curly-spacing': [ 'error', 'always' ],
+            '@stylistic/js/object-curly-spacing': ['error', 'always'],
             '@stylistic/js/object-property-newline': [
                 'error',
                 {
                     'allowAllPropertiesOnSameLine': false,
-                }, 
+                },
             ],
             '@stylistic/ts/object-property-newline': [
                 'error',
                 {
                     'allowAllPropertiesOnSameLine': false,
-                }, 
+                },
             ],
             '@stylistic/js/quotes': [
                 'error',
@@ -132,7 +134,7 @@ export default tseslint.config(
                     'allowTemplateLiterals': true,
                 },
             ],
-            '@stylistic/js/jsx-quotes': [ 'error', 'prefer-double' ],
+            '@stylistic/js/jsx-quotes': ['error', 'prefer-double'],
             '@stylistic/js/comma-dangle': [
                 'error',
                 {
@@ -143,7 +145,7 @@ export default tseslint.config(
                     'functions': 'never',
                     'importAttributes': 'never',
                     'dynamicImports': 'never',
-                }, 
+                },
             ],
             '@stylistic/ts/comma-dangle': [
                 'error',
@@ -155,18 +157,18 @@ export default tseslint.config(
                     'functions': 'never',
                     'importAttributes': 'never',
                     'dynamicImports': 'never',
-                }, 
+                },
             ],
-            '@stylistic/js/semi': [ 'error', 'always' ],
-            '@stylistic/ts/semi': [ 'error', 'always' ],
+            '@stylistic/js/semi': ['error', 'always'],
+            '@stylistic/ts/semi': ['error', 'always'],
             'canonical/import-specifier-newline': 'error',
             'import/order': [
                 'error',
                 {
                     groups: [
-                        [ 'external', 'builtin' ],
+                        ['external', 'builtin'],
                         'internal',
-                        [ 'sibling', 'parent' ],
+                        ['sibling', 'parent'],
                         'index',
                     ],
                     pathGroups: [
@@ -178,23 +180,23 @@ export default tseslint.config(
                         {
                             pattern: '@src/**',
                             group: 'internal',
-                        }, 
+                        },
                     ],
-                    pathGroupsExcludedImportTypes: [ 'internal', 'react' ],
+                    pathGroupsExcludedImportTypes: ['internal', 'react'],
                     'newlines-between': 'always',
                     alphabetize: {
                         order: 'asc',
                         caseInsensitive: true,
                     },
-                }, 
+                },
             ],
             semi: 'off',
             'react/function-component-definition': [
                 2,
                 {
-                    namedComponents: [ 'arrow-function', 'function-declaration' ],
-                    unnamedComponents: [ 'arrow-function', 'function-expression' ],
-                }, 
+                    namedComponents: ['arrow-function', 'function-declaration'],
+                    unnamedComponents: ['arrow-function', 'function-expression'],
+                },
             ],
             'react/jsx-filename-extension': [
                 2,
@@ -202,9 +204,9 @@ export default tseslint.config(
                     extensions: [
                         '.tsx',
                         '.jsx',
-                        '.js', 
-                    ], 
-                }, 
+                        '.js',
+                    ],
+                },
             ],
             'import/no-unresolved': 'off',
             'react/require-default-props': 'off',
@@ -220,22 +222,22 @@ export default tseslint.config(
             'react/jsx-props-no-spreading': 'warn',
             'no-underscore-dangle': 'off',
             'import/no-import-module-exports': 'off',
-          
+
             'max-len': [
                 2,
                 {
                     ignoreComments: true,
                     ignoreUrls: true,
-                    code: 140, 
-                }, 
+                    code: 140,
+                },
             ],
             '@typescript-eslint/no-var-requires': 'warn',
             'no-use-before-define': 'off',
             '@typescript-eslint/no-use-before-define': [
                 'error',
                 {
-                    enums: false, 
-                }, 
+                    enums: false,
+                },
             ],
             // 'i18next/no-literal-string': [
             //   'error',
@@ -250,9 +252,9 @@ export default tseslint.config(
                     format: [
                         'camelCase',
                         'PascalCase',
-                        'snake_case', 
-                    ], 
-                }, 
+                        'snake_case',
+                    ],
+                },
             ],
             'react/display-name': 'off',
             'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -263,16 +265,17 @@ export default tseslint.config(
             'no-param-reassign': [
                 'warn',
                 {
-                    props: false, 
-                }, 
+                    props: false,
+                },
             ],
             '@typescript-eslint/ban-ts-comment': 'warn',
             'react/jsx-no-useless-fragment': [
                 2,
                 {
-                    allowExpressions: true, 
-                }, 
+                    allowExpressions: true,
+                },
             ],
+            'react-compiler/react-compiler': 'error',
         },
     }
 );
