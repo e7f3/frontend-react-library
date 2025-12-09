@@ -1,26 +1,41 @@
 {
-  "name": "frontend-react-library",
+  "name": "@e7f3/frontend-react-library",
+  "version": "1.0.0",
+  "description": "Shared React library for frontend projects",
+  "author": "e7f3",
+  "license": "MIT",
   "type": "module",
   "packageManager": "yarn@4.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e7f3/frontend-react-library"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "scripts": {
-    "test:unit": "lerna run test"
+    "test:unit": "yarn workspaces foreach --parallel run test",
+    "build:all": "yarn workspaces foreach --topological-dev --verbose run build",
+    "clean": "yarn workspaces foreach --parallel run clean && rm -rf node_modules/.cache",
+    "version:check": "yarn version check --interactive",
+    "version:apply": "yarn version apply --all"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "lerna": "^8.1.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0",
     "typescript": "^5.7.3"
   }
 }
