@@ -12,7 +12,7 @@ import {
     ThemeContext
 } from '../lib/ThemesContext.js';
 
-import 'shared/styles/index.scss';
+import '../../../styles/index.scss';
 
 interface ThemeProviderProps extends PropsWithChildren {
     /**
