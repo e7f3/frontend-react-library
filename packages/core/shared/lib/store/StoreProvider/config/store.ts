@@ -7,11 +7,11 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
-import { createReducerManager } from './reducerManager';
+import { createReducerManager } from './reducerManager.js';
 import type {
     CombinedState,
-    ThunkExtraArgument 
-} from './stateSchema.model';
+    ThunkExtraArgument
+} from './stateSchema.model.js';
 
 /**
  * Creates a Redux store with the given initial state and reducers.

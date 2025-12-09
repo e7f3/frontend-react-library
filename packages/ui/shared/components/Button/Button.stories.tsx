@@ -1,6 +1,6 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
@@ -10,7 +10,7 @@ import {
     ButtonProps,
     ButtonSize,
     ButtonTheme,
-    ButtonVariant 
+    ButtonVariant
 } from './Button';
 
 const meta = {
@@ -18,9 +18,9 @@ const meta = {
     component: Button,
     parameters: { layout: 'centered' },
     args: { children: 'Text' },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Button>;
 

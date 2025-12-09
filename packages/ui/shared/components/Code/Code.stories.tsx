@@ -1,6 +1,6 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
@@ -17,7 +17,7 @@ const meta = {
             console.log(i)
         }`,
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Code>;
 
 export default meta;

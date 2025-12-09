@@ -1,4 +1,4 @@
-import { AppRouteProps } from '../../model/router.model';
+import { AppRouteProps } from '../../model/router.model.js';
 
 export interface Crumb {
     path: string
@@ -22,7 +22,7 @@ export interface Crumb {
  */
 export const generateCrumbs = (route: AppRouteProps): Crumb[] => {
     const {
-        path, name, 
+        path, name,
     } = route;
     const crumbs: Crumb[] = (
         path
@@ -33,7 +33,7 @@ export const generateCrumbs = (route: AppRouteProps): Crumb[] => {
                     path: `/${array.slice(0, index + 1).join('/')}`,
                     title: 'test', // Set title to route name for the last segment
                 };
-                return [ ...accumulator, crumb ];
+                return [...accumulator, crumb];
             }, [] as Crumb[]) || []
     );
     return crumbs;

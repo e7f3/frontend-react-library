@@ -1,15 +1,15 @@
 
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     Input,
-    InputProps 
-} from './Input';
+    InputProps
+} from './Input.js';
 
 const meta = {
     title: 'ui/Input',
@@ -19,9 +19,9 @@ const meta = {
         value: 'Text',
         placeholder: 'Placeholder',
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Input>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Input>;
 

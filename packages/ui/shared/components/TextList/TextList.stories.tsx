@@ -1,23 +1,23 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     TextList,
-} from './TextList';
-import { TextVariant } from '../Text/Text';
+} from './TextList.js';
+import { TextVariant } from '../Text/Text.js';
 
 const meta = {
     title: 'ui/TextList',
     component: TextList,
-    args: { items: ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'React', 'React Native', 'Redux', 'Redux Toolkit', 'Redux Saga', 'Redux Thunk', 'RTK Query', 'Next.js', 'Storybook', 'React Testing Library', 'Webpack', 'Vite', 'Git', 'Eslint', 'Jest' ] },
+    args: { items: ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'React', 'React Native', 'Redux', 'Redux Toolkit', 'Redux Saga', 'Redux Thunk', 'RTK Query', 'Next.js', 'Storybook', 'React Testing Library', 'Webpack', 'Vite', 'Git', 'Eslint', 'Jest'] },
     parameters: { layout: 'centered' },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof TextList>;
- 
+
 export default meta;
 type Story = StoryObj<typeof TextList>;
 

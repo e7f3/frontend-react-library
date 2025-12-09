@@ -1,11 +1,11 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
-import { Skeleton } from './Skeleton';
+import { Skeleton } from './Skeleton.js';
 
 const meta = {
     title: 'ui/Skeleton',
@@ -15,17 +15,17 @@ const meta = {
         config: [
             {
                 width: '400px',
-                height: '100px', 
+                height: '100px',
             },
             {
                 width: '400px',
-                height: '100px', 
+                height: '100px',
             },
-        ], 
+        ],
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Skeleton>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
 

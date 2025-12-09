@@ -1,14 +1,14 @@
-import { classNames } from '@e7f3/core/shared/lib/utils/classNames/classNames';
+import { classNames } from '@e7f3/core';
 import {
     FC,
-    memo 
+    memo
 } from 'react';
 
 import classes from './TextList.module.scss';
 import {
     Text,
-    TextProps 
-} from '../Text/Text';
+    TextProps
+} from '../Text/Text.js';
 
 export interface TextListProps extends Omit<TextProps, 'content' | 'className'> {
     /**
@@ -30,10 +30,10 @@ export interface TextListProps extends Omit<TextProps, 'content' | 'className'> 
  */
 export const TextList: FC<TextListProps> = memo((props) => {
     const {
-        className, items, separator = '|', ...restProps 
+        className, items, separator = '|', ...restProps
     } = props;
     return (
-        <ul className={classNames(classes['text-list'], {}, [ className ])}>
+        <ul className={classNames(classes['text-list'], {}, [className])}>
             {items.map((item, index, array) => (
                 <li className={classes['item']} key={item}>
                     <Text content={item} {...restProps} />
@@ -42,7 +42,7 @@ export const TextList: FC<TextListProps> = memo((props) => {
                             <Text content={separator} {...restProps} />
                         </span>
                     )}
-                </li> 
+                </li>
             ))}
         </ul>
     );

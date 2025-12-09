@@ -1,4 +1,4 @@
-import { classNames, Mods } from './classNames';
+import { classNames, Mods } from './classNames.js';
 
 describe('classNames', () => {
     it('should return a string with the base class name', () => {
@@ -9,7 +9,7 @@ describe('classNames', () => {
         const classNamesArray = [
             'test1',
             'test2',
-            'test3', 
+            'test3',
         ];
 
         const result = classNamesArray.join(' ');
@@ -40,7 +40,7 @@ describe('classNames', () => {
         const classNamesArray = [
             'test5',
             'test6',
-            'test7', 
+            'test7',
         ];
 
         const result = `${className} ${Object.keys(classNamesObj).filter(key => classNamesObj[key]).join(' ')} ${classNamesArray.join(' ')}`

@@ -13,14 +13,14 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
-  "main": "./dist/config/webpack/buildWebpackConfig.js",
-  "types": "./dist/config/webpack/buildWebpackConfig.d.ts",
+  "main": "./dist/buildWebpackConfig.js",
+  "types": "./dist/buildWebpackConfig.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/config/webpack/buildWebpackConfig.d.ts",
-      "import": "./dist/config/webpack/buildWebpackConfig.js"
+      "types": "./dist/buildWebpackConfig.d.ts",
+      "import": "./dist/buildWebpackConfig.js"
     },
-    "./config/*": "./dist/config/*",
+    "./config/*": "./dist/*",
     "./babel.config.json": "./babel.config.json",
     "./eslint.config.js": "./eslint.config.js",
     "./stylelint.config.cjs": "./stylelint.config.cjs"
@@ -32,7 +32,7 @@
     "stylelint.config.cjs"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && copyfiles '*.json' '*.js' '*.cjs' dist",
+    "build": "tsup && copyfiles '*.json' '*.js' '*.cjs' dist",
     "clean": "rm -rf dist",
     "prepublishOnly": "yarn clean && yarn build"
   },
@@ -110,6 +110,7 @@
     "@types/dotenv-webpack": "^7.0.8",
     "@types/webpack-bundle-analyzer": "^4.7.0",
     "copyfiles": "^2.4.1",
-    "tsconfig-paths-webpack-plugin": "^4.2.0"
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
+    "tsup": "^8.5.1"
   }
 }

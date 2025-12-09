@@ -1,4 +1,4 @@
-import { renderConditionally } from './renderConditionally';
+import { renderConditionally } from './renderConditionally.js';
 
 describe('renderConditionally', () => {
     it('should render the truthy component when the condition is true', () => {

@@ -1,16 +1,16 @@
 
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
-import { Modal } from './Modal';
+import { Modal } from './Modal.js';
 import {
     Text,
-    TextVariant 
-} from '../Text/Text';
+    TextVariant
+} from '../Text/Text.js';
 
 const meta = {
     title: 'ui/Modal',
@@ -28,9 +28,9 @@ const meta = {
         ),
         isOpen: true,
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Modal>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Modal>;
 

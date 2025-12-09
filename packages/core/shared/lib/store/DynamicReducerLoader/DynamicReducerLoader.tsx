@@ -1,19 +1,19 @@
 import {
     PropsWithChildren,
-    useEffect 
+    useEffect
 } from 'react';
 import {
     useDispatch,
-    useStore 
+    useStore
 } from 'react-redux';
 
 import {
     ReducersList,
-    StoreWithReducerManager 
+    StoreWithReducerManager
 } from '..';
 import {
     State
-} from '../StoreProvider/config/stateSchema.model';
+} from '../StoreProvider/config/stateSchema.model.js';
 
 export interface DynamicReducerLoaderProps<
     TState extends State
@@ -52,7 +52,7 @@ export const DynamicReducerLoader = <
     TState extends State
 >(props: DynamicReducerLoaderProps<TState>) => {
     const {
-        reducers, removeAfterUnmount = true, children, 
+        reducers, removeAfterUnmount = true, children,
     } = props;
 
     const dispatch = useDispatch();
@@ -61,7 +61,7 @@ export const DynamicReducerLoader = <
     useEffect(() => {
         const mountedReducers = store.reducerManager.getReducerMap();
 
-        Object.entries(reducers).forEach(([ reducerKey, reducer ]) => {
+        Object.entries(reducers).forEach(([reducerKey, reducer]) => {
             const mounted = Boolean(mountedReducers[reducerKey]);
 
             if (!mounted) {
@@ -72,13 +72,13 @@ export const DynamicReducerLoader = <
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([ reducerKey, _ ]) => {
+                Object.entries(reducers).forEach(([reducerKey, _]) => {
                     store.reducerManager.remove(reducerKey);
                     dispatch({ type: `@DESTROY ${reducerKey} reducer` });
                 });
             }
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return <>{children}</>;

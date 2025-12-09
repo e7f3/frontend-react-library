@@ -2,7 +2,7 @@ import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import webpack from 'webpack';
 
-import { BuildOptions } from './types/config';
+import { BuildOptions } from './types/config.js';
 
 export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
     return {

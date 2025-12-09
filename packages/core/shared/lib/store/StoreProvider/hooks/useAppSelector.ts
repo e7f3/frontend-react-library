@@ -1,9 +1,9 @@
 import {
     TypedUseSelectorHook,
-    useSelector 
+    useSelector
 } from 'react-redux';
 
-import { RootState } from '../config/store';
+import { RootState } from '../config/store.js';
 
 /**
  * Creates a typed version of the useSelector hook from react-redux.
@@ -23,6 +23,6 @@ export const createTypedSelector = <TState extends {}>() => {
     const useAppSelector: TypedUseSelectorHook<RootState<TState>> = useSelector;
     return useAppSelector;
 };
-  
+
 export type AppSelector = Parameters<ReturnType<typeof createTypedSelector>>[0];
 export type AppSelectorState = Parameters<AppSelector>[0];

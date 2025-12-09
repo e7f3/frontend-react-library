@@ -1,12 +1,12 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import {
     AppLink,
-    AppLinkTheme 
-} from './AppLink';
+    AppLinkTheme
+} from './AppLink.js';
 import { Theme } from '../../providers/ThemeProvider';
 
 const meta = {
@@ -17,7 +17,7 @@ const meta = {
         to: '/some-path',
         children: 'Click me',
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof AppLink>;
 
 export default meta;

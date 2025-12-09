@@ -1,14 +1,14 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     Select,
-    SelectProps 
-} from './Select';
+    SelectProps
+} from './Select.js';
 
 const meta = {
     title: 'ui/Select',
@@ -19,19 +19,19 @@ const meta = {
         options: [
             {
                 value: '1',
-                content: '1', 
+                content: '1',
             },
             {
                 value: '2',
-                content: '2', 
+                content: '2',
             },
         ],
         label: 'Label',
-        onChange: (value) => {},
+        onChange: (value) => { },
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Select>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Select>;
 
@@ -57,5 +57,5 @@ export const darkThemeReadonly: Story = {
     args: { readonly: true },
     parameters: darkThemeDefault.parameters,
     globals: darkThemeDefault.globals,
-    
+
 };

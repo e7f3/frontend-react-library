@@ -1,13 +1,13 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     StepsList
-} from './StepsList';
+} from './StepsList.js';
 
 const meta = {
     title: 'ui/StepsList',
@@ -29,9 +29,9 @@ const meta = {
             },
         ],
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof StepsList>;
- 
+
 export default meta;
 type Story = StoryObj<typeof StepsList>;
 
