@@ -7,8 +7,8 @@ import path from 'path';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import { SharedPathPlugin } from './plugins/sharedPathPlugin';
-import { BuildOptions } from './types/config';
+import { SharedPathPlugin } from './plugins/sharedPathPlugin.js';
+import { BuildOptions } from './types/config.js';
 
 
 export function buildPlugins({

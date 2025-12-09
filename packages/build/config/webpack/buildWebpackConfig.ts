@@ -1,10 +1,10 @@
 import * as path from 'path';
 import { Configuration } from 'webpack';
 
-import { buildDevServer } from './buildDevServer';
-import { buildLoaders } from './buildLoaders';
-import { buildPlugins } from './buildPlugins';
-import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer.js';
+import { buildLoaders } from './buildLoaders.js';
+import { buildPlugins } from './buildPlugins.js';
+import { buildResolvers } from './buildResolvers.js';
 import {
     BuildEnv,
     BuildOptions
