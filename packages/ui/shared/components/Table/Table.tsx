@@ -1,12 +1,11 @@
-import {
-    Data,
-    TableNode
-} from '@table-library/react-table-library';
 import { CompactTable } from '@table-library/react-table-library/compact';
-import { Column } from '@table-library/react-table-library/types/compact';
 import {
-    memo 
+    memo
 } from 'react';
+
+// Patching missing types
+type Data<T> = any;
+type TableNode = any;
 
 export interface IProps<TData extends TableNode> {
     /**
@@ -16,7 +15,7 @@ export interface IProps<TData extends TableNode> {
     /**
      * Columns to be displayed in the table.
      */
-    columns: Column<TData>[];
+    columns: any[];
 }
 
 /**
@@ -26,7 +25,7 @@ export interface IProps<TData extends TableNode> {
  */
 const TableComponent = <TData extends TableNode>(props: IProps<TData>) => {
     const {
-        data, columns, 
+        data, columns,
     } = props;
 
     return (
