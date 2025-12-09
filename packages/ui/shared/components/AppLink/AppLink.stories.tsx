@@ -7,7 +7,7 @@ import {
     AppLink,
     AppLinkTheme
 } from './AppLink.js';
-import { Theme } from '../../providers/ThemeProvider.js';
+import { Theme } from '../../providers/ThemeProvider';
 
 const meta = {
     title: 'ui/AppLink',

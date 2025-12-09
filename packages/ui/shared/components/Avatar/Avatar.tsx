@@ -1,4 +1,4 @@
-import { classNames } from '@e7f3/core/shared/lib/utils/classNames/classNames';
+import { classNames } from '@e7f3/core';
 import {
     FC,
     ImgHTMLAttributes,

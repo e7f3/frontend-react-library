@@ -11,7 +11,7 @@ import {
     ButtonSize,
     ButtonTheme,
     ButtonVariant
-} from './Button.js';
+} from './Button';
 
 const meta = {
     title: 'ui/Button',

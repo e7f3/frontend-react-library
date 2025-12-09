@@ -6,9 +6,9 @@ import type {
 import {
     Card,
     CardTheme
-} from './Card.js';
-import { Theme } from '../../providers/ThemeProvider.js';
-import { Text } from '../Text/Text.js';
+} from './Card';
+import { Theme } from '../../providers/ThemeProvider';
+import { Text } from '../Text/Text';
 
 const meta = {
     title: 'ui/Card',

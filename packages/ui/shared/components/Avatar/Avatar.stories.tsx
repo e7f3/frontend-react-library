@@ -5,7 +5,7 @@ import type {
 
 import StorybookAvatar from 'shared/assets/test/storybook-avatar.jpg';
 
-import { Avatar } from './Avatar.js';
+import { Avatar } from './Avatar';
 
 const meta = {
     title: 'ui/Avatar',

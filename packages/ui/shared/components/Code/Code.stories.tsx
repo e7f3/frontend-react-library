@@ -5,7 +5,7 @@ import type {
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
-import { Code } from './Code.js';
+import { Code } from './Code';
 
 const meta = {
     title: 'ui/Code',
