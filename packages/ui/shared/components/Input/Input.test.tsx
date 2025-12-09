@@ -1,10 +1,10 @@
 import {
     fireEvent,
     render,
-    screen 
+    screen
 } from '@testing-library/react';
 
-import { Input } from './Input';
+import { Input } from './Input.js';
 
 describe('Input.test', () => {
     test('Simple Input.test', () => {

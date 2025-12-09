@@ -1,6 +1,6 @@
 import {
     useContext,
-    useEffect 
+    useEffect
 } from 'react';
 
 import { LOCALSTORAGE_THEME_KEY } from '@e7f3/ui/shared/const/localstorage';
@@ -8,8 +8,8 @@ import { LOCALSTORAGE_THEME_KEY } from '@e7f3/ui/shared/const/localstorage';
 import {
     DEFAULT_THEME,
     Theme,
-    ThemeContext 
-} from './ThemesContext';
+    ThemeContext
+} from './ThemesContext.js';
 
 interface UseThemeResult {
     /**
@@ -27,7 +27,7 @@ interface UseThemeResult {
  */
 export function useTheme(): UseThemeResult {
     const {
-        theme, setTheme, 
+        theme, setTheme,
     } = useContext(ThemeContext);
 
     useEffect(() => {

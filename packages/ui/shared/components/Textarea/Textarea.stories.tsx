@@ -1,22 +1,22 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     Textarea,
-    TextareaProps 
-} from './Textarea';
+    TextareaProps
+} from './Textarea.js';
 
 const meta = {
     title: 'ui/Textarea',
     component: Textarea,
     parameters: { layout: 'centered' },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Textarea>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Textarea>;
 

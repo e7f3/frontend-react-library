@@ -1,11 +1,11 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import StorybookAvatar from 'shared/assets/test/storybook-avatar.jpg';
 
-import { Avatar } from './Avatar';
+import { Avatar } from './Avatar.js';
 
 const meta = {
     title: 'ui/Avatar',
@@ -16,13 +16,13 @@ const meta = {
         alt: 'Avatar',
         src: StorybookAvatar,
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Avatar>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Avatar>;
 
-export const DefaultSize : Story = { name: 'Default size' };
+export const DefaultSize: Story = { name: 'Default size' };
 
 export const SmallSize: Story = {
     name: 'Small size',

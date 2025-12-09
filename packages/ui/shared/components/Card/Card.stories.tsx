@@ -1,24 +1,24 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import {
     Card,
-    CardTheme 
-} from './Card';
-import { Theme } from '../../providers/ThemeProvider';
-import { Text } from '../Text/Text';
+    CardTheme
+} from './Card.js';
+import { Theme } from '../../providers/ThemeProvider.js';
+import { Text } from '../Text/Text.js';
 
 const meta = {
     title: 'ui/Card',
     component: Card,
     parameters: { layout: 'centered' },
     args: {
-        children: 
+        children:
             <Text content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo odit laboriosam!" />,
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Card>;
 
 export default meta;

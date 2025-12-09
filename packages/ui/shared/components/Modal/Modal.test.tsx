@@ -1,14 +1,14 @@
 import {
     render,
-    screen 
+    screen
 } from '@testing-library/react';
 
-import { Modal } from './Modal';
+import { Modal } from './Modal.js';
 
 describe('Modal.test', () => {
     test('Simple Modal.test', () => {
         const testContent =
-      `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
       Laborum labore nihil quia hic similique minima corrupti iste expedita doloremque ipsa.`;
         render(<Modal isOpen>{testContent}</Modal>);
 

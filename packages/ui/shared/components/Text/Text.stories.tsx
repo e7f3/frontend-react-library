@@ -1,6 +1,6 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
@@ -8,17 +8,17 @@ import { Theme } from 'shared/providers/ThemeProvider';
 import {
     Text,
     TextMode,
-    TextVariant 
-} from './Text';
+    TextVariant
+} from './Text.js';
 
 const meta = {
     title: 'ui/Text',
     component: Text,
     args: { content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, quia.' },
     parameters: { layout: 'centered' },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Text>;
- 
+
 export default meta;
 type Story = StoryObj<typeof Text>;
 

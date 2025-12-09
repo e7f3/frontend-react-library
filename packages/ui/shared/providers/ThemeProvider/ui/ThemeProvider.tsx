@@ -2,15 +2,15 @@ import {
     FC,
     useMemo,
     useState,
-    PropsWithChildren 
+    PropsWithChildren
 } from 'react';
 
 import { LOCALSTORAGE_THEME_KEY } from 'shared/const/localstorage';
 
 import {
     Theme,
-    ThemeContext 
-} from '../lib/ThemesContext';
+    ThemeContext
+} from '../lib/ThemesContext.js';
 
 import 'shared/styles/index.scss';
 
@@ -22,23 +22,23 @@ interface ThemeProviderProps extends PropsWithChildren {
 }
 
 const defaultTheme =
-  (localStorage.getItem(LOCALSTORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
+    (localStorage.getItem(LOCALSTORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
 /**
  * Theme provider component
  */
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const {
-        children, initialTheme, 
+        children, initialTheme,
     } = props;
-    const [ theme, setTheme ] = useState<Theme>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(
         () => ({
             theme,
             setTheme,
         }),
-        [ theme ]
+        [theme]
     );
 
     return (

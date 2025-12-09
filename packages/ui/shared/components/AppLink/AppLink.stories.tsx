@@ -1,13 +1,13 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import {
     AppLink,
-    AppLinkTheme 
-} from './AppLink';
-import { Theme } from '../../providers/ThemeProvider';
+    AppLinkTheme
+} from './AppLink.js';
+import { Theme } from '../../providers/ThemeProvider.js';
 
 const meta = {
     title: 'ui/AppLink',
@@ -17,7 +17,7 @@ const meta = {
         to: '/some-path',
         children: 'Click me',
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof AppLink>;
 
 export default meta;

@@ -1,14 +1,14 @@
 import type {
     Meta,
-    StoryObj 
+    StoryObj
 } from '@storybook/react';
 
 import { Theme } from 'shared/providers/ThemeProvider';
 
 import {
     ColoredWith,
-    Icon 
-} from './Icon';
+    Icon
+} from './Icon.js';
 import CalendarIcon from '../../assets/icons/calendar.svg';
 
 const meta = {
@@ -19,12 +19,12 @@ const meta = {
         icon: CalendarIcon,
         coloredWith: ColoredWith.STROKE,
     },
-    tags: [ 'autodocs' ],
+    tags: ['autodocs'],
 } satisfies Meta<typeof Icon>;
 
 export default meta;
 type Story = StoryObj<typeof Icon>;
- 
+
 export const defaultIcon: Story = {
     name: 'Default',
     parameters: { backgrounds: { default: Theme.LIGHT } },
