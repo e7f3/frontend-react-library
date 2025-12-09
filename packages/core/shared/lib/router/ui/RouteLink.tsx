@@ -1,4 +1,4 @@
-import { AppLink } from '@e7f3/ui/shared/components/AppLink/AppLink';
+import { AppLink } from '@e7f3/ui';
 import {
     FC,
     ReactNode 
