@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createReduxStore } from '../config/store';
+import { createReduxStore } from '../config/store.js';
 
 export interface StoreProviderProps<
     TState extends {}
@@ -42,7 +42,7 @@ export const StoreProvider = <
         api,
         initialState,
         reducers as ReducersMapObject<TState>
-    // navigate
+        // navigate
     );
     console.log('render');
 

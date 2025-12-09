@@ -1,4 +1,4 @@
-import { isPartOfEnum } from './isPartOfEnum';
+import { isPartOfEnum } from './isPartOfEnum.js';
 
 enum TestEnum {
     A = 'A',

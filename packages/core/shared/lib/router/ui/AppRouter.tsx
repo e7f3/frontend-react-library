@@ -2,19 +2,19 @@ import { Loader } from '@e7f3/ui/shared/components/Loader/Loader';
 import {
     memo,
     Suspense,
-    useCallback 
+    useCallback
 } from 'react';
 import {
     Route,
-    Routes 
+    Routes
 } from 'react-router-dom';
 
-import { RequireAuth } from './RequireAuth';
-import { RouteLink } from './RouteLink';
+import { RequireAuth } from './RequireAuth.js';
+import { RouteLink } from './RouteLink.js';
 import {
     AppRouteConfig,
-    AppRouteProps 
-} from '../model/router.model';
+    AppRouteProps
+} from '../model/router.model.js';
 
 const CRUMB = { crumb: RouteLink };
 
@@ -71,7 +71,7 @@ export const AppRouter = memo<AppRouterProps>(({ config }) => {
                 handle={CRUMB}
             />
         );
-    }, [ defaultPath ]);
+    }, [defaultPath]);
 
     return (
         <Suspense fallback={<Loader />}>

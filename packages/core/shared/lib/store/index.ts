@@ -1,12 +1,8 @@
-export { StoreProvider } from './StoreProvider/ui/StoreProvider';
+export { StoreProvider } from './StoreProvider/ui/StoreProvider.js';
 
-export { createReduxStore } from './StoreProvider/config/store';
+export { createReduxStore } from './StoreProvider/config/store.js';
 
-export {
-    RootState,
-    AppStore,
-    AppDispatch 
-} from './StoreProvider/config/store';
+export type { AppDispatch } from './StoreProvider/config/store.js';
 
 export {
     BaseFetchStateSchema,
@@ -14,10 +10,10 @@ export {
     StoreWithReducerManager,
     GenericThunkApiConfig,
     ReducersList
-} from './StoreProvider/config/stateSchema.model';
+} from './StoreProvider/config/stateSchema.model.js';
 
-export { createTypedDispatch } from './StoreProvider/hooks/useAppDispatch';
+export { createTypedDispatch } from './StoreProvider/hooks/useAppDispatch.js';
 
-export { createTypedSelector } from './StoreProvider/hooks/useAppSelector';
+export { createTypedSelector } from './StoreProvider/hooks/useAppSelector.js';
 
-export { DynamicReducerLoader } from './DynamicReducerLoader/DynamicReducerLoader';
+export { DynamicReducerLoader } from './DynamicReducerLoader/DynamicReducerLoader.js';

@@ -7,7 +7,7 @@ import {
     ActionFromReducer
 } from '@reduxjs/toolkit';
 
-import type { ReducerManager } from './stateSchema.model';
+import type { ReducerManager } from './stateSchema.model.js';
 
 
 /*************  ✨ Codeium Command ⭐  *************/

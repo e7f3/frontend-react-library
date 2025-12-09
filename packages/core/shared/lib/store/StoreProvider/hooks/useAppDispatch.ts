@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { AppDispatch } from '../config/store';
+import { AppDispatch } from '../config/store.js';
 
 /**
  * Creates a typed version of the useDispatch hook from react-redux.
