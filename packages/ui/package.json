@@ -1,6 +1,6 @@
 {
   "name": "@e7f3/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared UI components library",
   "type": "module",
   "packageManager": "yarn@4.0.2",
@@ -14,6 +14,9 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json && (test -d dist/ui && cp -r dist/ui/* dist/ && rm -rf dist/ui dist/core || true) && copyfiles -u 1 'shared/**/*.scss' 'shared/**/*.css' dist",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "yarn clean && yarn build",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "lint:scss": "stylelint \"**/*.scss\"",
@@ -22,6 +25,18 @@
     "test:unit": "jest --config ./jest.config.cjs",
     "test:unit:watch": "jest --watch --config ./jest.config.cjs"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@e7f3/build": "workspace:^",
     "@e7f3/core": "workspace:^"
@@ -32,6 +47,7 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@storybook/preset-scss": "^1.0.3",
+    "@storybook/preview-api": "^8.6.14",
     "@storybook/react-webpack5": "^10.0.0",
     "@table-library/react-table-library": "^4.1.12",
     "@testing-library/dom": "^10.4.0",
@@ -39,12 +55,14 @@
     "@testing-library/react": "^16.2.0",
     "@types/babel__core": "^7",
     "@types/babel__preset-env": "^7",
+    "@types/copyfiles": "^2",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.5",
     "babel-loader": "^9.2.1",
+    "copyfiles": "^2.4.1",
     "css-loader": "^7.1.2",
     "eslint": "^9.19.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",

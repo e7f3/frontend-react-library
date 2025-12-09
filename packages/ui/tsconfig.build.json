@@ -1,0 +1,40 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "target": "ES2020",
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "noImplicitAny": false,
+        "paths": {
+            "shared/*": [
+                "./shared/*"
+            ],
+            "@e7f3/core/*": [
+                "../core/*"
+            ],
+            "@e7f3/ui/*": [
+                "./*"
+            ],
+            "@e7f3/build/*": [
+                "../build/*"
+            ]
+        }
+    },
+    "include": [
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.stories.tsx"
+    ]
+}

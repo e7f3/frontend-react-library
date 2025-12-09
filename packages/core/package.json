@@ -1,6 +1,6 @@
 {
   "name": "@e7f3/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core utilities and shared logic",
   "type": "module",
   "packageManager": "yarn@4.0.2",
@@ -14,13 +14,29 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json && (test -d dist/core && cp -r dist/core/* dist/ && rm -rf dist/core dist/ui || true)",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "yarn clean && yarn build",
     "test": "jest --config ./jest.config.cjs",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@e7f3/build": "workspace:^",
-    "@e7f3/ui": "workspace:^"
+    "@e7f3/ui": "workspace:^",
+    "axios": "^1.13.2"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^2.5.1",

@@ -1,7 +1,7 @@
 /build
 /packages/*/node_modules
 node_modules
-/dist
+dist
 /storybook-static
 .yarn/*
 

@@ -1,6 +1,6 @@
 {
   "name": "@e7f3/build",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build configuration and tooling for React projects",
   "type": "module",
   "packageManager": "yarn@4.0.2",
@@ -13,14 +13,28 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
-  "main": "./config/webpack/buildWebpackConfig.ts",
-  "types": "./config/webpack/buildWebpackConfig.ts",
+  "main": "./dist/config/webpack/buildWebpackConfig.js",
+  "types": "./dist/config/webpack/buildWebpackConfig.d.ts",
   "exports": {
-    ".": "./config/webpack/buildWebpackConfig.ts",
-    "./config/*": "./config/*",
+    ".": {
+      "types": "./dist/config/webpack/buildWebpackConfig.d.ts",
+      "import": "./dist/config/webpack/buildWebpackConfig.js"
+    },
+    "./config/*": "./dist/config/*",
     "./babel.config.json": "./babel.config.json",
     "./eslint.config.js": "./eslint.config.js",
     "./stylelint.config.cjs": "./stylelint.config.cjs"
+  },
+  "files": [
+    "dist",
+    "babel.config.json",
+    "eslint.config.js",
+    "stylelint.config.cjs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && copyfiles '*.json' '*.js' '*.cjs' dist",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "yarn clean && yarn build"
   },
   "dependencies": {
     "@babel/core": "^7.26.8",
@@ -92,8 +106,10 @@
     "webpack-dev-server": "^5.2.0"
   },
   "devDependencies": {
+    "@types/copyfiles": "^2",
     "@types/dotenv-webpack": "^7.0.8",
     "@types/webpack-bundle-analyzer": "^4.7.0",
+    "copyfiles": "^2.4.1",
     "tsconfig-paths-webpack-plugin": "^4.2.0"
   }
 }
