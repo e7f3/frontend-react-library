@@ -1,9 +1,11 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 import DotenvWebpack from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import webpack from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { SharedPathPlugin } from './plugins/sharedPathPlugin';
 import { BuildOptions } from './types/config';
@@ -15,7 +17,8 @@ export function buildPlugins({
     project,
     apiUrl,
     rootPath,
-}: BuildOptions): webpack.WebpackPluginInstance[] {
+    analyze,
+}: BuildOptions & { analyze?: boolean }): webpack.WebpackPluginInstance[] {
     const plugins = [
         // HTML document generation
         new HtmlWebpackPlugin({ template: paths.html }),
@@ -49,5 +52,29 @@ export function buildPlugins({
         plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
         plugins.push(new webpack.HotModuleReplacementPlugin());
     }
+
+    // Production optimizations
+    if (!isDev) {
+        plugins.push(
+            new CompressionPlugin({
+                algorithm: 'gzip',
+                test: /\.(js|css|html|svg)$/,
+                threshold: 10240,
+                minRatio: 0.8,
+            })
+        );
+    }
+
+    // Bundle analyzer (optional)
+    if (analyze) {
+        plugins.push(
+            new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                openAnalyzer: true,
+                reportFilename: 'bundle-report.html',
+            })
+        );
+    }
+
     return plugins;
 }
