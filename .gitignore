@@ -2,14 +2,20 @@
 /packages/*/node_modules
 node_modules
 /dist
-/.vscode
 /storybook-static
-.loki/report.json
-.loki/report.html
 .yarn/*
+
+yarn-error.log
+
+# Ignore all hidden files and folders
+.*
+
+# Exceptions (do not ignore)
+!.gitignore
+!.husky/
+!.yarn
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-yarn-error.log
