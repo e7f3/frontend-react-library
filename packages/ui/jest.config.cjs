@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const baseConfig = require('@library/build/config/jest/jest.config.cjs');
+const baseConfig = require('@e7f3/build/config/jest/jest.config.cjs');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
@@ -9,7 +9,7 @@ module.exports = {
     rootDir: __dirname,
     moduleNameMapper: {
         ...baseConfig.moduleNameMapper,
-       
+
         '^shared/(.*)$': path.resolve(__dirname, './shared/$1'),
     },
 }; 

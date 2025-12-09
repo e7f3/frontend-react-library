@@ -3,7 +3,7 @@ import {
     useEffect 
 } from 'react';
 
-import { LOCALSTORAGE_THEME_KEY } from '@library/ui/shared/const/localstorage';
+import { LOCALSTORAGE_THEME_KEY } from '@e7f3/ui/shared/const/localstorage';
 
 import {
     DEFAULT_THEME,

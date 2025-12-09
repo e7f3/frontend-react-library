@@ -6,20 +6,20 @@ import { BuildOptions } from './types/config';
 
 export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
     return {
-        plugins: [ new TsconfigPathsPlugin() ],
+        plugins: [new TsconfigPathsPlugin()],
         extensions: [
             '.tsx',
             '.ts',
-            '.js', 
+            '.js',
         ],
         preferAbsolute: true,
-        modules: [ options.paths.src, 'node_modules' ],
-        mainFiles: [ 'index' ],
+        modules: [options.paths.src, 'node_modules'],
+        mainFiles: ['index'],
         alias: {
             '@': path.resolve(options.rootPath, './src'),
-            '@library/build': path.resolve(options.rootPath, 'frontend-react-library/packages/build'),
-            '@library/ui': path.resolve(options.rootPath, 'frontend-react-library/packages/ui'),
-            '@library/core': path.resolve(options.rootPath, 'frontend-react-library/packages/core'),
+            '@e7f3/build': path.resolve(options.rootPath, 'frontend-react-library/packages/build'),
+            '@e7f3/ui': path.resolve(options.rootPath, 'frontend-react-library/packages/ui'),
+            '@e7f3/core': path.resolve(options.rootPath, 'frontend-react-library/packages/core'),
         },
     };
 }

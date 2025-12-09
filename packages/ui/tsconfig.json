@@ -4,7 +4,10 @@
         "noImplicitAny": true,
         "module": "ESNext",
         "target": "es2017",
-        "lib": ["es2017", "dom"],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
@@ -12,13 +15,25 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
-            "@library/build/*": ["packages/build/*"],
-            "@library/ui/*": ["packages/ui/*"],
-            "@library/core/*": ["packages/core/*"],
-            "shared/*": ["shared/*"]
+            "@e7f3/build/*": [
+                "packages/build/*"
+            ],
+            "@e7f3/ui/*": [
+                "packages/ui/*"
+            ],
+            "@e7f3/core/*": [
+                "packages/core/*"
+            ],
+            "shared/*": [
+                "shared/*"
+            ]
         },
         "strict": true,
-        "types": ["@testing-library/jest-dom", "jest", "node"]
+        "types": [
+            "@testing-library/jest-dom",
+            "jest",
+            "node"
+        ]
     },
     "ts-node": {
         "compilerOptions": {

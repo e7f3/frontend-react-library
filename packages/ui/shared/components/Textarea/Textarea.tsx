@@ -1,7 +1,7 @@
 import {
     Mods,
     classNames 
-} from '@library/core/shared/lib/utils/classNames/classNames';
+} from '@e7f3/core/shared/lib/utils/classNames/classNames';
 import {
     ChangeEvent,
     FC,
